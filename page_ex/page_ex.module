@@ -1,0 +1,64 @@
+<?php
+function page_ex_menu() {
+  $items = array();
+
+  $items['admin/PageEx'] = array(
+    'title' => 'Page Example Title',
+    'description' => 'Page Decription',
+//    'page callback' => 'nat',
+  'page callback' => 'drupal_get_form',
+  'page arguments' => array('natform'),
+     
+  'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+function nat($score, $total,$icon) {
+ drupal_add_js(drupal_get_path('module', 'page_ex') . '/jquery.ratings.js');
+ drupal_add_js(drupal_get_path('module', 'page_ex') . '/example.js');
+ drupal_add_js(array('page_ex' =>  array('score' => $score, 'total' => $total,'icon'=>$icon)), 'setting');
+ drupal_add_css(drupal_get_path('module', 'page_ex') . '/jquery.ratings.css');
+ return "<h1>kuio</h1><br>   <div id='example-1'></div> <br />  ";
+}
+function natform($form_state) {
+  $choices=drupal_map_assoc(array("water","carbon"));
+  if($form_state['values'])
+ {
+  $form['foo'] = array(
+    '#type' => 'markup',
+    '#value' => nat($form_state['values']['score'],$form_state['values']['total'],$form_state['values']['icon']),
+  
+  );
+ }
+  $form['score'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Score'),
+    '#size' => 5,
+    '#maxlength' => 10,
+    '#description' => t('Your Score'),
+  );
+
+  $form['total'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Total'),
+    '#size' => 5,
+    '#maxlength' => 10,
+    '#description' => t('Total Score'),
+  );
+
+  $form['icon'] = array('#type'=>'select', '#options'=>$choices);
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Send') );
+
+  return $form; 
+}
+function natform_validate($form, &$form_state) {
+
+    form_set_error('score',t('Form error'));
+   
+}
+function natform_submit($form, &$form_state) {
+   
+  $form_state['storage']['values'] = $form_state['values'];
+  $form_state['rebuild'] = TRUE;
+}
