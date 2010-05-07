@@ -20,7 +20,7 @@ function nat($score, $total,$icon) {
   drupal_add_js(drupal_get_path('module', 'page_ex') . '/example.js');
   drupal_add_js(array('page_ex' =>  array('score' => $score, 'total' => $total,'icon'=>$icon)), 'setting');
   drupal_add_css(drupal_get_path('module', 'page_ex') . '/jquery.ratings.css');
-  return "<h1>kuio</h1><br>   <div id='example-1'></div> <br />  ";
+  return "<div id='example-1'></div> <br />  ";
 }
 function natform($form_state) {
   $choices=drupal_map_assoc(array("water","carbon"));
