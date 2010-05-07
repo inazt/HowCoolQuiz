@@ -5,6 +5,6 @@ function who_view() {
   if(!empty($form_state['values']['foo'])){
   $show .= them('headline','Result = blablabla'); 
   }
-  $show .= drupal_get_form('natform',$form_state);
+  $show .= drupal_get_form('popform',$form_state);
   return $show;
 }
