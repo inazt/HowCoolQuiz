@@ -1,0 +1,60 @@
+<?php
+//print out form data
+function whoru_menu() {
+  $items = array();
+
+  $items['admin/whoru'] = array(
+  'title' => 'เลือกเลยครับ',
+  'description' => 'Page Decription',
+  'page callback' => 'who_view',
+  //'page callback' => 'drupal_get_form',
+  //'page arguments' => array('natform'),     
+  'access arguments' => array('access content'),
+  'type' => MENU_NORMAL_ITEM,
+  'file' => 'whoru.inc',
+  );
+  return $items;
+}
+
+function whoru_theme($existing, $type, $theme, $path) {
+  return array(
+    'headline' => array(
+      'arguments' => array('name' => 'npop'),
+    ),
+  );
+}
+
+function theme_headline($name){
+  return "<h1>$name</h1><br>";
+}
+
+
+function natform($form_state) {
+  $info = array('car','plane','bike');
+  $value = array(3,5,0);
+ 
+  $form['foo'] = array(
+    '#type' => 'checkboxes',
+    '#title' => 'วันนี้คุณทำอะไรบ้างคะ',
+    '#options' => array_combine($value,$info),
+    //'#description' => t('baz'),
+  );
+  //drupal_set_message(print_r(array_combine($info,$img),1));
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+
+  return $form;
+}
+
+function natform_submit(&$form, &$form_state) {
+  $score=0;
+  foreach($form_state['values']['foo'] as $i){
+    $score +=$i;
+  }
+  drupal_set_message(print_r( $score,1));
+   
+  $form_state['storage']['values'] = $form_state['values'];
+  $form_state['rebuild'] = TRUE;
+}
