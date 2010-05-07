@@ -1,4 +1,4 @@
-<?php
+b<?php
 function page_ex_menu() {
   $items = array();
 
@@ -54,7 +54,7 @@ function natform($form_state) {
 }
 function natform_validate($form, &$form_state) {
 
-    form_set_error('score',t('Form error'));
+    //form_set_error('score',t('Form error'));
    
 }
 function natform_submit($form, &$form_state) {
