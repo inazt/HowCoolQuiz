@@ -1,8 +1,8 @@
 <?php
 function page_ex_menu() {
   $items = array();
-  $items['admin/PageEx'] = array(
-    'title' => 'Page Example Title',
+  $items['PageEx'] = array(
+    'title' => 'Nat Page Example',
     'description' => 'Page Decription',
     'page callback' => 'start_nat',
     //'page callback' => 'drupal_get_form',
@@ -10,10 +10,30 @@ function page_ex_menu() {
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
+   $items['queryTestRead'] = array(
+    'title' => 'readdb Page Example',
+    'description' => 'Read Decription',
+    'page callback' => 'readdb',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    );
   return $items;
 }
+
+function readdb() {
+ // $result = db_query("INSERT INTO {personal} (nid, hash, score, email) VALUES (2, 'something else', 'sdfsdf','email')");
+  $data = array(
+    'nid' => 55,
+    'hash' => 'sode',
+    'score' => 3,
+    'email' => 'sdflsdf'
+  );
+  drupal_write_record('personal', $data);
+  return "test read ja";
+}
+
 function start_nat(){
-   return "<h1>kkkk</h1>".nat('1','5','carbon');
+   return "<h1>start_nat() fn</h1>".nat('1','5','carbon');
 }
 function nat($score, $total,$icon) {
   drupal_add_js(drupal_get_path('module', 'page_ex') . '/jquery.ratings.js');
