@@ -1,8 +1,8 @@
 <?php
-function whoru_install() {
-  drupal_install_schema('whoru');
+function howcool_install() {
+  drupal_install_schema('howcool');
 }
-function whoru_schema(){
+function howcool_schema(){
   $schema['personal']=array(
     'description' =>'kakakakakkaka',
     'fields'=>array(
@@ -18,7 +18,49 @@ function whoru_schema(){
         'length' => 10,
         'not null'=>TRUE
       ),
-      'score'=>array(
+      'carbon'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'water'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'address'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 200,
+        'not null'=>TRUE
+      ),
+      'occupation'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'weight'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'height'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'status'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'sex'=>array(
         'description' => 'point',
         'type' => 'varchar',
         'length' => 10,
@@ -27,7 +69,7 @@ function whoru_schema(){
       'email'=>array(
         'description' => 'emailaddress',
         'type' => 'varchar',
-        'length' => 50,
+        'length' => 100,
         'not null'=>TRUE
       ),
     ),
@@ -36,7 +78,7 @@ function whoru_schema(){
   return $schema;
 }
 
-function whoru_uninstall(){
-  drupal_uninstall_schema('whoru');
+function howcool_uninstall(){
+  drupal_uninstall_schema('howcool');
 }
 

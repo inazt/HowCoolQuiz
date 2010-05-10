@@ -22,12 +22,46 @@ function howcool_menu() {
     'access arguments'=>array('access content'),
     'type' => MENU_NORMAL_ITEM,
     'file' => 'howcool.inc',
+   
+  );
+ 
+  $items['test/insert'] = array(
+    'title'=> 'HowCool!InsertTest',
+    'description'=>'Show result',
+    'page callback'=>'testInsert',
+    'access arguments'=>array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'howcool.inc',
     
   
   );
-  
+    
   return $items;
 }
+
+/** NAzT
+
+*/
+
+function testInsert() {
+  $data = array(
+    'nid' => '',
+    'hash' => 'sxws2',
+    'carbon' => '12',
+    'water' => '13',
+    'address' => 'sdfdf',
+    'occupation' => 'Student',
+    'weight' => '40',
+    'height' => '45',
+    'status' => 'Single',
+    'sex' => 'Male',
+    'email' => 'nat.wrw@gmail.com'  );
+  if(save_result($data)) 
+    return "Inserted";
+  else return "error occured (insert)";
+}
+
+
 /**
     How Cool Display?
 
