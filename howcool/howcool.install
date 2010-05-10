@@ -33,7 +33,7 @@ function howcool_schema(){
       'address'=>array(
         'description' => 'point',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 200,
         'not null'=>TRUE
       ),
       'occupation'=>array(
@@ -66,11 +66,10 @@ function howcool_schema(){
         'length' => 10,
         'not null'=>TRUE
       ),
-      
       'email'=>array(
         'description' => 'emailaddress',
         'type' => 'varchar',
-        'length' => 50,
+        'length' => 100,
         'not null'=>TRUE
       ),
     ),
