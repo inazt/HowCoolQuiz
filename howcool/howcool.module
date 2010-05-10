@@ -1,5 +1,8 @@
 <?php
 //print out form data
+
+
+
 function howcool_menu() {
   $items = array();
 
@@ -53,7 +56,7 @@ function howcool_menu() {
 function testInsert() {
   $data = array(
     'nid' => '',
-    'hash' => 'sxws2',
+    'hash' => getHash(),
     'carbon' => '12',
     'water' => '13',
     'address' => 'sdfdf',
