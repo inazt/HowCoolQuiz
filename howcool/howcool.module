@@ -27,14 +27,21 @@ function howcool_menu() {
  
   $items['test/insert'] = array(
     'title'=> 'HowCool!InsertTest',
-    'description'=>'Show result',
+    'description'=>'Show insert',
     'page callback'=>'testInsert',
     'access arguments'=>array('access content'),
     'type' => MENU_NORMAL_ITEM,
     'file' => 'howcool.inc',
-    
-  
   );
+  
+  $items['test/view'] = array(
+    'title' => 'HowCool!ViewResult',
+    'description'=>'Show Result',
+    'page callback' => 'testResult',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'howcool.inc'
+    );
     
   return $items;
 }
@@ -60,6 +67,16 @@ function testInsert() {
     return "Inserted";
   else return "error occured (insert)";
 }
+
+function testResult() {
+  $a= new Nat();
+  return "test result".print_r(get_result('sxws2'),1).$a->getVar();
+  
+}
+
+/**  End NAzT 
+
+*/
 
 
 /**

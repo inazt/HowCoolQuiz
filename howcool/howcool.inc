@@ -1,6 +1,11 @@
 <?php
 //nat = function t include ma jak nat's module
 
+class Nat
+{
+  private $a=3;
+  function getVar(){ return $this->a;} 
+}
 
 function who_view() {
   
@@ -31,28 +36,22 @@ function get_result($hash=null) {
   $array=array();
   while ($row = db_fetch_object($result))
   {
+    $array['nid'] = $row->email;
     $array['hash'] = $row->hash;
-    $array['score'] = $row->score;
+    $array['carbon'] = $row->carbon;
+    $array['water'] = $row->water;
+    $array['address'] = $row->address;
+    $array['occupation'] = $row->occupation;
+    $array['weight'] = $row->weight;
+    $array['height'] = $row->height;
+    $array['status'] = $row->status;
+    $array['sex'] = $row->sex;
     $array['email'] = $row->email;
+     
   }
   return $array;
 }
 function save_result($data) {
-  /* $data = array(
-    'nid' => '',
-    'hash' => $input['hash'],
-    'carbon' => $input['carbon'],
-    'water' => $input['water'],
-    'address' => $input['address'],
-    'occupation' => $input['occupation'],
-    'weight' => $input['weight'],
-    'height' => $input['height'],
-    'status' => $input['status'],
-    'sex' => $input['sex'],
-    'email' => $input['email'],
-      
-  );
-  */
   $result=drupal_write_record('personal', $data);
   return var_export($result,1) ;
 }
