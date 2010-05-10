@@ -43,3 +43,10 @@ function save_result($hash,$score=0,$email) {
   $result=drupal_write_record('personal', $data);
   return $result;
 }
+function gen_graph($score, $total,$icon) {
+  drupal_add_js(drupal_get_path('module', 'page_ex') . '/jquery.ratings.js');
+  drupal_add_js(drupal_get_path('module', 'page_ex') . '/example.js');
+  drupal_add_js(array('page_ex' =>  array('score' => $score, 'total' => $total,'icon'=>$icon)), 'setting');
+  drupal_add_css(drupal_get_path('module', 'page_ex') . '/jquery.ratings.css');
+  return "<div id='example-1'></div> <br />  ";
+}
