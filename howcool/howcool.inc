@@ -27,10 +27,12 @@ function getHash() {
 function get_result($hash=null) {
   $result = db_query("SELECT * FROM personal WHERE hash = '$hash'");
   $array=array();
-  $row = db_fetch_object($result));
-  $array['hash'] = $row->hash;
-  $array['score'] = $row->score;
-  $array['email'] = $row->email;
+  while ($row = db_fetch_object($result))
+  {
+    $array['hash'] = $row->hash;
+    $array['score'] = $row->score;
+    $array['email'] = $row->email;
+  }
   return $array;
 }
 function save_result($hash,$score=0,$email) {
