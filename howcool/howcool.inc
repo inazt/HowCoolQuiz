@@ -1,7 +1,7 @@
 <?php
 //nat = function t include ma jak nat's module
 
-class Nat
+class Checker
 {
   private $a=3;
   function getVar(){ return $this->a;} 
