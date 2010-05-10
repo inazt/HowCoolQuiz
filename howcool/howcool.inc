@@ -33,3 +33,13 @@ function get_result($hash=null) {
   $array['email'] = $row->email;
   return $array;
 }
+function save_result($hash,$score=0,$email) {
+  $data = array(
+    'nid' => '',
+    'hash' => $hash,
+    'score' => $score,
+    'email' => $email
+  );
+  $result=drupal_write_record('personal', $data);
+  return $result;
+}
