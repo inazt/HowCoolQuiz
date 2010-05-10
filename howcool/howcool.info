@@ -1,4 +1,4 @@
-name=Who are you in opendream
+name=How Cool Quiz
 description = "just a simple quiz"
 core=6.x
-version=0.1
+version=0.1a

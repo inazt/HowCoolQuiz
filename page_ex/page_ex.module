@@ -10,17 +10,17 @@ function page_ex_menu() {
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
-   $items['queryTestRead'] = array(
-    'title' => 'readdb Page Example',
-    'description' => 'Read Decription',
-    'page callback' => 'readdb',
+   $items['queryTestInsert'] = array(
+    'title' => 'Insert Page Example',
+    'description' => 'Insert Decription',
+    'page callback' => 'insertdb',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
     );
   return $items;
 }
 
-function readdb() {
+function insertdb() {
  // $result = db_query("INSERT INTO {personal} (nid, hash, score, email) VALUES (2, 'something else', 'sdfsdf','email')");
   $data = array(
     'nid' => 55,
@@ -28,8 +28,8 @@ function readdb() {
     'score' => 3,
     'email' => 'sdflsdf'
   );
-  drupal_write_record('personal', $data);
-  return "test read ja";
+  $result=drupal_write_record('personal', $data);
+  return var_export($result,true);
 }
 
 function start_nat(){
