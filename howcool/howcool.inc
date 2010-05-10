@@ -29,9 +29,18 @@ function get_result($hash=null) {
   $array=array();
   while ($row = db_fetch_object($result))
   {
+    $array['nid'] = $row->email;
     $array['hash'] = $row->hash;
-    $array['score'] = $row->score;
+    $array['carbon'] = $row->carbon;
+    $array['water'] = $row->water;
+    $array['address'] = $row->address;
+    $array['occupation'] = $row->occupation;
+    $array['weight'] = $row->weight;
+    $array['height'] = $row->height;
+    $array['status'] = $row->status;
+    $array['sex'] = $row->sex;
     $array['email'] = $row->email;
+     
   }
   return $array;
 }
