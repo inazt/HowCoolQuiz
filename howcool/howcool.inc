@@ -1,5 +1,7 @@
 <?php
 //nat = function t include ma jak nat's module
+
+
 function who_view() {
   
   $show = theme('headline','sssop');
