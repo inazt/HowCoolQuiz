@@ -45,21 +45,6 @@ function get_result($hash=null) {
   return $array;
 }
 function save_result($data) {
-  /* $data = array(
-    'nid' => '',
-    'hash' => $input['hash'],
-    'carbon' => $input['carbon'],
-    'water' => $input['water'],
-    'address' => $input['address'],
-    'occupation' => $input['occupation'],
-    'weight' => $input['weight'],
-    'height' => $input['height'],
-    'status' => $input['status'],
-    'sex' => $input['sex'],
-    'email' => $input['email'],
-      
-  );
-  */
   $result=drupal_write_record('personal', $data);
   return var_export($result,1) ;
 }
