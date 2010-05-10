@@ -103,7 +103,8 @@ function form_next_generation($form_state){
       break;
     case 'personal': return check_form($form_state);
       break;
-  
+     case 'check' : return scale_form($form_state);
+      break;
   }
 }
 
@@ -112,6 +113,8 @@ function form_back_generation($form_state){
     case 'personal':   return email_form($form_state);
       break; 
     case 'check': return personal_form($form_state);
+      break;
+     case 'scale' : return check_form($form_state);
       break;
   } 
   
@@ -232,6 +235,8 @@ function check_form($form_state){
 
   $info = array('car','plane','bike');
   $value = array(3,5,0);
+  
+  
   $score = 0;
   
   /**display check boxes
@@ -242,8 +247,7 @@ function check_form($form_state){
     '#options' => array_combine($value,$info),
   );
   
-  $form['page'] = array('#type' => 'hidden', '#value' => 'check');
-  
+  $form['page'] = array('#type' => 'hidden', '#value' => 'check');  
   $form['back'] = array(
     '#type' => 'submit',
     '#value' => t('Back'),
@@ -259,7 +263,26 @@ function check_form($form_state){
 }
 
 function scale_form($form_state){
+  $info = array('car','plane','bike');
+  $value = array(3,5,0);
+  $scale = array(array("4ชม/วัน","10ชม/วัน"),array("5โล/ปี","10ล้านไมล์/ปี"),array("5เมตร/เดือน","12เมตร/เดือน"));
+  //$a = new Npop();
+  
+  //drupal_set_message($a->getName());
 
+  $form['page'] = array('#type' => 'hidden', '#value' => 'scale');  
+  $form['back'] = array(
+    '#type' => 'submit',
+    '#value' => t('Back'),
+   
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Next'),
+   
+  );
+  return $form;
+  
 }
 
 
