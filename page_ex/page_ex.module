@@ -20,20 +20,59 @@ function page_ex_menu() {
   return $items;
 }
 
-function insertdb() {
+function insertdbproto() {
  // $result = db_query("INSERT INTO {personal} (nid, hash, score, email) VALUES (2, 'something else', 'sdfsdf','email')");
   $data = array(
-    'nid' => 55,
+    'nid' => '',
     'hash' => 'sode',
     'score' => 3,
     'email' => 'sdflsdf'
   );
   $result=drupal_write_record('personal', $data);
-  return var_export($result,true);
+  return  db_last_insert_id('personal', 'nid');
+}
+function insertdb($hash,$score,$email) {
+  $data = array(
+    'nid' => '',
+    'hash' => $hash,
+    'score' => $score,
+    'email' => $email
+  );
+  $result=drupal_write_record('personal', $data);
+}
+function getHashKey() {
+  $base=1000000;
+  $result = db_query_range('SELECT max(nid)+1 as nextId from {personal}',  0, 1);
+  $offset= db_fetch_object($result)->nextId; 
+ 
+  $number=$base+$offset;
+  $out   = "";
+  $codes = "abcdefghjkmnpqrstuvwxyz23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+  while ($number > 53) {
+    $key    = $number % 54;
+    $number = floor($number / 54) - 1;
+    $out    = $codes{$key}.$out;
+  }
+   return $codes{$number}.$out;
+  
+}
+//manual hashkey (original)
+function generate_code($offset,$base=180000) {
+  $number=$base+$offset;
+  $out   = "";
+  $codes = "abcdefghjkmnpqrstuvwxyz23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+
+  while ($number > 53) {
+    $key    = $number % 54;
+    $number = floor($number / 54) - 1;
+    $out    = $codes{$key}.$out;
+  }
+    return $codes{$number}.$out;
 }
 
+
 function start_nat(){
-   return "<h1>start_nat() fn</h1>".nat('1','5','carbon');
+   return "<h1>start_nat() fn</h1>".nat('1','5','carbon').getHashKey();
 }
 function nat($score, $total,$icon) {
   drupal_add_js(drupal_get_path('module', 'page_ex') . '/jquery.ratings.js');
