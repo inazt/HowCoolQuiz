@@ -1,0 +1,42 @@
+<?php
+function whoru_install() {
+  drupal_install_schema('whoru');
+}
+function whoru_schema(){
+  $schema['personal']=array(
+    'description' =>'kakakakakkaka',
+    'fields'=>array(
+      'nid' => array(
+        'description' => 'primary na',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+      ),
+      'hash'=>array(
+        'description' => 'randomnumber',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'score'=>array(
+        'description' => 'point',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'email'=>array(
+        'description' => 'emailaddress',
+        'type' => 'varchar',
+        'length' => 50,
+        'not null'=>TRUE
+      ),
+    ),
+    'primary key' => array('nid'),
+  );
+  return $schema;
+}
+
+function whoru_uninstall(){
+  drupal_uninstall_schema('whoru');
+}
+
