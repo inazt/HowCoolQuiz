@@ -11,12 +11,20 @@ function page_ex_menu() {
     'type' => MENU_NORMAL_ITEM,
   );
    $items['queryTestInsert'] = array(
-    'title' => 'Insert Page Example',
+    'title' => 'Nat Insert Page Example',
     'description' => 'Insert Decription',
-    'page callback' => 'insertdb',
+    'page callback' => 'insert',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
     );
+   $items['viewResult'] = array(
+    'title' => 'Nat View Result Page',
+    'description' => 'View Decription',
+    'page callback' => 'view',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    );    
+    
   return $items;
 }
 
@@ -31,7 +39,30 @@ function insertdbproto() {
   $result=drupal_write_record('personal', $data);
   return  db_last_insert_id('personal', 'nid');
 }
-function insertdb($hash,$score,$email) {
+function insert() {
+  return "InsertOO".insertdb(getHashKey(),0,"nat.wrw@gmail.com");
+     
+}
+function view() {
+  drupal_set_message(print_r(get_result('fuXa'),1));     
+  return print_r(get_result('fuXa'),1);  
+  //drupal_set_message(print_r(get_result('fuXa'),1));   
+}
+function get_result($hash=null) {
+  $result = db_query("SELECT * FROM personal WHERE hash = '$hash'");
+  $array=array();
+  while($row = db_fetch_object($result)) {
+    $array['hash'] = $row->hash;
+    $array['score'] = $row->score;
+    $array['email'] = $row->email;
+  /*
+    $show .= $row->hash."<br>";
+    $show .= $row->score."<br>";
+    $show .= $row->email."<br>";*/
+  }
+  return $array;
+}
+function insertdb($hash,$score=0,$email) {
   $data = array(
     'nid' => '',
     'hash' => $hash,
@@ -39,6 +70,7 @@ function insertdb($hash,$score,$email) {
     'email' => $email
   );
   $result=drupal_write_record('personal', $data);
+  return $result;
 }
 function getHashKey() {
   $base=1000000;
@@ -56,7 +88,8 @@ function getHashKey() {
    return $codes{$number}.$out;
   
 }
-//manual hashkey (original)
+
+//manual hashkey (original) 
 function generate_code($offset,$base=180000) {
   $number=$base+$offset;
   $out   = "";
