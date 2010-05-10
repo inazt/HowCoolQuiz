@@ -1,5 +1,10 @@
 <?php
 //nat = function t include ma jak nat's module
+class Nat
+{
+  private $a=3;
+  function getVar(){ return $this->a;} 
+}
 function who_view() {
   
   $show = theme('headline','sssop');
