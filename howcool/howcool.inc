@@ -24,4 +24,12 @@ function getHash() {
   }
   return $codes{$number}.$out;
 }
- 
+function get_result($hash=null) {
+  $result = db_query("SELECT * FROM personal WHERE hash = '$hash'");
+  $array=array();
+  $row = db_fetch_object($result));
+  $array['hash'] = $row->hash;
+  $array['score'] = $row->score;
+  $array['email'] = $row->email;
+  return $array;
+}
