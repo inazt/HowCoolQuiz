@@ -35,15 +35,24 @@ function get_result($hash=null) {
   }
   return $array;
 }
-function save_result($hash,$score=0,$email) {
-  $data = array(
+function save_result($data) {
+  /* $data = array(
     'nid' => '',
-    'hash' => $hash,
-    'score' => $score,
-    'email' => $email
+    'hash' => $input['hash'],
+    'carbon' => $input['carbon'],
+    'water' => $input['water'],
+    'address' => $input['address'],
+    'occupation' => $input['occupation'],
+    'weight' => $input['weight'],
+    'height' => $input['height'],
+    'status' => $input['status'],
+    'sex' => $input['sex'],
+    'email' => $input['email'],
+      
   );
+  */
   $result=drupal_write_record('personal', $data);
-  return $result;
+  return var_export($result,1) ;
 }
 function gen_graph($score, $total,$icon) {
   drupal_add_js(drupal_get_path('module', 'page_ex') . '/jquery.ratings.js');
