@@ -175,7 +175,7 @@ function get_result($hash=null) {
   $array=array();
   while ($row = db_fetch_object($result))
   {
-    $array['nid'] = $row->email;
+    $array['nid'] = $row->nid;
     $array['hash'] = $row->hash;
     $array['carbon'] = $row->carbon;
     $array['water'] = $row->water;
@@ -186,7 +186,6 @@ function get_result($hash=null) {
     $array['status'] = $row->status;
     $array['sex'] = $row->sex;
     $array['email'] = $row->email;
-     
   }
   return $array;
 }
@@ -194,10 +193,11 @@ function save_result($data) {
   $result=drupal_write_record('personal', $data);
   return var_export($result,1) ;
 }
-function gen_graph($score, $total,$icon) {
-  drupal_add_js(drupal_get_path('module', 'page_ex') . '/jquery.ratings.js');
-  drupal_add_js(drupal_get_path('module', 'page_ex') . '/example.js');
-  drupal_add_js(array('page_ex' =>  array('score' => $score, 'total' => $total,'icon'=>$icon)), 'setting');
-  drupal_add_css(drupal_get_path('module', 'page_ex') . '/jquery.ratings.css');
-  return "<div id='example-1'></div> <br />  ";
+function gen_graph($score, $total= 10,$icon) {
+  drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
+  drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
+  drupal_add_js(array('howcool' =>  array('carbonday' => '3', 'carbonyear' => '33','waterday'=>2,'wateryear'=>11)), 'setting');
+  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
+  return "<div id='water-day'></div> ----- <div id='carbon-day'></div>
+   <br /> <div id='water-year'></div> -----  <div id='carbon-year'></div> <br />  ";
 }
