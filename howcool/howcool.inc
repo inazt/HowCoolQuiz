@@ -193,10 +193,14 @@ function save_result($data) {
   $result=drupal_write_record('personal', $data);
   return var_export($result,1) ;
 }
-function gen_graph($score, $total= 10,$icon) {
+function gen_graph($data) {
+  $carbonday=$data['carbon']/100;
+  $carbonyear=$carbonday*100;
+  $waterday=$data['water']/100;
+  $wateryear=$waterday*100;
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
-  drupal_add_js(array('howcool' =>  array('carbonday' => '3', 'carbonyear' => '33','waterday'=>2,'wateryear'=>11)), 'setting');
+  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
   return "<div id='water-day'></div> ----- <div id='carbon-day'></div>
    <br /> <div id='water-year'></div> -----  <div id='carbon-year'></div> <br />  ";

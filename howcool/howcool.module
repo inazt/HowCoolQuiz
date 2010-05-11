@@ -100,7 +100,7 @@ function form_view(){
 function result_view($input){
   $show = 'this is result!!'.$input;
   $show .= print_r(get_result($input),1);
-  $show .=gen_graph(1,10,"water");
+  $show .=gen_graph(get_result($input));
   return $show;
 }
 
