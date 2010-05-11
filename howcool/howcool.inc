@@ -10,7 +10,8 @@ class Checker
   public $show;
   public $frequent;
   public $frequent_question;
-  
+  public $carbon_factor;
+  public $water_factor;
   
   function __construct($data) {
     self::$count++;
@@ -20,16 +21,12 @@ class Checker
     $this->frequent = $data['frequent'];
     $this->frequent_question =$data['frequent_question'];
     $this->show = $data['show'];
+    $this->carbon_factor = $data['carbon_factor'];
+    $this->water_factor = $data['water_factor'];
     self::$all[$this->key] = $this;
   }
   
-  public function getCarbon(){
   
-  }
-  
-  public function getWater(){
-  
-  }
   
   public static function getChecker($k){
     return self::$all[$k];
@@ -83,6 +80,8 @@ class Config{
         'frequent_question' => 'คุณขับรถบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
         'scale'=>array(2,3,4,5),
+        'carbon_factor'=>3,
+        'water_factor'=>7,
       )
     );
     $this->checkers[1] = new Checker(array(
@@ -91,6 +90,8 @@ class Config{
         'frequent_question' => 'คุณนั่งเครื่องบินบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
         'scale'=>array(7,8,9,10),
+        'carbon_factor'=>2,
+        'water_factor'=>3,
       )
     );
     $this->checkers[2] = new Checker(array(
@@ -99,6 +100,8 @@ class Config{
         'frequent_question' => 'คุณนั่งแว๊นบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
         'scale'=>array(20,21,22,23),
+        'carbon_factor'=>4,
+        'water_factor'=>1,
       )
     );
      
