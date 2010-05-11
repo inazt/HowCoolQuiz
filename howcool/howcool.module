@@ -87,6 +87,9 @@ function testResult() {
 
 */
 function form_view(){
+  //$config = new Config();
+  //$show = print_r($config->getShows(),1);
+  //$show = $config->checkers[0]->display_scale[2];
   $show = 'this is form';
   $show .= drupal_get_form('form_generation',$form_state);
   //$show .= drupal_get_form('email_form',$form_state);
@@ -180,64 +183,41 @@ function personal_form($form_state){
   $form['age'] = array(
     '#type' => 'select', 
     '#title' => t('ช่วงอายุ'), 
-    '#default_value' => variable_get('เลือกช่วงอายุ','8-13'),
-    '#options' => array(
-      '8-13' => t('8-13 ปี'), 
-      '14-17' => t('14-17 ปี'), 
-      '18-20' => t('18-20 ปี'),
-    ),
+  //  '#default_value' => variable_get('เลือกช่วงอายุ','8-13'),
+    '#options' => Config::$age_renges,
     //'#description' => t('Global setting for the length of XML feed items that are output by default.'),
   );
   $form['job'] = array(
     '#type' => 'select', 
     '#title' => t('อาชีพ'), 
-    '#default_value' => variable_get('เลือกอาชีพ','student'),
-    '#options' => array(
-      'student' => t('นักเรียน'), 
-      'teacher' => t('อาจารย์'), 
-      'farmer' => t('สันหลังของชาติ'),
-    ),
+    //'#default_value' => variable_get('เลือกอาชีพ','student'),
+    '#options' => Config::$job_renges,
  
   );
-  $form['adress'] = array(
+  $form['address'] = array(
     '#type' => 'select', 
     '#title' => t('ที่อยู่'), 
-    '#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
-    '#options' => array(
-      'bkk' => t('กรุงเทพ'), 
-      'chg' => t('เชียงใหม่'), 
-      'chon' => t('ชลบุรี'),
-    ),
+    //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
+    '#options' => Config::$address_renges,
   );
   $form['hight'] = array(
     '#type' => 'select', 
     '#title' => t('ส่วนสูง'), 
-    '#default_value' => variable_get('เลือกส่วนสูง','1'),
-    '#options' => array(
-      '1' => t('100-130'), 
-      '2' => t('131-150'), 
-      '3' => t('151-160'),
-    ),
+    //'#default_value' => variable_get('เลือกส่วนสูง','1'),
+    '#options' => Config::$hight_renges,
   );
   $form['weight'] = array(
     '#type' => 'select', 
     '#title' => t('น้ำหนัก'), 
-    '#default_value' => variable_get('เลือกน้ำหนัก','1'),
-    '#options' => array(
-      '1' => t('30-39'), 
-      '2' => t('40-49'), 
-      '3' => t('50-59'),
-    ),
+    //'#default_value' => variable_get('เลือกน้ำหนัก','1'),
+    '#options' => Config::$weight_renges,
   );
   $form['status'] = array(
     '#type' => 'select', 
     '#title' => t('สถานภาพ'), 
-    '#default_value' => variable_get('เลือกสถานภาพ','1'),
-    '#options' => array(
-      '1' => t('โสด'), 
-      '2' => t('แต่งงาน'), 
-      '3' => t('เสียชีวิต'),
-    ),
+    //'#default_value' => variable_get('เลือกสถานภาพ','1'),
+    '#options' => Config::$status_renges,
+    
   );
   $form['page'] = array('#type' => 'hidden', '#value' => 'personal');
   $form['back'] = array(
@@ -255,11 +235,23 @@ function personal_form($form_state){
 
 function check_form($form_state){
   /** get old things
-  
+    
   **/
+  $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
+  $form['sex']= array('#type' => 'hidden', '#value' => $form_state['values']['sex']);
+  $form['age']= array('#type' => 'hidden', '#value' => $form_state['values']['age']);
+  $form['job']= array('#type' => 'hidden', '#value' => $form_state['values']['job']);
+  $form['address']= array('#type' => 'hidden', '#value' => $form_state['values']['address']);
+  $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
+  $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
+  $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
 
-  $info = array('car','plane','bike');
-  $value = array(3,5,1);
+  /**
+     set something
+  */
+  $config = new Config();
+  $info = $config->getShows();
+  $value = $config->getKeys();
   
   
   $score = 0;
@@ -288,23 +280,40 @@ function check_form($form_state){
 }
 
 function scale_form($form_state){
-  $info = array('car','plane','bike');
-  $value = array(3,5,1);
-  //$tran_value = array(
-  $scale = array('3' => array("4ชม/วัน","10ชม/วัน"),'5' => array("5โล/ปี","10ล้านไมล์/ปี"),'1' => array("5เมตร/เดือน","12เมตร/เดือน"));
- 
-  //drupal_set_message(print_r($scale['3'],1));
-  //drupal_set_message(print_r($form_state['values']['point'],1));
-  foreach($form_state['values']['point'] as $i){
-    if($i>0){
+  $config = new Config();
+  /**
+    get olds thing
+  */
+  $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
+  $form['sex']= array('#type' => 'hidden', '#value' => $form_state['values']['sex']);
+  $form['age']= array('#type' => 'hidden', '#value' => $form_state['values']['age']);
+  $form['job']= array('#type' => 'hidden', '#value' => $form_state['values']['job']);
+  $form['address']= array('#type' => 'hidden', '#value' => $form_state['values']['address']);
+  $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
+  $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
+  $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
+  
+
+  //
+  $i=0;
+  foreach($form_state['values']['point'] as $key){
+    $myobject = Checker::getChecker($key);
+    drupal_set_message($myobject->image);
+    if($key>0){
+      $scale = array_combine($myobject->scale,$myobject->frequent);
+      //drupal_set_message(print_r($key,1));
+      $form['key'.$i] =array('#type' => 'hidden', '#value' => $key);
       $form['scale'.$i] =array(
         '#type' => 'select', 
-        '#title' => t($i), 
-        '#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
-        '#options' => $scale["$i"],
+        '#title' => $myobject->frequent_question, 
+        //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
+        '#options' => $scale,
+      
       );
+      $i++;
     }
   }
+  $form['count']= array('#type' => 'hidden', '#value' => $i);
   $form['page'] = array('#type' => 'hidden', '#value' => 'scale');  
   $form['back'] = array(
     '#type' => 'submit',
@@ -321,11 +330,14 @@ function scale_form($form_state){
 }
 
 function logic($form_state){
-
+  $config = new Config();
   $hash = getHash();
-  drupal_set_message('sss');
-  drupal_set_message($hash);
-  $data = array(
+  for($i=0;$i<$form_state['values']['count'];$i++){
+    $key =(int)$form_state['values']['key'.$i];
+    $myobject = Checker::getChecker($key);
+    
+  }
+  /*$data = array(
     'nid' => '',
     'hash' => $hash,
     'carbon' => '12',
@@ -338,11 +350,12 @@ function logic($form_state){
     'sex' => 'Male',
     'email' => 'nat.wrw@gmail.com',  );
   if(save_result($data)){
-    drupal_set_message('result/'.$hash);
+    
     drupal_goto('result/'.$hash);
   }else{
   
-  }
+  }*/
+  
 
 }
 

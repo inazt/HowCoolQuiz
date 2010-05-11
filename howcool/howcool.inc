@@ -1,11 +1,147 @@
 <?php
 //nat = function t include ma jak nat's module
-
 class Checker
 {
-  private $a=3;
-  function getVar(){ return $this->a;} 
+  public static $count=0;
+  private static $all=array();
+  public $image;
+  public $key;
+  public $scale;
+  public $show;
+  public $frequent;
+  public $frequent_question;
+  
+  
+  function __construct($data) {
+    self::$count++;
+    $this->key = self::$count;
+    $this->image = $data['image'];
+    $this->scale = $data['scale'];
+    $this->frequent = $data['frequent'];
+    $this->frequent_question =$data['frequent_question'];
+    $this->show = $data['show'];
+    self::$all[$this->key] = $this;
+  }
+  
+  public function getCarbon(){
+  
+  }
+  
+  public function getWater(){
+  
+  }
+  
+  public static function getChecker($k){
+    return self::$all[$k];
+  
+  }
+  
+  
 }
+
+
+class Config{
+  
+  public $checkers;
+  public static $age_renges =array(
+      '8-13' => '8-13 ปี', 
+      '14-17' => '14-17 ปี', 
+      '18-20' => '18-20 ปี',
+  );
+  public static $job_renges =array(
+      'student' => 'นักเรียน', 
+      'teacher' => 'อาจารย์', 
+      'farmer' => 'สันหลังของชาติ',
+  );
+  public static $address_renges =array(
+      'bkk' => 'กรุงเทพ', 
+      'chg' => 'เชียงใหม่', 
+      'chon' => 'ชลบุรี',
+  );
+  public static $weight_renges =array(
+      '1' => '30-39', 
+      '2' => '40-49', 
+      '3' => '50-59',
+  );
+  public static $status_renges =array(
+      '1' => 'โสด', 
+      '2' => 'แต่งงาน', 
+      '3' => 'เสียยยยยชีวิต',
+  );
+  public static $hight_renges =array(
+      '1' => '100-130', 
+      '2' => '131-150', 
+      '3' => '151-160',
+  );
+  
+     
+  function __construct(){
+    $this->checkers = array();
+    $this->checkers[0] = new Checker(array(
+        'image'=>'test.png',
+        'show' => 'drive a car',
+        'frequent_question' => 'คุณขับรถบ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(2,3,4,5),
+      )
+    );
+    $this->checkers[1] = new Checker(array(
+        'image'=>'test2.png',
+        'show' => 'plane',
+        'frequent_question' => 'คุณนั่งเครื่องบินบ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(7,8,9,10),
+      )
+    );
+    $this->checkers[2] = new Checker(array(
+        'image'=>'test3.png',
+        'show' => 'biker?',
+        'frequent_question' => 'คุณนั่งแว๊นบ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(20,21,22,23),
+      )
+    );
+     
+  }
+  
+  function getShows(){
+    $ans=array();
+    for($i = 0;$i<count($this->checkers);$i++){
+      $ans[$i]=$this->checkers[$i]->show;
+    
+    }
+    return $ans;
+  }
+  
+  function getKeys(){
+    $ans=array();
+    for($i = 0;$i<count($this->checkers);$i++){
+      $ans[$i]=$this->checkers[$i]->key;
+    
+    }
+    return $ans;
+  }
+  
+  function getImages(){
+    $ans=array();
+    for($i = 0;$i<count($this->checkers);$i++){
+      $ans[$i]=$this->checkers[$i]->image;
+    
+    }
+    return $ans;
+  }
+
+  function getFrequents(){
+    $ans=array();
+    for($i = 0;$i<count($this->checkers);$i++){
+      $ans[$i]=$this->checkers[$i]->frequent;
+    
+    }
+    return $ans;
+  }
+
+}
+
 
 function who_view() {
   
