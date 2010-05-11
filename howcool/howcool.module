@@ -97,6 +97,7 @@ function form_view(){
 function result_view($input){
   $show = 'this is result!!'.$input;
   $show .= print_r(get_result($input),1);
+  $show .=gen_graph(1,10,"water");
   return $show;
 }
 
@@ -325,11 +326,10 @@ function logic($form_state){
   $hash = getHash();
   drupal_set_message('sss');
   drupal_set_message($hash);
+  drupal_set_message(print_r($form_state['values'],1));
   $data = array(
     'nid' => '',
     'hash' => $hash,
-    'carbon' => '12',
-    'water' => '13',
     'address' => 'sdfdf',
     'occupation' => 'Student',
     'weight' => '40',
@@ -337,8 +337,13 @@ function logic($form_state){
     'status' => 'Single',
     'sex' => 'Male',
     'email' => 'nat.wrw@gmail.com',  );
+  
+    $data['carbon'] = '12';
+    $data['water'] = '13';
+  
   if(save_result($data)){
     drupal_set_message('result/'.$hash);
+    drupal_set_message('LOGIC SECTION');
     drupal_goto('result/'.$hash);
   }else{
   
