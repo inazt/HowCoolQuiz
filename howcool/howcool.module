@@ -4,6 +4,7 @@
 
 
 function howcool_menu() {
+
   $items = array();
 
   $items['form'] = array(
@@ -44,6 +45,10 @@ function form_decision($data){
 
 
 function form_view(){
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
   $show = 'this is form--->';
   $show .= drupal_get_form('form_generation',$form_state);
   return $show;
@@ -134,6 +139,7 @@ function email_form($form_state){
       '#required' => TRUE,
     );
   }
+
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
   $form['submit'] = array(
     '#type' => 'submit',
@@ -149,6 +155,15 @@ function email_form($form_state){
 }
 
 function personal_form($form_state){
+
+// drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
+ $output=new DisplayOutput();
+$form['myhtml'] = array(
+    '#type'=>'markup',
+    '#value'=>$output->showProfileFormTop(),
+  
+  );
+ 
   $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
   if(empty($form_state['values']['sex'])){
     $form['sex'] = array(
@@ -167,6 +182,7 @@ function personal_form($form_state){
      '#required' =>TRUE,
     );
   }
+ 
   if(empty($form_state['values']['age'])){
     $form['age'] = array(
       '#type' => 'select', 
@@ -277,6 +293,12 @@ function personal_form($form_state){
     '#value' => t('Next'),
    
   );
+$form['myhtml_footer'] = array(
+    '#type'=>'markup',
+    '#value'=>$output->showProfileFormBottom(),
+  
+  );
+  
   return $form;
 }
 
