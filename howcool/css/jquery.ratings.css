@@ -28,3 +28,31 @@
 .new_line{
   clear: left;
 } 
+div.spacer {
+	background-color: #FFC73E;
+	height: 1em;
+}
+
+div#navbar {
+	background-color: #8FC73E;
+	padding: 10px 0;
+}
+.pop {
+  clear:left;
+}
+.pop .form-item{
+ width:100%;
+ clear:left;
+}
+
+.pop .form-item * {
+  float:left;
+}
+
+.pop .form-item > label {
+  width: 50%;
+}
+
+.pop .form-item > div {
+  width: 50%;
+}

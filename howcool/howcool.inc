@@ -207,7 +207,7 @@ function gen_graph($data) {
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
-// drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
  $output=new DisplayOutput();
   return $output->showScore();
 }
