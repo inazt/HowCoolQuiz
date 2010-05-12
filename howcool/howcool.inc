@@ -1,5 +1,6 @@
 <?php
 //nat = function t include ma jak nat's module
+include 'display.inc';
 class Checker
 {
   public static $count=0;
@@ -203,6 +204,10 @@ function gen_graph($data) {
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
   drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
-  return "<div id='water-day'></div> ----- <div id='carbon-day'></div>
-   <br /> <div id='water-year'></div> -----  <div id='carbon-year'></div> <br />  ";
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
+ $output=new DisplayOutput();
+  return $output->showScore();
 }

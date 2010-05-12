@@ -27,24 +27,6 @@ function howcool_menu() {
     'file' => 'howcool.inc',
    
   );
- 
-  $items['test/insert'] = array(
-    'title'=> 'HowCool!InsertTest',
-    'description'=>'Show insert',
-    'page callback'=>'testInsert',
-    'access arguments'=>array('access content'),
-    'type' => MENU_NORMAL_ITEM,
-    'file' => 'howcool.inc',
-  );
-  
-  $items['test/view'] = array(
-    'title' => 'HowCool!ViewResult',
-    'description'=>'Show Result',
-    'page callback' => 'testResult',
-    'access arguments' => array('access content'),
-    'type' => MENU_NORMAL_ITEM,
-    'file' => 'howcool.inc'
-    );
     
   return $items;
 }
