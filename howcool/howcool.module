@@ -6,12 +6,12 @@
 function howcool_menu() {
   $items = array();
 
-  $items['form'] = array(
+  $items['form/%'] = array(
   'title' => 'HowCool!Form',
   'description' => 'Page Decription',
   'page callback' => 'form_view',
   //'page callback' => 'drupal_get_form',
-  //'page arguments' => array('popform'),     
+  'page arguments' => array(1),     
   'access arguments' => array('access content'),
   'type' => MENU_NORMAL_ITEM,
   'file' => 'howcool.inc',
@@ -54,14 +54,16 @@ function howcool_menu() {
     How Cool Display?
 
 */
-function form_view(){
-  //$config = new Config();
-  //$show = print_r($config->getShows(),1);
-  //$show = $config->checkers[0]->display_scale[2];
-  $show = 'this is form';
-  $show .= drupal_get_form('form_generation',$form_state);
-  //$show .= drupal_get_form('email_form',$form_state);
-  //$show .= drupal_get_form('personal_form',$form_state);    
+
+function form_decision($data){
+
+  return $data['page']['#value'];
+}
+
+
+function form_view($page){
+  $show = 'this is form--->'.$page;
+  $show .= drupal_get_form('form_generation',$form_state,$page);
   return $show;
 }
 
@@ -77,13 +79,17 @@ function result_view($input){
     How Cool Form Stucture
 
 */
-function form_generation($form_state){
-//  drupal_set_message(print_r($form_state,1));
+function form_generation($form_state,$page){
+  drupal_set_message('sss');
+  drupal_set_message($page);
   if(empty($form_state['values'])){
+    //drupal_set_message(form_decision(email_form($form_state)));  
     return email_form($form_state);
   }else if($form_state['values']['op']=='Back'){
+    //drupal_set_message(form_decision(form_back_generation($form_state)));  
     return form_back_generation($form_state);
   }else{
+    //drupal_set_message(form_decision(form_next_generation($form_state)));  
     return form_next_generation($form_state);
   
   }
@@ -144,12 +150,12 @@ function email_form($form_state){
       '#required' => TRUE,
     );
   }
-  
+  $form['#action'] = url('form/step2');
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Next'),
-   
+    
   );
   return $form;
 }
