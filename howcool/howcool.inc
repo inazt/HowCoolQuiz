@@ -41,6 +41,7 @@ class Config{
   
   public $checkers;
   public static $age_renges =array(
+      0=>'ใส่อายุเลยจ้า',
       '8-13' => '8-13 ปี', 
       '14-17' => '14-17 ปี', 
       '18-20' => '18-20 ปี',

@@ -49,38 +49,6 @@ function howcool_menu() {
   return $items;
 }
 
-/** NAzT
-
-*/
-
-function testInsert() {
-  $data = array(
-    'nid' => '',
-    'hash' => getHash(),
-    'carbon' => '12',
-    'water' => '13',
-    'address' => 'sdfdf',
-    'occupation' => 'Student',
-    'weight' => '40',
-    'height' => '45',
-    'status' => 'Single',
-    'sex' => 'Male',
-    'email' => 'nat.wrw@gmail.com'  );
-  if(save_result($data)) 
-    return "Inserted";
-  else return "error occured (insert)";
-}
-
-function testResult() {
-  
-  return "test result".print_r(get_result('sxws2'),1);
-  
-}
-
-/**  End NAzT 
-
-*/
-
 
 /**
     How Cool Display?
@@ -110,7 +78,7 @@ function result_view($input){
 
 */
 function form_generation($form_state){
-  
+//  drupal_set_message(print_r($form_state,1));
   if(empty($form_state['values'])){
     return email_form($form_state);
   }else if($form_state['values']['op']=='Back'){
@@ -134,7 +102,8 @@ function form_next_generation($form_state){
 }
 
 function form_back_generation($form_state){
-  switch($form_state['values']['page']){
+    
+  switch($form_state['values']['page'] ){
     case 'personal':   return email_form($form_state);
       break; 
     case 'check': return personal_form($form_state);
@@ -147,23 +116,35 @@ function form_back_generation($form_state){
 }
 
 function form_generation_submit(&$form, &$form_state) {
+  $form_state['values']['sompop']++;
   $form_state['storage']['values'] = $form_state['values'];
   $form_state['rebuild'] = TRUE;
   //Jumper!!!
-  if($form_state['values']['page']=='scale'){
+  if($form_state['values']['page']=='scale' && $form_state['values']['op']!='Back'){
     logic($form_state);
   }
 }
 
 function email_form($form_state){
-  $form['email'] = array(
-    '#type' => 'textfield', 
-    '#title' => t('Email'), 
-    '#default_value' => t('example@yourmail.com'), 
-    '#size' => 60, 
-    '#maxlength' => 128, 
-    '#required' => TRUE,
-  );
+  if(empty($form_state['values']['email'])){
+    $form['email'] = array(
+      '#type' => 'textfield', 
+      '#title' => t('Email'), 
+      '#size' => 60, 
+      '#maxlength' => 128, 
+      '#required' => TRUE,
+    );
+  }else{
+    $form['email'] = array(
+      '#type' => 'textfield', 
+      '#title' => t('Email'), 
+      '#size' => 60, 
+      '#maxlength' => 128, 
+      '#default_value' => $form_state['values']['email'],
+      '#required' => TRUE,
+    );
+  }
+  
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
   $form['submit'] = array(
     '#type' => 'submit',
@@ -175,51 +156,122 @@ function email_form($form_state){
 
 function personal_form($form_state){
   $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
-  $form['sex'] = array(
-    '#type' => 'radios', 
-    '#title' => t('เพศ'), 
-    //'#default_value' => variable_get('comment_preview', 1), 
-    '#options' => array(t('ชาย'), t('หญิง')),
-  );
-  $form['age'] = array(
-    '#type' => 'select', 
-    '#title' => t('ช่วงอายุ'), 
-  //  '#default_value' => variable_get('เลือกช่วงอายุ','8-13'),
-    '#options' => Config::$age_renges,
-    //'#description' => t('Global setting for the length of XML feed items that are output by default.'),
-  );
-  $form['job'] = array(
-    '#type' => 'select', 
-    '#title' => t('อาชีพ'), 
-    //'#default_value' => variable_get('เลือกอาชีพ','student'),
-    '#options' => Config::$job_renges,
+  if(empty($form_state['values']['sex'])){
+    $form['sex'] = array(
+      '#type' => 'radios', 
+      '#title' => t('เพศ'), 
+     //'#default_value' => variable_get('comment_preview', 1), 
+     '#options' => array(t('ชาย'), t('หญิง')),
+      '#required' =>TRUE,
+    );
+  }else{
+    $form['sex'] = array(
+     '#type' => 'radios', 
+     '#title' => t('เพศ'), 
+     '#default_value' => $form_state['values']['sex'],
+     '#options' => array(t('ชาย'), t('หญิง')),
+     '#required' =>TRUE,
+    );
+  }
+  if(empty($form_state['values']['age'])){
+    $form['age'] = array(
+      '#type' => 'select', 
+      '#title' => t('ช่วงอายุ'), 
+      '#options' => Config::$age_renges,
+      '#required' =>TRUE,
+    );
+  }else{
+    $form['age'] = array(
+      '#type' => 'select', 
+      '#title' => t('ช่วงอายุ'), 
+      '#options' => Config::$age_renges,
+      '#required' =>TRUE,
+      '#default_value' => $form_state['values']['age'],
+    );
+  }
+  if(empty($form_state['values']['job'])){
+    $form['job'] = array(
+      '#type' => 'select', 
+      '#title' => t('อาชีพ'), 
+      //'#default_value' => variable_get('เลือกอาชีพ','student'),
+      '#options' => Config::$job_renges,
  
-  );
-  $form['address'] = array(
-    '#type' => 'select', 
-    '#title' => t('ที่อยู่'), 
-    //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
-    '#options' => Config::$address_renges,
-  );
-  $form['hight'] = array(
-    '#type' => 'select', 
-    '#title' => t('ส่วนสูง'), 
-    //'#default_value' => variable_get('เลือกส่วนสูง','1'),
-    '#options' => Config::$hight_renges,
-  );
-  $form['weight'] = array(
-    '#type' => 'select', 
-    '#title' => t('น้ำหนัก'), 
-    //'#default_value' => variable_get('เลือกน้ำหนัก','1'),
-    '#options' => Config::$weight_renges,
-  );
-  $form['status'] = array(
+    );
+  }else{
+    $form['job'] = array(
+      '#type' => 'select', 
+      '#title' => t('อาชีพ'), 
+      '#default_value' => $form_state['values']['job'],
+      '#options' => Config::$job_renges,
+ 
+    );
+  }
+  if(empty($form_state['values']['address'])){
+    $form['address'] = array(
+      '#type' => 'select', 
+      '#title' => t('ที่อยู่'), 
+      //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
+      '#options' => Config::$address_renges,
+    );
+  }else{
+    $form['address'] = array(
+      '#type' => 'select', 
+      '#title' => t('ที่อยู่'), 
+      '#default_value' => $form_state['values']['address'],
+      '#options' => Config::$address_renges,
+    );
+  }
+  if(empty($form_state['values']['hight'])){
+    $form['hight'] = array(
+      '#type' => 'select', 
+      '#title' => t('ส่วนสูง'),
+      '#required' =>TRUE, 
+      //'#default_value' => variable_get('เลือกส่วนสูง','1'),
+      '#options' => Config::$hight_renges,
+    );
+  }else{
+    $form['hight'] = array(
+      '#type' => 'select', 
+      '#title' => t('ส่วนสูง'),
+      '#required' =>TRUE, 
+      '#default_value' => $form_state['values']['hight'],
+      '#options' => Config::$hight_renges,
+    );
+  }
+  if(empty($form_state['values']['weight'])){
+    $form['weight'] = array(
+      '#type' => 'select', 
+      '#title' => t('น้ำหนัก'),
+      '#required' =>TRUE, 
+      //'#default_value' => variable_get('เลือกน้ำหนัก','1'),
+      '#options' => Config::$weight_renges,
+    );
+  }else{
+    $form['weight'] = array(
+      '#type' => 'select', 
+      '#title' => t('น้ำหนัก'),
+      '#required' =>TRUE, 
+      '#default_value' =>$form_state['values']['weight'],
+      '#options' => Config::$weight_renges,
+    );
+  }
+  if(empty($form_state['values']['status'])){
+   $form['status'] = array(
+      '#type' => 'select', 
+      '#title' => t('สถานภาพ'), 
+      //'#default_value' => variable_get('เลือกสถานภาพ','1'),
+      '#options' => Config::$status_renges,
+    
+    );
+  }else{
+    $form['status'] = array(
     '#type' => 'select', 
     '#title' => t('สถานภาพ'), 
-    //'#default_value' => variable_get('เลือกสถานภาพ','1'),
+    '#default_value' => $form_state['values']['status'],
     '#options' => Config::$status_renges,
     
   );
+  }
   $form['page'] = array('#type' => 'hidden', '#value' => 'personal');
   $form['back'] = array(
     '#type' => 'submit',
@@ -259,12 +311,25 @@ function check_form($form_state){
   
   /**display check boxes
   */
-  $form['point'] = array(
-    '#type' => 'checkboxes',
-    '#title' => 'วันนี้คุณทำอะไรบ้างคะ',
-    '#options' => array_combine($value,$info),
-  );
-  
+  drupal_set_message(print_r($form_state['values'],1));
+  if(empty($form_state['values']['count'])){
+    $form['point'] = array(
+      '#type' => 'checkboxes',
+      '#title' => 'วันนี้คุณทำอะไรบ้างคะ',
+      '#options' => array_combine($value,$info),
+    );
+  }else{    
+    $def_value = array();
+    for($i=0;$i<$form_state['values']['count'];$i++){
+      $def_value[$i]=$form_state['values']['key'.$i];
+    }
+    $form['point'] = array(
+      '#type' => 'checkboxes',
+      '#title' => 'วันนี้คุณทำอะไรบ้างคะ',
+      '#options' => array_combine($value,$info),
+      '#default_value' =>$def_value,
+    );
+  }
   $form['page'] = array('#type' => 'hidden', '#value' => 'check');  
   $form['back'] = array(
     '#type' => 'submit',
