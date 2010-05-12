@@ -77,7 +77,7 @@ class Config{
   function __construct(){
     $this->checkers = array();
     $this->checkers[0] = new Checker(array(
-        'image'=>'test.png',
+        'image'=>'images/icon/how-cool_03.png',
         'show' => 'drive a car',
         'frequent_question' => 'คุณขับรถบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
@@ -87,7 +87,7 @@ class Config{
       )
     );
     $this->checkers[1] = new Checker(array(
-        'image'=>'test2.png',
+        'image'=>'images/icon/how-cool_10.png',
         'show' => 'plane',
         'frequent_question' => 'คุณนั่งเครื่องบินบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
@@ -97,7 +97,7 @@ class Config{
       )
     );
     $this->checkers[2] = new Checker(array(
-        'image'=>'test3.png',
+        'image'=>'images/icon/how-cool_05.png',
         'show' => 'biker?',
         'frequent_question' => 'คุณนั่งแว๊นบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
@@ -112,8 +112,11 @@ class Config{
   function getShows(){
     $ans=array();
     for($i = 0;$i<count($this->checkers);$i++){
-      $ans[$i]=$this->checkers[$i]->show;
-    
+      $object =$this->checkers[$i];
+      $ans[$i]='<strong>'.$object->show.'</strong><br>';
+      $ans[$i] .= '<img src='.drupal_get_path('module', 'howcool').'/'.$object->image.'></img>';
+      //$ans[$i] = $object->image;
+      //$ans[$i].='/>';
     }
     return $ans;
   }
