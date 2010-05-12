@@ -22,8 +22,8 @@ class DisplayOutput
  
 	       
 	      <div class='clear'></div>
-        <div class='grid_12'>
-		      <p>12</p>
+        <div class='grid_12 spacer'>
+		       
 	      </div>
 	         <div class='clear'></div>
 	      <div class='grid_2'>
