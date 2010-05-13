@@ -9,5 +9,6 @@ $(document).ready(function() {
    $('#weight').html(Drupal.settings.howcool.weight+" ก.ก.");
    $('#weight2').html(Drupal.settings.howcool.weight+" ก.ก.");
    $('#point_water').html(Drupal.settings.howcool.point_water+" ลิตร");
-   $('$point_carbon').html(Drupal.settings.howcool.point_carbon+" กิโลกรรม");
+   $('#point_carbon').html(Drupal.settings.howcool.point_carbon+" กิโลกรรม");
+   $('#show_image').html(Drupal.settings.howcool.image+" กิโลกรรม");
 });
