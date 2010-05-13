@@ -127,16 +127,16 @@ function email_form($form_state){
   $form['image'] = $output->insertPicture('images/picquiz.png');
   $form['closeGrid'] = $output->closeGrid();
   $form['openEmailGrid'] = $output->openGrid(8);
-  $form['myhtml'] = array(
+  /*$form['myhtml'] = array(
     '#type'=>'markup',
     '#value'=>theme('headline','Yo Mannn'),
   
-  );
+  );*/
   if(empty($form_state['values']['email'])){
     $form['email'] = array(
       '#type' => 'textfield', 
       '#title' => t('Email'), 
-      '#size' => 60, 
+      '#size' => 30, 
       '#maxlength' => 128, 
       '#required' => TRUE,
     );
@@ -144,7 +144,7 @@ function email_form($form_state){
     $form['email'] = array(
       '#type' => 'textfield', 
       '#title' => t('Email'), 
-      '#size' => 60, 
+      '#size' => 30, 
       '#maxlength' => 128, 
       '#default_value' => $form_state['values']['email'],
       '#required' => TRUE,
@@ -157,11 +157,13 @@ function email_form($form_state){
     '#value' => t('Next'),
     
   );
+  /*
   $form['myhtml_footer'] = array(
     '#type'=>'markup',
     '#value'=>theme('headline','Last Man'),
   
   );
+  */
   $form['closeEmailGrid'] = $output->closeGrid();
   $form['closeContainer'] = $output->closeContainer();
   return $form;
