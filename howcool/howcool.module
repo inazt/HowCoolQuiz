@@ -381,7 +381,7 @@ function check_form($form_state){
 
 function scale_form($form_state){
   $output= new DisplayOutput();
-  //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
+  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
   $config = new Config();
   $form['container']=$output->openContainer();
   /**
@@ -411,13 +411,15 @@ function scale_form($form_state){
         		
     if($key>0){
     //ja run if only if have select ok?
-    $form['subgrid10'.$i]=$output->openGrid(10,'omega'); 
+    
       $scale = array_combine($myobject->scale,$myobject->frequent);
       //drupal_set_message(print_r($myobject->image,1));
       // $form['image'.$i]= array('#type'=> 'markup','#value' => $myobject->image);
       $form['grid12'.$i]=$output->openGrid(12);  
       $form['subgrid2'.$i]=$output->createGrid(2,"<img src=' " . drupal_get_path('module', 'howcool') ."/$myobject->image'>",'alpha');      
+      $form['subgrid10'.$i]=$output->openGrid(10,'omega'); 
       $form['key'.$i] =array('#type' => 'hidden', '#value' => $key);
+     $form['divpop'.$i]=$output->openDiv('pop');
       $form['scale'.$i] =array(
         '#type' => 'select', 
         '#title' => $myobject->frequent_question, 
@@ -425,6 +427,7 @@ function scale_form($form_state){
         '#options' => $scale,
       
       );
+     $form['closediv'.$i]=$output->closeDiv();
      $form['closesub2'.$i]=$output->closeGrid();
      $form['closegrid12'.$i]=$output->closeLineGrid();
      
