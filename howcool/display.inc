@@ -1,6 +1,13 @@
 <?php
 class DisplayOutput
 {
+  public function insertPicture($path){
+    $form_element = array(
+      '#type'=> 'markup',
+      '#value'=> '<img src='.drupal_get_path('module', 'howcool').'/'.$path.'></img>',
+    );
+    return $form_element;
+  }
   public function openDiv($name){
     $form_element = array(
       '#type'=>'markup',
@@ -216,6 +223,59 @@ class DisplayOutput
 	       <div class='clear'></div>	
         
       </div>";    
+  }
+}
+class ResultOutput
+{
+ 
+  public function showScore() {
+     return " 
+      <div class='container_12'>
+        ".//<!--------------------------Start Day------------->
+	      "<div class='grid_2'>
+		      <p>
+		      </p>
+	      </div>
+	      <div class='grid_5'>
+		     <div id='water-day'></div>
+	      </div>
+ 
+	      <div class='grid_5'>
+		       <div id='carbon-day'></div>
+	      </div>
+	      <div class='clear'></div>
+	      ".//<!--------------------------End day & Start Space------------------------>
+	      "
+        <div class='grid_12' stlye='height:10px;'><p></p></div>
+	      <div class='clear'></div>
+	      ".//<!--------------------------End Space $ Start Year ------------------------>
+	      "
+	      
+	      <div class='grid_2'>
+		      <p>
+			      
+		      </p>
+	      </div>
+	  
+	       
+	      <div class='grid_5'>
+		    <div id='water-year'></div>
+	      </div>
+	     
+	      <div class='grid_5'>
+		        <div id='carbon-year'></div>
+	      </div>
+	      <div class='clear'></div>	
+	      ".//<!--------------------------End Year & Start foot Content ------------------------>
+	      "
+	      
+          <div class='grid_12'>
+		      <p>12</p>
+	      </div>
+	      <div class='clear'></div>	
+        ".//<!--------------------------End foot content & End Everything ------------------------>      
+        "
+      </div>";
   }
 }
 ?>
