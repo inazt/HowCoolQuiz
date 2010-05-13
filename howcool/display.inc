@@ -1,6 +1,65 @@
 <?php
 class DisplayOutput
 {
+  public function openDiv($name){
+    $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"<div class='".$name."'>",
+    );
+    return $form_element;
+  }
+  public function closeDiv(){
+    $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"</div>",
+    );
+    return $form_element;
+  }
+  public function openContainer(){
+    $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"<div class='container_12'>",
+    );
+    return $form_element;
+  }
+  public function closeContainer(){
+    return $this->closeDiv();
+  }
+  public function createGrid($value){
+    $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"<div class='grid_".$value."'><h2></h2></div>",
+    );
+    return $form_element;
+  }
+  public function createGridWithLine($value){
+    $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"<div class='grid_".$value."'><h2></h2></div><div class='clear'></div>",
+    );
+    return $form_element;
+  }
+  public function openGrid($value){
+    $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"<div class='grid_".$value."'>",
+    );
+    return $form_element;
+   
+  }
+  public function closeGrid(){
+    return $this->closeDiv();
+  }  
+  public function closeLineGrid(){
+  $form_element = array(
+      '#type'=>'markup',
+      '#value'=>"</div><div class='clear'></div>",
+    );
+    return $form_element;
+  }  
+ 
+
+  
   public function showScore() {
      return " 
       <div class='container_12'>
