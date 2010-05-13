@@ -241,6 +241,8 @@ function save_result($data) {
 }
 function gen_graph($data) {
   $carbonday=$data['carbon']/100;
+  $point_carbon = $data['carbon'];
+  $point_water = $data['water'];
   $carbonyear=$carbonday*100;
   $waterday=$data['water']/100;
   $wateryear=$waterday*100;
@@ -248,12 +250,12 @@ function gen_graph($data) {
   
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
-  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight)), 'setting');
+  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
- drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
+ //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
  $output=new ResultOutput();
   return $output->showScore();
 }
