@@ -404,7 +404,7 @@ function scale_form($form_state){
   //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
   $config = new Config();
   $form['container']=$output->openContainer();
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice2.png' ."'> ",'spacer');
   /**
     get olds thing
   */
