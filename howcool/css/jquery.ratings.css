@@ -53,6 +53,9 @@ div#navbar {
   width: 50%;
 }
 
+.pop .form-item > select {
+  width:150px;
+}
 .pop .form-item > div {
   width: 50%;
 }
