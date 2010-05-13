@@ -5,4 +5,7 @@ $(document).ready(function() {
    
    $('#carbon-day').score(Drupal.settings.howcool.carbonday,"carbon");
    $('#carbon-year').score(Drupal.settings.howcool.carbonyear,"carbon");
+   
+   $('#weight').html(Drupal.settings.howcool.weight+" ก.ก.");
+      $('#weight2').html(Drupal.settings.howcool.weight+" ก.ก.")
 });
