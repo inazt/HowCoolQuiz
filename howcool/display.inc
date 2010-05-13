@@ -64,12 +64,9 @@ class DisplayOutput
     );
     return $form_element;
   } 
-
-   
 }
 class ResultOutput
 {
- 
   public function showScore() {
      return " 
       <div class='container_12'>
