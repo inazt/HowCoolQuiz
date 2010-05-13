@@ -25,10 +25,10 @@ class DisplayOutput
   public function closeContainer(){
     return $this->closeDiv();
   }
-  public function createGrid($value){
+  public function createGrid($value,$data='<h2></h2>',$attr=null){
     $form_element = array(
       '#type'=>'markup',
-      '#value'=>"<div class='grid_".$value."'><h2></h2></div>",
+      '#value'=>"<div class='grid_".$value." $attr'> $data </div>",
     );
     return $form_element;
   }
@@ -39,10 +39,10 @@ class DisplayOutput
     );
     return $form_element;
   }
-  public function openGrid($value){
+  public function openGrid($value,$attr=null,$data=null){
     $form_element = array(
       '#type'=>'markup',
-      '#value'=>"<div class='grid_".$value."'>",
+      '#value'=>"<div class='grid_".$value." $attr'>$data",
     );
     return $form_element;
    
