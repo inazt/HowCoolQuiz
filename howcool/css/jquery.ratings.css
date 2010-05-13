@@ -30,7 +30,7 @@
 } 
 div.spacer {
 
-	height: 40px;
+	height: 60px;
 }
 
 div#navbar {
@@ -45,7 +45,8 @@ div#navbar {
  clear:left;
 }
 
-.pop .form-item * {
+
+.pop .form-item > * {
   float:left;
 }
 
