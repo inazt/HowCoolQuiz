@@ -187,7 +187,7 @@ function personal_form($form_state){
       '#type' => 'select', 
       '#title' => t('เพศ'),
      //'#default_value' => variable_get('comment_preview', 1), 
-     '#options' => array(t('ชาย'), t('หญิง')),
+       '#options' => array("male"=>t('ชาย'), "female"=>t('หญิง')),
       '#required' =>TRUE,
     );
   }else{
@@ -195,7 +195,7 @@ function personal_form($form_state){
      '#type' => 'select', 
      '#title' => t('เพศ'), 
      '#default_value' => $form_state['values']['sex'],
-     '#options' => array(t('ชาย'), t('หญิง')),
+     '#options' => array("male"=>t('ชาย'), "female"=>t('หญิง')),
      '#required' =>TRUE,
     );
   }
@@ -496,13 +496,28 @@ function logic($form_state){
     'sex' => $form_state['values']['sex'],
     'email' => $form_state['values']['email'],  );
   if(save_result($data)){
-    drupal_set_message('result/'.$hash);
-    drupal_set_message('LOGIC SECTION');
+    //drupal_set_message('result/'.$hash);
+    //drupal_set_message('LOGIC SECTION');
     
     drupal_goto('result/'.$hash);
   }else{
   
   }
+}
+
+
+function form_generation_validate(&$form, &$form_state) {
+  drupal_set_message('ok do');
+    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+  drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
+  //form_set_error('time', t('An event may not end before it starts.'));
+  if($form_state['values']['page']=='personal' && $form_state['values']['age']=='null') {
+    form_set_error('time', t('age is required!'));
+  }
+  if($form_state['values']['page']=='check' && array_sum($form_state['values']['point'])==0) {
+     form_set_error('time', t('activity is required!'));
+  }
+
 }
 
 /**

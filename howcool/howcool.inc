@@ -51,7 +51,7 @@ class Config{
   
   public $checkers;
   public static $age_renges =array(
-      0=>'ใส่อายุเลยจ้า',
+      "null"=>'ใส่อายุเลยจ้า',
       '8-13' => '8-13 ปี', 
       '14-17' => '14-17 ปี', 
       '18-20' => '18-20 ปี',
@@ -253,9 +253,23 @@ function gen_graph($data) {
   $point_carbon = $data['carbon'];
   $point_water = $data['water'];
   $carbonyear=$carbonday*100;
-  $waterday=$data['water']/100;
+  $waterday=$data['water']/100  ;
   $wateryear=$waterday*100;
   $weight = Config::$weight_renges[$data['weight']];
+  
+  $carbonyear=log10($carbonyear*100)*10;
+  $wateryear=log10($wateryear*100)*10;
+  //Check Maigern 60 !!!
+  /*if($wateryear > 50){
+    $max = ceil($wateryear/10)*10;
+    $wateryear = $wateryear/$max*50;
+  }
+  if($carbonyear > 50){
+    $max = ceil($carbonyear/10)*10;
+    $carbonyear = $carbonyear/$max*50;
+  }
+  */
+  
 
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
