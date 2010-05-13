@@ -174,7 +174,7 @@ function personal_form($form_state){
   $output=new DisplayOutput();
  
   $form['conatiner12']=$output->openContainer();
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menupersonal.png' ."'> ",'spacer');
   $form['grid1_1']=$output->createGrid(1,'<p>1</p>');
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
   $form['grid1_12']=$output->createGrid(1,'<p>1</p>');
