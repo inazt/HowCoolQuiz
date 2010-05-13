@@ -32,10 +32,10 @@ class DisplayOutput
     );
     return $form_element;
   }
-  public function createGridWithLine($value){
+  public function createGridWithLine($value,$data='<h2></h2>',$attr=null){
     $form_element = array(
       '#type'=>'markup',
-      '#value'=>"<div class='grid_".$value."'><h2></h2></div><div class='clear'></div>",
+      '#value'=>"<div class='grid_".$value." $attr'> $data </div>",
     );
     return $form_element;
   }
