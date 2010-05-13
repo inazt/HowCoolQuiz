@@ -1,0 +1,14 @@
+ 
+.cool_check .form-checkboxes .form-item{
+  width:140px;
+  float:left;
+}
+.cool_check .form-item label{
+  color:white;
+}
+.cool_check .form-item label strong{
+  font-size:20px;
+}
+.cool_submit {
+  clear:left;
+}

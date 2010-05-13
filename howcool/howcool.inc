@@ -87,13 +87,13 @@ class Config{
       )
     );
     $this->checkers[1] = new Checker(array(
-        'image'=>'images/icon/how-cool_10.png',
-        'show' => 'plane',
-        'frequent_question' => 'คุณนั่งเครื่องบินบ่อยแค่ไหนคะ',
+        'image'=>'images/icon/how-cool_04.png',
+        'show' => 'Kraba',
+        'frequent_question' => 'คุณนั่งกระบะบ่อยแค่ไหนคะ',
         'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
-        'scale'=>array(7,8,9,10),
-        'carbon_factor'=>2,
-        'water_factor'=>3,
+        'scale'=>array(20,21,22,23),
+        'carbon_factor'=>4,
+        'water_factor'=>1,
       )
     );
     $this->checkers[2] = new Checker(array(
@@ -104,6 +104,47 @@ class Config{
         'scale'=>array(20,21,22,23),
         'carbon_factor'=>4,
         'water_factor'=>1,
+      )
+    );
+    $this->checkers[3] = new Checker(array(
+        'image'=>'images/icon/how-cool_06.png',
+        'show' => 'biker?',
+        'frequent_question' => 'คุณนั่งรถเมล์บ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(20,21,22,23),
+        'carbon_factor'=>4,
+        'water_factor'=>1,
+      )
+    );
+    $this->checkers[4] = new Checker(array(
+        'image'=>'images/icon/how-cool_07.png',
+        'show' => 'train',
+        'frequent_question' => 'คุณนั่งรถเมล์บ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(20,21,22,23),
+        'carbon_factor'=>4,
+        'water_factor'=>1,
+      )
+    );
+    $this->checkers[5] = new Checker(array(
+        'image'=>'images/icon/how-cool_08.png',
+        'show' => 'touer',
+        'frequent_question' => 'คุณนั่งรถเมล์บ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(20,21,22,23),
+        'carbon_factor'=>4,
+        'water_factor'=>1,
+      )
+    );
+    
+    $this->checkers[6] = new Checker(array(
+        'image'=>'images/icon/how-cool_10.png',
+        'show' => 'plane',
+        'frequent_question' => 'คุณนั่งเครื่องบินบ่อยแค่ไหนคะ',
+        'frequent'=>array('2 hr / day','3 hr / day','4 hr / day','5 hr /day'),
+        'scale'=>array(7,8,9,10),
+        'carbon_factor'=>2,
+        'water_factor'=>3,
       )
     );
      
