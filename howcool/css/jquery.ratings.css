@@ -45,7 +45,8 @@ div#navbar {
  clear:left;
 }
 
-.pop .form-item * {
+
+.pop .form-item > * {
   float:left;
 }
 
