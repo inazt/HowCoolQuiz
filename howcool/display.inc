@@ -25,10 +25,10 @@ class DisplayOutput
   public function closeContainer(){
     return $this->closeDiv();
   }
-  public function createGrid($value){
+  public function createGrid($value,$data='<h2></h2>',$attr=null){
     $form_element = array(
       '#type'=>'markup',
-      '#value'=>"<div class='grid_".$value."'><h2></h2></div>",
+      '#value'=>"<div class='grid_".$value." $attr'> $data </div>",
     );
     return $form_element;
   }
@@ -39,10 +39,10 @@ class DisplayOutput
     );
     return $form_element;
   }
-  public function openGrid($value){
+  public function openGrid($value,$attr=null,$data=null){
     $form_element = array(
       '#type'=>'markup',
-      '#value'=>"<div class='grid_".$value."'>",
+      '#value'=>"<div class='grid_".$value." $attr'>$data",
     );
     return $form_element;
    
@@ -189,6 +189,33 @@ class DisplayOutput
 	      <div class='clear'></div>	
         
       </div>";
+  }
+  public function showScaleTop($image) { 
+    return "<div class='container_12'>
+	      <h2>  Result </h2>
+	      <div class='grid_2'>
+		      <p> 1  </p>
+	      </div>
+	      <div class='grid_6'>
+		      <p> <img src=' ". drupal_get_path('module', 'howcool') . '/images/'."$image  '> </p>
+	      </div>
+	  
+ 
+	      <div class='grid_4'> 
+	           
+	             
+	            
+	     <div class='pop'>	";
+  
+  }
+  public function showScaleBottom() {
+    return "</div>
+           
+        </div>
+ 
+	       <div class='clear'></div>	
+        
+      </div>";    
   }
 }
 ?>
