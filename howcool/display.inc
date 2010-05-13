@@ -125,8 +125,7 @@ class ResultOutput
       <div class='container_12'>
         ".//<!--------------------------Start Day------------->
 	      "<div class='grid_2'>
-		      <p>
-		      </p>
+		      <div id = 'weight' style='text-align:center;'></div>
 	      </div>
 	      <div class='grid_5'>
 		     <div id='water-day'></div>
@@ -144,9 +143,7 @@ class ResultOutput
 	      "
 	      
 	      <div class='grid_2'>
-		      <p>
-			      
-		      </p>
+		      <div id = 'weight2' style='text-align:center;'></div>
 	      </div>
 	  
 	       
