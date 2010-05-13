@@ -122,6 +122,7 @@ function email_form($form_state){
   $output = new DisplayOutput();
   $form['openContainer'] = $output->openContainer(12);
   //$form['openGrid']= $output->createGrid(6);
+   $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
   $form['openGrid']= $output->openGrid(4);
   //insert picture
   $form['image'] = $output->insertPicture('images/picquiz.png');
@@ -173,6 +174,7 @@ function personal_form($form_state){
   $output=new DisplayOutput();
  
   $form['conatiner12']=$output->openContainer();
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
   $form['grid1_1']=$output->createGrid(1,'<p>1</p>');
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
   $form['grid1_12']=$output->createGrid(1,'<p>1</p>');
@@ -347,6 +349,7 @@ function check_form($form_state){
   
   $form['openContainer'] = $output->openContainer();
   $form['openHeadlineGrid'] = $output->openGrid(12);
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
     
   /**display check boxes
   */
@@ -401,6 +404,7 @@ function scale_form($form_state){
   //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
   $config = new Config();
   $form['container']=$output->openContainer();
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
   /**
     get olds thing
   */
@@ -422,6 +426,7 @@ function scale_form($form_state){
     $myobject = Checker::getChecker($key);
     //$img_url=$myobject->image;
     //drupal_set_message('-->'.$img_url);
+    
     $form['grid12'.$i]=$output->openGrid(12);  
     //$form['subgrid2']=$output->createGrid(2,'sdff'.$img_url,'alpha');   		
     if($key>0){
