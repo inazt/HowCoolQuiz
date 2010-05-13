@@ -70,8 +70,13 @@ class ResultOutput
   public function showScore() {
      return " 
       <div class='container_12'>
+         <div class = 'grid_12' style = 'height:150px;background-color:black'>
+              this should be image
+         </div>
+         <div class = 'clear'></div>
+         <div class='grid_12 spacer';'></div>
         ".//<!--------------------------Start Day------------->
-	      "<div class='grid_2'>
+	      "<div class='grid_2' style = 'height:100px;'>
 		      <div id = 'weight' style='text-align:center;'></div>
 	      </div>
 	      <div class='grid_5'>
@@ -84,7 +89,7 @@ class ResultOutput
 	      <div class='clear'></div>
 	      ".//<!--------------------------End day & Start Space------------------------>
 	      "
-        <div class='grid_12' stlye='height:10px;'><p></p></div>
+        <div class='grid_12 spacer'></div>
 	      <div class='clear'></div>
 	      ".//<!--------------------------End Space $ Start Year ------------------------>
 	      "
@@ -106,7 +111,7 @@ class ResultOutput
 	      "
 	      
           <div class='grid_12'>
-		      <p>12</p>
+		      <p></p>
 	      </div>
 	      <div class='clear'></div>	
         ".//<!--------------------------End foot content & End Everything ------------------------>      
