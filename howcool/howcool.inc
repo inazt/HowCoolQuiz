@@ -27,7 +27,16 @@ class Checker
     self::$all[$this->key] = $this;
   }
   
-  
+  public static function toLevel($data){
+    $value = $data['carbon']+$data['water'];
+    if($value>120){
+      return 'images/info/1.png';
+    }else if($value>70){
+      return 'images/info/2.png';
+    }else{
+      return 'images/info/3.png';
+    }
+  }
   
   public static function getChecker($k){
     return self::$all[$k];
@@ -247,7 +256,7 @@ function gen_graph($data) {
   $waterday=$data['water']/100;
   $wateryear=$waterday*100;
   $weight = Config::$weight_renges[$data['weight']];
-  
+
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
   drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
@@ -257,5 +266,5 @@ function gen_graph($data) {
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
  $output=new ResultOutput();
-  return $output->showScore();
+  return $output->showScore('images/info/1.png');
 }

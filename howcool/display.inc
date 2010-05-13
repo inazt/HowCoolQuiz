@@ -67,17 +67,27 @@ class DisplayOutput
 }
 class ResultOutput
 {
-  public function showScore() {
+  public function showScore($pic) {
      return " 
       <div class='container_12'>
-         <div class = 'grid_12' style = 'height:150px;background-color:black'>
-              this should be image
+          <div class='grid_12' style='text-align:center;'>
+              <img src='../sites/all/modules/HowCoolQuiz/howcool/images/title_step_result.png'></img>
          </div>
          <div class = 'clear'></div>
-         <div class='grid_12 spacer';'></div>
+         <div class = 'grid_12' style = 'height:150px;'>
+              <img src='../sites/all/modules/HowCoolQuiz/howcool/".$pic."'></img>
+         </div>
+         <div class = 'clear'></div>
+         
+         <div class='grid_12' style='text-align:center;'>
+              <img src='../sites/all/modules/HowCoolQuiz/howcool/images/title_step_result_2.png'></img>
+         </div>
+         <div class = 'clear'></div>
         ".//<!--------------------------Start Day------------->
-	      "<div class='grid_2' style = 'height:100px;'>
-		      <div id = 'weight' style='text-align:center;'></div>
+	      "<div class='grid_2' style = 'height:150px;'>
+		      <div id = 'weight' style='text-align:right;'></div>
+		      <br>
+		      <img src='../sites/all/modules/HowCoolQuiz/howcool/images/info/w.png'></img>
 	      </div>
 	      <div class='grid_5'>
 		     <div id='water-day'></div>
@@ -89,13 +99,17 @@ class ResultOutput
 	      <div class='clear'></div>
 	      ".//<!--------------------------End day & Start Space------------------------>
 	      "
-        <div class='grid_12 spacer'></div>
-	      <div class='clear'></div>
+        
+	      <div class='grid_12' style='text-align:center;'>
+              <img src='../sites/all/modules/HowCoolQuiz/howcool/images/title_step_result_3.png'></img>
+         </div>
 	      ".//<!--------------------------End Space $ Start Year ------------------------>
 	      "
 	      
 	      <div class='grid_2'>
 		      <div id = 'weight2' style='text-align:center;'></div>
+		      <br>
+		      <img src='../sites/all/modules/HowCoolQuiz/howcool/images/info/w.png'></img>
 	      </div>
 	  
 	       
