@@ -139,7 +139,7 @@ function email_form($form_state){
       '#required' => TRUE,
     );
   }
-  //$form['#action'] = url('form/step2');
+
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
   $form['submit'] = array(
     '#type' => 'submit',
@@ -327,7 +327,11 @@ function check_form($form_state){
   
   /**display check boxes
   */
-  drupal_set_message(print_r($form_state['values'],1));
+  $form['opentagDiv'] = array(
+    '#type'=>'markup',
+    '#value'=>"<div class='cool_check'>",
+  
+  );
   if(empty($form_state['values']['count'])){
     $form['point'] = array(
       '#type' => 'checkboxes',
@@ -346,6 +350,11 @@ function check_form($form_state){
       '#default_value' =>$def_value,
     );
   }
+  $form['closetagDiv'] = array(
+    '#type'=>'markup',
+    '#value'=>"</div><div class = 'cool_submit'",
+  
+  );
   $form['page'] = array('#type' => 'hidden', '#value' => 'check');  
   $form['back'] = array(
     '#type' => 'submit',
@@ -356,6 +365,11 @@ function check_form($form_state){
     '#type' => 'submit',
     '#value' => t('Next'),
    
+  );
+  $form['closetagDivSubmit'] = array(
+    '#type'=>'markup',
+    '#value'=>"</div>",
+  
   );
   return $form;
   
