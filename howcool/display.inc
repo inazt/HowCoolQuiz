@@ -131,5 +131,32 @@ class DisplayOutput
         
       </div>";
   }
+  public function showScaleTop($image) { 
+    return "<div class='container_12'>
+	      <h2>  Result </h2>
+	      <div class='grid_2'>
+		      <p> 1  </p>
+	      </div>
+	      <div class='grid_6'>
+		      <p> <img src=' ". drupal_get_path('module', 'howcool') . '/images/'."$image  '> </p>
+	      </div>
+	  
+ 
+	      <div class='grid_4'> 
+	           
+	             
+	            
+	     <div class='pop'>	";
+  
+  }
+  public function showScaleBottom() {
+    return "</div>
+           
+        </div>
+ 
+	       <div class='clear'></div>	
+        
+      </div>";    
+  }
 }
 ?>
