@@ -57,6 +57,7 @@ class Config{
       '18-20' => '18-20 ปี',
   );
   public static $job_renges =array(
+      "null" => 'อาชีพ',
       'student' => 'นักเรียน', 
       'teacher' => 'อาจารย์', 
       'farmer' => 'สันหลังของชาติ',

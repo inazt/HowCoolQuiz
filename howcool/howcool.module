@@ -123,6 +123,15 @@ function form_generation_submit(&$form, &$form_state) {
 }
 
 function email_form($form_state){
+  //$form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
+  $form['sex']= array('#type' => 'hidden', '#value' => $form_state['values']['sex']);
+  $form['age']= array('#type' => 'hidden', '#value' => $form_state['values']['age']);
+  $form['job']= array('#type' => 'hidden', '#value' => $form_state['values']['job']);
+  $form['address']= array('#type' => 'hidden', '#value' => $form_state['values']['address']);
+  $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
+  $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
+  $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
+  
   $output = new DisplayOutput();
   $form['openContainer'] = $output->openContainer(12);
   //$form['openGrid']= $output->createGrid(6);
@@ -421,8 +430,8 @@ function scale_form($form_state){
   $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
   $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
   $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
-
-
+  //$form['point']= array('#type' => 'hidden', '#value' => $form_state['values']['point']); --- got and error
+ // drupal_set_message(print_r($form['point'],1));
   
   
   //
@@ -477,6 +486,7 @@ function scale_form($form_state){
 function logic($form_state){
   $config = new Config();
   $hash = getHash();
+  $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
 
   $water = 0;
   $carbon = 0;
@@ -516,12 +526,23 @@ function form_generation_validate(&$form, &$form_state) {
     drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
   //drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
   //form_set_error('time', t('An event may not end before it starts.'));
-  if($form_state['values']['page']=='personal' && $form_state['values']['age']=='null') {
+  $values=$form_state['values'];
+  $page=$values['page'];
+  if($page=='personal' && $values['age']=='null') {
     form_set_error('time', t('age is required!'));
   }
-  if($form_state['values']['page']=='check' && array_sum($form_state['values']['point'])==0) {
+  else if($page=='check' && array_sum($values['point'])==0) {
      form_set_error('time', t('activity is required!'));
   }
+  else if ($page=='email' && strlen(trim($values['email'])) > 0  ) {
+    if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $values['email']))
+       form_set_error('submitted][email_address', t('Your email address is not valid.'));
+      //form_set_error('time',t('email invalid'));  
+  }
+  else { 
+    //drupal_set_message('else naja page = '. $page); 
+  }
+
 
 }
 
