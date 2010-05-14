@@ -67,9 +67,9 @@ class Config{
       'chon' => 'ชลบุรี',
   );
   public static $weight_renges =array(
-      '1' => '30-39', 
-      '2' => '40-49', 
-      '3' => '50-59',
+      '1' => '45', 
+      '2' => '50', 
+      '3' => '51',
   );
   public static $status_renges =array(
       '1' => 'โสด', 
@@ -280,5 +280,5 @@ function gen_graph($data) {
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
  $output=new ResultOutput();
-  return $output->showScore('images/info/1.png');
+  return $output->showScore('images/info/2.png');
 }

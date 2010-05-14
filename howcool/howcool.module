@@ -166,6 +166,7 @@ function email_form($form_state){
   );
   */
   $form['closeEmailGrid'] = $output->closeGrid();
+ 
   $form['closeContainer'] = $output->closeContainer();
   return $form;
 }
@@ -175,10 +176,10 @@ function personal_form($form_state){
  
   $form['conatiner12']=$output->openContainer();
   $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menupersonal.png' ."'> ",'spacer');
-  $form['grid1_1']=$output->createGrid(1,'<p>1</p>');
+  $form['grid1_1']=$output->createGrid(1,'<p></p>');
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
-  $form['grid1_12']=$output->createGrid(1,'<p>1</p>');
-  $form['grid1_13']=$output->openGrid(5,'<p>5</p>');
+  $form['grid1_12']=$output->createGrid(1,'<p></p>');
+  $form['grid1_13']=$output->openGrid(5,'<p></p>');
   $form['openDiv']=$output->openDiv('pop');
  
   $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
@@ -313,7 +314,7 @@ function personal_form($form_state){
   
   $form['closeDivPop']=$output->closeDiv();
   $form['closeGrid']=$output->closeGrid();
-  $form['grid1_3']=$output->createGridWithLine(1,'<p>1</p>');
+  $form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
   $form['closeContainer']=$output->closeContainer();
   
   return $form;
@@ -507,9 +508,9 @@ function logic($form_state){
 
 
 function form_generation_validate(&$form, &$form_state) {
-  drupal_set_message('ok do');
+  //drupal_set_message('ok do');
     drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
-  drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
+  //drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
   //form_set_error('time', t('An event may not end before it starts.'));
   if($form_state['values']['page']=='personal' && $form_state['values']['age']=='null') {
     form_set_error('time', t('age is required!'));

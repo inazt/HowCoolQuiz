@@ -49,8 +49,12 @@ div#navbar {
 .pop .form-item > * {
   float:left;
 }
+.pop .form-required{
+  color:white;
+}
 
 .pop .form-item > label {
+  color:white;
   width: 50%;
 }
 
@@ -59,4 +63,40 @@ div#navbar {
 }
 .pop .form-item > div {
   width: 50%;
+}
+#weight{
+ color:white;
+ text-align:center;
+}
+#weightz {
+color:white;
+ text-align:center;
+}
+#point_water{
+  color:white;
+ text-align:center;
+}
+#point_carbon{
+ color:white;
+ text-align:center;
+}
+#point_water_year{
+  color:white;
+  text-align:center;
+}
+#point_carbon_year{
+  color:white;
+  text-align:center;
+}
+.people_pic{
+ text-align:center;
+}
+
+.HeadResult{
+  font-size:25px;
+  color:white;
+   text-align:center;
+}
+.graph_controller{
+  vertical-align:bottom;
 }

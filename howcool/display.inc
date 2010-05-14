@@ -78,26 +78,43 @@ class ResultOutput
          <div class = 'grid_12' style = 'height:150px;'>
               <img src='../".drupal_get_path('module','howcool')."/".$pic."'></img>
          </div>
+  
          <div class = 'clear'></div>
          
          <div class='grid_12' style='text-align:center;'>
-              <img src='../".drupal_get_path('module','howcool')."/images/title_step_result_2.png'></img>
+               <img src='../".drupal_get_path('module','howcool')."/images/title_step_result_2.png'></img>
          </div>
          <div class = 'clear'></div>
         ".//<!--------------------------Start Day------------->
-	      "<div class='grid_2' style = 'height:150px;'>
-		      <div id = 'weight' style='text-align:right;'></div>
-		      <br>
-		      <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
+	      "
+	      <div class = 'graph_controller'>
+	      <div class='grid_2' >
+		      <div id = 'weight' class ='people_pic'></div>
+		      <div  class ='people_pic'>
+		        <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
+		      </div>
+		      <div class= 'HeadResult'>
+		        ตัวคุณ
+		      </div>
 	      </div>
 	      <div class='grid_5'>
+	       <div id = 'point_water'></div>
 		     <div id='water-day'></div>
+		    
+		     <div class = 'HeadResult'>
+		        ปริมาณน้ำ
+		      </div>
 	      </div>
  
 	      <div class='grid_5'>
+	         <div id = 'point_carbon'></div>
 		       <div id='carbon-day'></div>
+		       <div class = 'HeadResult'>
+		         ปริมาณคาร์บอน
+		      </div>
 	      </div>
 	      <div class='clear'></div>
+	      </div>
 	      ".//<!--------------------------End day & Start Space------------------------>
 	      "
         
@@ -108,18 +125,30 @@ class ResultOutput
 	      "
 	      
 	      <div class='grid_2'>
-		      <div id = 'weight2' style='text-align:center;'></div>
-		      <br>
-		      <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
+		      <div id = 'weightz'></div>
+		      <div  class ='people_pic'>
+		        <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
+		      </div>
+		      <div class= 'HeadResult'>
+		        ตัวคุณ
+		      </div>
 	      </div>
 	  
 	       
 	      <div class='grid_5'>
-		    <div id='water-year'></div>
+	        <div id = 'point_water_year'></div>
+		      <div id='water-year'></div>
+		      <div class = 'HeadResult'>
+		         ปริมาณน้ำ
+		      </div>
 	      </div>
 	     
 	      <div class='grid_5'>
+	          <div id = 'point_carbon_year'></div>
 		        <div id='carbon-year'></div>
+		        <div class = 'HeadResult'>
+		         ปริมาณคาร์บอน
+		      </div>
 	      </div>
 	      <div class='clear'></div>	
 	      ".//<!--------------------------End Year & Start foot Content ------------------------>
