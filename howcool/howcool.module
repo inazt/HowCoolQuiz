@@ -50,6 +50,8 @@ function form_view(){
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
+   drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
+   drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
    //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
   //$show = 'this is form--->';
 
@@ -60,6 +62,8 @@ function form_view(){
 function result_view($input){
   //$show = 'this is result!!'.$input;
   //$show .= print_r(get_result($input),1);
+     drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
+     drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
   $show =gen_graph(get_result($input));
   return $show;
 }
@@ -122,7 +126,7 @@ function email_form($form_state){
   $output = new DisplayOutput();
   $form['openContainer'] = $output->openContainer(12);
   //$form['openGrid']= $output->createGrid(6);
-   $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
   $form['openGrid']= $output->openGrid(4);
   //insert picture
   $form['image'] = $output->insertPicture('images/picquiz.png');

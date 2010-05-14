@@ -10,6 +10,7 @@
 }
 .full-carbon {
   background-image: url('../images/full-carbon.png');
+    height: 48px;
 }
 
 .empty-water {
@@ -24,6 +25,7 @@
 
 .full-water {
   background-image: url('../images/full-water.png');
+  height: 48px;
 }
 .new_line{
   clear: left;
@@ -65,26 +67,32 @@ div#navbar {
   width: 50%;
 }
 #weight{
+font-size:25px;
  color:white;
  text-align:center;
 }
 #weightz {
 color:white;
- text-align:center;
+   font-size:25px;
+   text-align:center;
 }
 #point_water{
+  font-size:25px;
   color:white;
  text-align:center;
 }
 #point_carbon{
- color:white;
- text-align:center;
+  font-size:25px;
+   color:white;
+   text-align:center;
 }
 #point_water_year{
+  font-size:25px;
   color:white;
   text-align:center;
 }
 #point_carbon_year{
+  font-size:25px;
   color:white;
   text-align:center;
 }
@@ -93,10 +101,10 @@ color:white;
 }
 
 .HeadResult{
-  font-size:25px;
+  font-size:35px;
   color:white;
    text-align:center;
 }
-.graph_controller{
-  vertical-align:bottom;
+.sufon{
+ 
 }

@@ -70,51 +70,62 @@ class ResultOutput
   public function showScore($pic) {
      
      return " 
+     
       <div class='container_12'>
           <div class='grid_12' style='text-align:center;'>
               <img src='../".drupal_get_path('module','howcool')."/images/title_step_result.png'></img>
          </div>
          <div class = 'clear'></div>
+          	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
          <div class = 'grid_12' style = 'height:150px;'>
               <img src='../".drupal_get_path('module','howcool')."/".$pic."'></img>
          </div>
   
          <div class = 'clear'></div>
-         
+          	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
          <div class='grid_12' style='text-align:center;'>
                <img src='../".drupal_get_path('module','howcool')."/images/title_step_result_2.png'></img>
          </div>
          <div class = 'clear'></div>
+         	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
         ".//<!--------------------------Start Day------------->
 	      "
-	      <div class = 'graph_controller'>
-	      <div class='grid_2' >
-		      <div id = 'weight' class ='people_pic'></div>
-		      <div  class ='people_pic'>
-		        <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
-		      </div>
-		      <div class= 'HeadResult'>
-		        ตัวคุณ
-		      </div>
+	      <div class='grid_12'>
+	        <div class='grid_2 alpha'> 
+	              <div id = 'weight' class ='people_pic'></div>
+      		      
+	        </div>
+	        <div class='grid_5'>
+	              <div id = 'point_water'></div>
+	        </div>
+	        <div class='grid_5 omega'>
+      	         <div id = 'point_carbon'></div>
+	        </div>
+	      </div>
+	      <div class = 'clear'></div>
+	      <div class = 'grid_12'>
+	      <div class='grid_2 alpha' >
+		            <div  class ='people_pic'>
+		              <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
+		            </div>
+		            <div class= 'HeadResult'>ตัวคุณ</div>
 	      </div>
 	      <div class='grid_5'>
-	       <div id = 'point_water'></div>
+	       
 		     <div id='water-day'></div>
 		    
-		     <div class = 'HeadResult'>
-		        ปริมาณน้ำ
-		      </div>
+		     <div class = 'HeadResult'>ปริมาณน้ำ</div>
 	      </div>
  
-	      <div class='grid_5'>
-	         <div id = 'point_carbon'></div>
+	      <div class='grid_5 omega'>
+
 		       <div id='carbon-day'></div>
-		       <div class = 'HeadResult'>
-		         ปริมาณคาร์บอน
-		      </div>
+		       <div class = 'HeadResult'>ปริมาณคาร์บอน</div>
+	      </div>  
 	      </div>
 	      <div class='clear'></div>
-	      </div>
+	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
+          
 	      ".//<!--------------------------End day & Start Space------------------------>
 	      "
         
@@ -123,34 +134,29 @@ class ResultOutput
          </div>
 	      ".//<!--------------------------End Space $ Start Year ------------------------>
 	      "
-	      
+	      	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
 	      <div class='grid_2'>
 		      <div id = 'weightz'></div>
 		      <div  class ='people_pic'>
 		        <img src='../".drupal_get_path('module','howcool')."/images/info/w.png'></img>
 		      </div>
-		      <div class= 'HeadResult'>
-		        ตัวคุณ
-		      </div>
+		      <div class= 'HeadResult'>ตัวคุณ</div>
 	      </div>
 	  
 	       
 	      <div class='grid_5'>
 	        <div id = 'point_water_year'></div>
 		      <div id='water-year'></div>
-		      <div class = 'HeadResult'>
-		         ปริมาณน้ำ
-		      </div>
+		      <div class = 'HeadResult'>ปริมาณน้ำ</div>
 	      </div>
 	     
 	      <div class='grid_5'>
 	          <div id = 'point_carbon_year'></div>
 		        <div id='carbon-year'></div>
-		        <div class = 'HeadResult'>
-		         ปริมาณคาร์บอน
-		      </div>
+		        <div class = 'HeadResult'>ปริมาณคาร์บอน</div>
 	      </div>
 	      <div class='clear'></div>	
+        	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
 	      ".//<!--------------------------End Year & Start foot Content ------------------------>
 	      "
 	      
@@ -160,7 +166,9 @@ class ResultOutput
 	      <div class='clear'></div>	
         ".//<!--------------------------End foot content & End Everything ------------------------>      
         "
-      </div>";
+      </div>
+  
+      ";
   }
 }
 ?>
