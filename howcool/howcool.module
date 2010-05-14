@@ -426,8 +426,8 @@ function scale_form($form_state){
   $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
   $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
   $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
-
-
+  //$form['point']= array('#type' => 'hidden', '#value' => $form_state['values']['point']); --- got and error
+ // drupal_set_message(print_r($form['point'],1));
   
   
   //
@@ -482,6 +482,7 @@ function scale_form($form_state){
 function logic($form_state){
   $config = new Config();
   $hash = getHash();
+  $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
 
   $water = 0;
   $carbon = 0;
