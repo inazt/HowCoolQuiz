@@ -75,9 +75,97 @@ function howcool_schema(){
     ),
     'primary key' => array('nid'),
   );
+  $schema['factor']=array(
+    'description' =>'Display Data Content',
+    'fields'=>array(    
+      'factor_id' => array(
+        'description' => 'id of factor',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+      ),
+      
+      'carbon_factor' => array(
+        'description' => 'carbon_value',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+      'water_factor' => array(
+        'description' => 'carbon_value',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+      'display_id' => array(
+        'description' => 'id of display',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+         
+     ),
+     'primary key' => array('factor_id'),
+  );
+  $schema['display']=array(
+    'description' =>'Display Data Content',
+    'fields'=>array(    
+      'display_id' => array(
+        'description' => 'id of display',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+      ),
+      
+      'subject' => array(
+        'description' => 'subject',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+     ),
+     'primary key' => array('display_id'),
+  );
+  $schema['display_item']=array(
+    'description' =>'Display Item Data Content',
+    'fields'=>array(    
+      'item_id' => array(
+        'description' => 'id of item',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+      ),
+      
+      'label' => array(
+        'description' => 'label',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+      'value' => array(
+        'description' => 'value',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+      'display_id' => array(
+        'description' => 'id of display',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+     ),
+     'primary key' => array('item_id'),
+  );
+  
   return $schema;
 }
-
 function howcool_uninstall(){
   drupal_uninstall_schema('howcool');
 }
