@@ -118,7 +118,18 @@ function howcool_schema(){
         'unsigned' => TRUE,
         'not null'=>TRUE
       ),
-      
+      'name'=> array(
+        'description' => 'image path',
+        'type' => 'varchar',
+        'length' => 20,
+        'not null'=>TRUE
+      ),
+      'image_path'=> array(
+        'description' => 'image path',
+        'type' => 'varchar',
+        'length' => 20,
+        'not null'=>TRUE
+      ),
       'subject' => array(
         'description' => 'subject',
         'type' => 'varchar',

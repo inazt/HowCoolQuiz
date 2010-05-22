@@ -28,7 +28,16 @@ function howcool_menu() {
     'file' => 'howcool.inc',
    
   );
-    
+  $items['management'] =array(
+    'title'=> 'HowCool!DataManagement',
+    'description'=>'Show Data',
+    'page callback'=>'data_view',
+    'access arguments'=>array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'datamanagement.inc',
+   
+  );
+  
   return $items;
 }
 
