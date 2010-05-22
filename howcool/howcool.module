@@ -28,7 +28,16 @@ function howcool_menu() {
     'file' => 'howcool.inc',
    
   );
-    
+  $items['management'] =array(
+    'title'=> 'HowCool!DataManagement',
+    'description'=>'Show Data',
+    'page callback'=>'data_view',
+    'access arguments'=>array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'datamanagement.inc',
+   
+  );
+  
   return $items;
 }
 
@@ -135,12 +144,15 @@ function email_form($form_state){
   $output = new DisplayOutput();
   $form['openContainer'] = $output->openContainer(12);
   //$form['openGrid']= $output->createGrid(6);
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menupersonal.png' ."'> ",'spacer');
+  $form['block1']=$output->createGrid(4);
   $form['openGrid']= $output->openGrid(4);
   //insert picture
   $form['image'] = $output->insertPicture('images/picquiz.png');
   $form['closeGrid'] = $output->closeGrid();
-  $form['openEmailGrid'] = $output->openGrid(8);
+  $form['block2']=$output->createGridWithLine(4);
+  $form['block3']=$output->createGrid(4);
+  $form['openEmailGrid'] = $output->openGrid(4);
   /*$form['myhtml'] = array(
     '#type'=>'markup',
     '#value'=>theme('headline','Yo Mannn'),
@@ -171,6 +183,12 @@ function email_form($form_state){
     '#value' => t('Next'),
     
   );
+  $form['submit']['#theme'] = 'button';
+  $form['submit']['#button_type'] = 'image';
+  $form['submit']['#attributes'] = array(
+    'src' => drupal_get_path('module', 'howcool') . '/images/menuchoice2.png' ,
+    'alt' => t(Search)
+  );
   /*
   $form['myhtml_footer'] = array(
     '#type'=>'markup',
@@ -179,7 +197,7 @@ function email_form($form_state){
   );
   */
   $form['closeEmailGrid'] = $output->closeGrid();
- 
+  $form['block4']=$output->createGrid(4);
   $form['closeContainer'] = $output->closeContainer();
   return $form;
 }

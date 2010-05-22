@@ -4,7 +4,7 @@ class DisplayOutput
   public function insertPicture($path){
     $form_element = array(
       '#type'=> 'markup',
-      '#value'=> '<img src='.drupal_get_path('module', 'howcool').'/'.$path.'></img>',
+      '#value'=> '<center><img src='.drupal_get_path('module', 'howcool').'/'.$path.'></img></center>',
     );
     return $form_element;
   }
