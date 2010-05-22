@@ -46,7 +46,11 @@ div#navbar {
  width:100%;
  clear:left;
 }
+. 
 
+.pop .form-select { position: relative; width: 190px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } 
+
+.disabled { opacity: 0.5; filter: alpha(opacity=50); }
 
 .pop .form-item > * {
   float:left;
@@ -57,6 +61,7 @@ div#navbar {
 
 .pop .form-item > label {
   color:white;
+  font-size:23px;
   width: 50%;
 }
 

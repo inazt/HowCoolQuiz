@@ -63,11 +63,13 @@ class Config{
       'farmer' => 'สันหลังของชาติ',
   );
   public static $address_renges =array(
+      "null"=>'จังหวัด',
       'bkk' => 'กรุงเทพ', 
       'chg' => 'เชียงใหม่', 
       'chon' => 'ชลบุรี',
   );
   public static $weight_renges =array(
+      "null"=>'น้ำหนัก',
       '1' => '45', 
       '2' => '50', 
       '3' => '51',
@@ -78,6 +80,7 @@ class Config{
       '3' => 'เสียยยยยชีวิต',
   );
   public static $hight_renges =array(
+      "null"=>'ส่วนสูง',
       '1' => '100-130', 
       '2' => '131-150', 
       '3' => '151-160',
