@@ -28,7 +28,7 @@ class DataManagement{
   function getAllDisplayData(){
     $data = array();
     $table  ='display';
-    $result = db_query("SELECT * FROM $table ");
+    //$result = db_query("SELECT * FROM $table ");
     $array = array();
     $index = 0;
     
@@ -41,25 +41,37 @@ FROM display
 JOIN display_item ON display.display_id = display_item.display_id
 ) AS data ON data.display_id = factor.display_id";
     
-    
+    $result = db_query($mysql);
+    $prev_display_id = -1;
+    $i = 0;
+    $j = 0;
     while ($row = db_fetch_object($result))
     {
-      $array['display_id'] = $row->display_id;
-      $array['name'] = $row->name;
-      $array['image_path'] = $row->image_path;
-      $array['subject'] = $row->subject;
-      $table2 = 'display_item';
-      $display_id = $array['display_id'];
-      $result2 = db_query("SELECT * FROM $table2 WHERE display_id = '$display_id'");
-      
-      
-      $array['items'] = array();
-      $i = 0;
-      while($row2 = db_fetch_object($result2)){
-        $array['items'][$i] = array('item_id'=>$row2->item_id,'label'=>$row2->label,'value'=>$row2->value);
+      $display_id = $row->display_id;
+      if($prev_display_id==-1){
+        $prev_display_id=$display_id;
+      }else if($prev_display_id!=$display_id){
+        drupal_set_message('new one');
         $i++;
+        $j=0;
+        $prev_display_id=$display_id;
       }
-      $data[$index++] = $array;
+      
+      
+      $data[$i]['display_id'] = $row->display_id;
+      $data[$i]['name'] = $row->name;
+      $data[$i]['image_path'] = $row->image_path;
+      $data[$i]['subject'] = $row->subject;
+      
+      if($j ==0){
+        $data[$i]['items'] = array();
+      }
+      
+      $data[$i]['items'][$j]['label'] = $row->label;
+      $data[$i]['items'][$j]['value'] = $row->value;
+      $data[$i]['items'][$j]['carbon_factor'] = $row->carbon_factor;
+      $data[$i]['items'][$j]['water_factor'] = $row->water_factor;
+      $j++;
       //drupal_set_message(print_r($array['items'][0],1));
     }
     //drupal_set_message('---------------');
@@ -70,7 +82,6 @@ JOIN display_item ON display.display_id = display_item.display_id
     $data = array();
     $data['carbon']=3;
     $data['water'] = 4;
-    $input
   
     return $data;
   }
@@ -80,7 +91,7 @@ function data_view(){
   //$ans = DataManagement::addBehavior("รถไฟ","images/icon/how-cool_08.png","คุณนั่งรถไฟบ่อยแค่ไหน");
   //$ans = DataManagement::addBehavior("รถไฟฟ้า","images/icon/how-cool_09.png","คุณนั่งรถไฟฟ้าบ่อยแค่ไหน");
   $ans = DataManagement::getAllDisplayData();
-  $show = 'test'.print_r($ans[1],1)."<br>";
+  $show = 'test'.print_r($ans[0]['items'],1)."<br>";
   //$show .= print_r($ans['items'][0],1);
   return $show;
 }
