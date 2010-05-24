@@ -31,9 +31,21 @@ class DataManagement{
       );
     $result .= drupal_write_record($table, $data);
     DataManagement::addBehavior('รถยนต์',"images/icon/how-cool_03.png",'ระยะที่ขับๆๆๆ');
-    
-    
-    
+    DataManagement::addBehavior('รถยนต์ขนาดใหญ่',"images/icon/how-cool_04.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถจักรยานยนต์',"images/icon/how-cool_05.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถไฟฟ้า',"images/icon/how-cool_06.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถไฟ',"images/icon/how-cool_07.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถเมล์,รถทัวร์',"images/icon/how-cool_08.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องบิน',"images/icon/how-cool_10.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('หลอดไฟ',"images/icon/how-cool_11.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องวิทยุ',"images/icon/how-cool_12.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('โทรทัศน์',"images/icon/how-cool_13.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องเล่นเกมส์',"images/icon/how-cool_14.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('คอมพิวเตอร์',"images/icon/how-cool_15.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('พัดลม',"images/icon/how-cool_16.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องปรับอากาศ',"images/icon/how-cool_17.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('โทรศัพท์มือถือ',"images/icon/how-cool_18.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องซักผ้า',"images/icon/how-cool_19.png",'ระยะที่ขับๆๆๆ');
     return $result;
   }
    
