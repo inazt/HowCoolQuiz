@@ -1,7 +1,7 @@
 <?php
 class DataManagement{
 
-  public static function start(){
+  public static function config_start(){
     $data = array(
         'config_id' =>'',
         'description' =>'Human Constant',
@@ -10,6 +10,28 @@ class DataManagement{
     );
     $table = 'howcool_config';
     $result = drupal_write_record($table, $data);
+    $data = array(
+        'config_id' =>'',
+        'description' =>'cool',
+        'carbon'=>0.99,
+        'water'=>5.75,
+    );
+    $result .= drupal_write_record($table, $data);
+    $data = array(
+        'config_id' =>'',
+        'description' =>'ok',
+        'carbon'=>0.99,
+        'water'=>5.75,
+    );
+    $result .= drupal_write_record($table, $data);
+    $data = array(
+        'config_id' =>'',
+        'description' =>'bad',
+        'carbon'=>0.99,
+        'water'=>5.75,
+    );
+    $result .= drupal_write_record($table, $data);
+    
     return $result;
   }
    
@@ -159,7 +181,7 @@ function data_view(){
   //$ans = DataManagement::getScaleData();
   //$test = array_combine($ans[2]['value'],$ans[2]['label']);
   //$show = 'test'.print_r($test,1)."<br>";
-  $ans = DataManagement::start();
+  $ans = DataManagement::config_start();
   $show = 'start'; 
   return $show;
 }
