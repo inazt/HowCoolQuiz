@@ -480,6 +480,7 @@ function scale_form($form_state){
     $form['subgrid10'.$i] = $output->openGrid(10,'omega'); 
     $form['carbon'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['carbon']);
     $form['water'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['water']);
+
     $form['divpop'.$i] = $output->openDiv('pop');
     $form['scale'.$i] = array(
       '#type' => 'select', 
@@ -523,11 +524,11 @@ function logic($form_state){
     $carbon_value =$form_state['values']['carbon'.$i];
     $water_value =$form_state['values']['water'.$i];
     $scale = $form_state['values']['scale'.$i];
-
+     
     $water+=$scale*$water_value;
     $carbon+=$scale*$carbon_value;
   }
-  
+  drupal_set_message($water.",".$carbon);
   $data = array(
     'nid' => '',
     'hash' => $hash,

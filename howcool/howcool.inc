@@ -270,6 +270,7 @@ function gen_graph($data) {
   $carbonday=$data['carbon']/100;
   $point_carbon = $data['carbon'];
   $point_water = $data['water'];
+
   $carbonyear=$carbonday*100;
   $waterday=$data['water']/100  ;
   $wateryear=$waterday*100;

@@ -31,7 +31,12 @@ class DataManagement{
       );
     $result .= drupal_write_record($table, $data);
     DataManagement::addBehavior('รถยนต์',"images/icon/how-cool_03.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addFactor(1,0.106,0);
+    DataManagement::addBehaviorItem(1,"1 กิโลเมตร",1);
+    
     DataManagement::addBehavior('รถยนต์ขนาดใหญ่',"images/icon/how-cool_04.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addFactor(2,0.106,0);
+    DataManagement::addBehaviorItem(2,"1 กิโลเมตร",1);
     DataManagement::addBehavior('รถจักรยานยนต์',"images/icon/how-cool_05.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('รถไฟฟ้า',"images/icon/how-cool_06.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('รถไฟ',"images/icon/how-cool_07.png",'ระยะที่ขับๆๆๆ');
@@ -46,11 +51,9 @@ class DataManagement{
     DataManagement::addBehavior('เครื่องปรับอากาศ',"images/icon/how-cool_17.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('โทรศัพท์มือถือ',"images/icon/how-cool_18.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('เครื่องซักผ้า',"images/icon/how-cool_19.png",'ระยะที่ขับๆๆๆ');
-    
     DataManagement::addBehavior('เครื่องดูดฝุ่น',"images/icon/how-cool_20.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('ตู้เย็น',"images/icon/how-cool_21.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('ไม่โครเวฟ',"images/icon/how-cool_22.png",'ระยะที่ขับๆๆๆ');
-    
     DataManagement::addBehavior('เตาอบไฟฟ้า',"images/icon/how-cool_23.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('เครื่องทำน้ำอุ่น',"images/icon/how-cool_24.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('ฝักบัว',"images/icon/how-cool_25.png",'ระยะที่ขับๆๆๆ');
@@ -79,6 +82,8 @@ class DataManagement{
     return $result;
   }
    
+   
+   
   public static function addBehavior($name,$image_path,$subject){   
     $data = array(
     'display_id' => '',
@@ -90,7 +95,19 @@ class DataManagement{
     $result = drupal_write_record($table, $data);
     return $result;
   }
-
+   
+   public static function addFactor($id,$carbon,$water){
+      $data = array(
+    'display_id' => $id,
+    'carbon_factor' => $carbon,
+    'water_factor' => $water,
+    'factor_id' => '',
+      );
+    $table = 'factor';
+    $result = drupal_write_record($table, $data);
+    return $result;
+   
+   }
    
   function addBehaviorItem($id,$label,$value){
      $data = array(
