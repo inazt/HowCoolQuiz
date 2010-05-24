@@ -174,7 +174,25 @@ function howcool_schema(){
      ),
      'primary key' => array('item_id'),
   );
-  
+  $schema['province'] = array (
+  	'descripton' => 'Province list',
+	'fields' => array(
+
+		'nid' => array(
+			'description' => 'The primary identifier for a node',
+			'type' => 'serial',
+			'unsigne' => TRUE,
+			'not null' => TRUE
+		),
+
+		'name' => array(
+			'description' => 'Province name',
+			'type' => 'varchar',
+			'length' => 32,
+			'not null' => TRUE),
+		),
+	'primary key' => array('nid'),
+	);
   return $schema;
 }
 function howcool_uninstall(){
