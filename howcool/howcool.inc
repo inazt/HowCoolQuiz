@@ -1,7 +1,6 @@
 <?php
 //nat = function t include ma jak nat's module
 include 'display.inc';
-include 'datamanagement.inc';
 class Checker
 {
   public static $count=0;
@@ -53,7 +52,10 @@ class Config{
   public $checkers;
   public static $age_renges =array(
       "null"=>'ใส่อายุเลยจ้า',
-  );
+      '8-13' => '8-13 ปี', 
+      '14-17' => '14-17 ปี', 
+      '18-20' => '18-20 ปี',
+ );
   public static $job_renges =array(
       "null" => 'อาชีพ',
       'student' => 'นักเรียน', 
