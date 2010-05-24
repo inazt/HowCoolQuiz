@@ -52,9 +52,6 @@ class Config{
   public $checkers;
   public static $age_renges =array(
       "null"=>'ใส่อายุเลยจ้า',
-      '8-13' => '8-13 ปี', 
-      '14-17' => '14-17 ปี', 
-      '18-20' => '18-20 ปี',
   );
   public static $job_renges =array(
       "null" => 'อาชีพ',
@@ -88,6 +85,19 @@ class Config{
   
      
   function __construct(){
+
+
+    $mysql = "select name from {province} ";
+ 
+    while ($row = db_fetch_object($result))
+    {
+      $age_renges[$row->name]=$row->name;
+      drupal_set_message( print_r($row,1));
+    }
+      
+    $result = db_query($mysql);
+
+    
     $this->checkers = array();
     $this->checkers[0] = new Checker(array(
         'image'=>'images/icon/how-cool_03.png',
