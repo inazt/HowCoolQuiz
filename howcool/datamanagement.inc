@@ -1,36 +1,38 @@
 <?php
 class DataManagement{
-
   public static function config_start(){
-    $data = array(
-        'config_id' =>'',
-        'description' =>'Human Constant',
-        'carbon'=>0.99,
-        'water'=>5.75,
-    );
     $table = 'howcool_config';
+    $data = array(
+    'config_id' => '',
+    'description' => 'Human Constant',
+    'carbon' => 0.99,
+    'water' => 5.75,
+      );
     $result = drupal_write_record($table, $data);
     $data = array(
-        'config_id' =>'',
-        'description' =>'cool',
-        'carbon'=>0.99,
-        'water'=>5.75,
-    );
+    'config_id' => '',
+    'description' => 'cool',
+    'carbon' => 4,
+    'water' => 100,
+      );
     $result .= drupal_write_record($table, $data);
     $data = array(
-        'config_id' =>'',
-        'description' =>'ok',
-        'carbon'=>0.99,
-        'water'=>5.75,
-    );
+    'config_id' => '',
+    'description' => 'ok',
+    'carbon' => 7,
+    'water' => 200,
+      );
     $result .= drupal_write_record($table, $data);
     $data = array(
-        'config_id' =>'',
-        'description' =>'bad',
-        'carbon'=>0.99,
-        'water'=>5.75,
-    );
+    'config_id' => '',
+    'description' => 'bad',
+    'carbon' => 11,
+    'water' => 300,
+      );
     $result .= drupal_write_record($table, $data);
+    DataManagement::addBehavior('รถยนต์',"images/icon/how-cool_03.png",'ระยะที่ขับๆๆๆ');
+    
+    
     
     return $result;
   }
@@ -182,7 +184,7 @@ function data_view(){
   //$test = array_combine($ans[2]['value'],$ans[2]['label']);
   //$show = 'test'.print_r($test,1)."<br>";
   $ans = DataManagement::config_start();
-  $show = 'start'; 
+  $show = 'start'.$ans; 
   return $show;
 }
 

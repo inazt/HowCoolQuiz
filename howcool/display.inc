@@ -166,7 +166,7 @@ class ResultOutput
 	      </div>
 	      <div class='clear'></div>	
         	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
-	      ".//<!--------------------------End Year & Start foot Content ------------------------>
+	      ".//<!-------------------`-------End Year & Start foot Content ------------------------>
 	      "
 	      
           <div class='grid_12'>

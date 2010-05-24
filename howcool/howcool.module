@@ -34,7 +34,7 @@ function howcool_menu() {
     'page callback'=>'data_view',
     'access arguments'=>array('access content'),
     'type' => MENU_NORMAL_ITEM,
-    'file' => 'datamanagement.inc',
+    'file' => 'howcool.inc',
    
   );
   
