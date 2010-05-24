@@ -1,6 +1,7 @@
 <?php
 //nat = function t include ma jak nat's module
 include 'display.inc';
+include 'datamanagement.inc';
 class Checker
 {
   public static $count=0;

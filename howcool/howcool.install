@@ -1,6 +1,9 @@
 <?php
+include 'datamanagement.inc';
 function howcool_install() {
   drupal_install_schema('howcool');
+  //$ans = DataManagement::addBehavior("รถไฟ","images/icon/how-cool_08.png","คุณนั่งรถไฟบ่อยแค่ไหน");
+  //drupal_set_message(print_r($ans,1));
 }
 function howcool_schema(){
   $schema['personal']=array(
@@ -121,19 +124,19 @@ function howcool_schema(){
       'name'=> array(
         'description' => 'image path',
         'type' => 'varchar',
-        'length' => 20,
+        'length' => 40,
         'not null'=>TRUE
       ),
       'image_path'=> array(
         'description' => 'image path',
         'type' => 'varchar',
-        'length' => 20,
+        'length' => 100,
         'not null'=>TRUE
       ),
       'subject' => array(
         'description' => 'subject',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 50,
         'not null'=>TRUE
       ),
       
@@ -174,7 +177,40 @@ function howcool_schema(){
      ),
      'primary key' => array('item_id'),
   );
-  
+  $schema['howcool_config']=array(
+    'description' =>'Config of howcool',
+    'fields'=>array(    
+      'config_id' => array(
+        'description' => 'id of item',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+      ),
+      
+      'description' => array(
+        'description' => 'do bla bla',
+        'type' => 'varchar',
+        'length' => 30,
+        'not null'=>TRUE
+      ),
+      
+      'carbon' => array(
+        'description' => 'carbon',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+      'water' => array(
+        'description' => 'water',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+     ),
+     'primary key' => array('config_id'),
+  );
   return $schema;
 }
 function howcool_uninstall(){

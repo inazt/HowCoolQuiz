@@ -374,11 +374,17 @@ function check_form($form_state){
   $output=new DisplayOutput();
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
   
-  
-  $config = new Config();
+  //old setting
+  /*$config = new Config();
   $info = $config->getShows();
-  $value = $config->getKeys();
+  $value = $config->getKeys();*/
+  //replace with
+  $data =DataManagement::getAllDisplayChecker();
   
+  //$info = $data['name'];
+  $info = DisplayOutput::renderNamesImages($data);
+  $subjects = $subjects['subjects'];
+  $value =$data['display_id'];
   
   $score = 0;
   
@@ -458,22 +464,22 @@ function scale_form($form_state){
   //
   $i=0;
   foreach($form_state['values']['point'] as $key){
-    $myobject = Checker::getChecker($key);
-    //$img_url=$myobject->image;
-    //drupal_set_message('-->'.$img_url);
+    //$myobject = Checker::getChecker($key);
+    $data = DataManagement::getScaleData();
     
     $form['grid12'.$i]=$output->openGrid(12);  
     //$form['subgrid2']=$output->createGrid(2,'sdff'.$img_url,'alpha');   		
     if($key>0){
     //ja run if only if have select ok?
     
-    $scale = array_combine($myobject->scale,$myobject->frequent);
+    $scale = array_combine($data[$key]['value'],$data[$key]['label']);
     //drupal_set_message(print_r($myobject->image,1));
     // $form['image'.$i]= array('#type'=> 'markup','#value' => $myobject->image);
     $form['grid12'.$i] = $output->openGrid(12);  
-    $form['subgrid2'.$i] = $output->createGrid(2,"<img src=' " . drupal_get_path('module', 'howcool') ."/$myobject->image'>",'alpha');      
+    $form['subgrid2'.$i] = $output->createGrid(2,"<img src=' " . drupal_get_path('module', 'howcool') ."/".$data[$key]['image_path']."'>",'alpha');      
     $form['subgrid10'.$i] = $output->openGrid(10,'omega'); 
-    $form['key'.$i] = array('#type' => 'hidden', '#value' => $key);
+    $form['carbon'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['carbon']);
+    $form['water'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['water']);
     $form['divpop'.$i] = $output->openDiv('pop');
     $form['scale'.$i] = array(
       '#type' => 'select', 
@@ -487,6 +493,7 @@ function scale_form($form_state){
      $i++;
     }
   }
+  
   $form['closeContainer']=$output->closeContainer();
   $form['count']= array('#type' => 'hidden', '#value' => $i);
   $form['page'] = array('#type' => 'hidden', '#value' => 'scale');  
@@ -512,11 +519,13 @@ function logic($form_state){
   $water = 0;
   $carbon = 0;
   for($i=0;$i<$form_state['values']['count'];$i++){
-    $key =$form_state['values']['key'.$i];
+    //$key =$form_state['values']['key'.$i];
+    $carbon_value =$form_state['values']['carbon'.$i];
+    $water_value =$form_state['values']['water'.$i];
     $scale = $form_state['values']['scale'.$i];
-    $myobject = Checker::getChecker($key);
-    $water+=$scale*$myobject->water_factor;
-    $carbon+=$scale*$myobject->carbon_factor;
+
+    $water+=$scale*$water_value;
+    $carbon+=$scale*$carbon_value;
   }
   
   $data = array(
