@@ -159,7 +159,7 @@ function data_view(){
   //$ans = DataManagement::getScaleData();
   //$test = array_combine($ans[2]['value'],$ans[2]['label']);
   //$show = 'test'.print_r($test,1)."<br>";
-//  $ans = DataManagement::start();
+  $ans = DataManagement::start();
   $show = 'start'; 
   return $show;
 }
