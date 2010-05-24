@@ -34,7 +34,7 @@ function howcool_menu() {
     'page callback'=>'data_view',
     'access arguments'=>array('access content'),
     'type' => MENU_NORMAL_ITEM,
-    'file' => 'howcool.inc',
+    'file' => 'datamanagement.inc',
    
   );
   
@@ -483,7 +483,7 @@ function scale_form($form_state){
     $form['divpop'.$i] = $output->openDiv('pop');
     $form['scale'.$i] = array(
       '#type' => 'select', 
-      '#title' => $myobject->frequent_question, 
+      '#title' => $data[$key]['subject'], 
       //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
       '#options' => $scale, 
       );

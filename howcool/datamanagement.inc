@@ -46,6 +46,36 @@ class DataManagement{
     DataManagement::addBehavior('เครื่องปรับอากาศ',"images/icon/how-cool_17.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('โทรศัพท์มือถือ',"images/icon/how-cool_18.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('เครื่องซักผ้า',"images/icon/how-cool_19.png",'ระยะที่ขับๆๆๆ');
+    
+    DataManagement::addBehavior('เครื่องดูดฝุ่น',"images/icon/how-cool_20.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ตู้เย็น',"images/icon/how-cool_21.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ไม่โครเวฟ',"images/icon/how-cool_22.png",'ระยะที่ขับๆๆๆ');
+    
+    DataManagement::addBehavior('เตาอบไฟฟ้า',"images/icon/how-cool_23.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องทำน้ำอุ่น',"images/icon/how-cool_24.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ฝักบัว',"images/icon/how-cool_25.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ขันตักน้ำ',"images/icon/how-cool_26.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('อ่างอาบน้ำ',"images/icon/how-cool_27.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('สุขภัณฑ์ราดน้ำ',"images/icon/how-cool_28.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('สุขภัณฑ์ชักโครก',"images/icon/how-cool_29.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('โถปัสสาวะ',"images/icon/how-cool_30.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ก๊อกน้ำ',"images/icon/how-cool_31.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องเป่าผม',"images/icon/how-cool_32.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('กระดาษทิชชู่',"images/icon/how-cool_33.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ถุงยางอนามัย',"images/icon/how-cool_34.png",'ระยะที่ขับๆๆๆ');
+    
+    DataManagement::addBehavior('ผ้าอนามัย',"images/icon/how-cool_35.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('บุหรี่',"images/icon/how-cool_36.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('กระดาษ',"images/icon/how-cool_37.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ถุงพลาสติก',"images/icon/how-cool_38.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ถุงกระดาษ',"images/icon/how-cool_39.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ภาชนะพลาสติก',"images/icon/how-cool_40.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ภาชนะโฟม',"images/icon/how-cool_41.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ภาชนะกระดาษ',"images/icon/how-cool_42.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ขวาดพลาสติก',"images/icon/how-cool_43.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ขวดแก้ว',"images/icon/how-cool_44.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('กระป๋อง',"images/icon/how-cool_45.png",'ระยะที่ขับๆๆๆ');
+    
     return $result;
   }
    
