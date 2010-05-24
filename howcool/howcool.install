@@ -191,7 +191,6 @@ function howcool_schema(){
      ),
      'primary key' => array('item_id'),
   );
-<<<<<<< HEAD
   $schema['howcool_config']=array(
     'description' =>'Config of howcool',
     'fields'=>array(    
@@ -226,7 +225,6 @@ function howcool_schema(){
      ),
      'primary key' => array('config_id'),
   );
-=======
   $schema['province'] = array (
   	'descripton' => 'Province list',
 	'fields' => array(
@@ -265,7 +263,6 @@ function howcool_schema(){
 	'primary key' => array('nid')
   );
 
->>>>>>> d08f821e0be860db953979b7ec2e707b5e6ab573
   return $schema;
 }
 function howcool_uninstall(){
