@@ -181,7 +181,7 @@ function howcool_schema(){
 		'nid' => array(
 			'description' => 'The primary identifier for a node',
 			'type' => 'serial',
-			'unsigne' => TRUE,
+			'unsigned' => TRUE,
 			'not null' => TRUE
 		),
 
@@ -192,6 +192,22 @@ function howcool_schema(){
 			'not null' => TRUE),
 		),
 	'primary key' => array('nid'),
+	);
+  $schema['occupation'] = array (
+  	'descripton' => 'Ocupation list',
+	'fields' => array(
+		'nid' => array(
+			'description' => 'The primary identifier for a node',
+			'type' => 'serial', 
+			'unsigned' => TRUE,
+			'not null' => TRUE,
+		),
+		'name' => array(
+			'description' => 'Ocupation name',
+			'type' => 'varchar',
+			'length' => 30,
+			'not null' => TRUE,
+		),
 	);
   return $schema;
 }
