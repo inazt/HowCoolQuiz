@@ -1,4 +1,5 @@
 <?php
+include 'datamanagement.inc';
 function howcool_install() {
   drupal_install_schema('howcool');
   $data['occupation']=array('นักเรียนระดับอนุบาล','นักเรียนระดับประถม','นักเรียนระดับมัธยม','นักศึกษาระดับอุดมศึกษา','ทำงานบ้าน','เกษตรกร','ข้าราชการและรัฐวิสาหกิจ','พนักงานบริษัท','งานภาคสังคม','ค้าขาย','งานบริการ','ศิลปะหัตถกรรม','การออกแบบ','อุตสาหกรรม','ทำงานวงการบันเทิง','ทำงานวงการกีฬา','ทำงานด้านคอมพิวเตอร์','ว่างงาน','ไม่มีในตัวเลือก');
@@ -15,6 +16,7 @@ function howcool_install() {
 
 	}
   }
+
 
 }
 function howcool_schema(){
@@ -136,19 +138,19 @@ function howcool_schema(){
       'name'=> array(
         'description' => 'image path',
         'type' => 'varchar',
-        'length' => 20,
+        'length' => 40,
         'not null'=>TRUE
       ),
       'image_path'=> array(
         'description' => 'image path',
         'type' => 'varchar',
-        'length' => 20,
+        'length' => 100,
         'not null'=>TRUE
       ),
       'subject' => array(
         'description' => 'subject',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 50,
         'not null'=>TRUE
       ),
       
@@ -189,6 +191,42 @@ function howcool_schema(){
      ),
      'primary key' => array('item_id'),
   );
+<<<<<<< HEAD
+  $schema['howcool_config']=array(
+    'description' =>'Config of howcool',
+    'fields'=>array(    
+      'config_id' => array(
+        'description' => 'id of item',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+      ),
+      
+      'description' => array(
+        'description' => 'do bla bla',
+        'type' => 'varchar',
+        'length' => 30,
+        'not null'=>TRUE
+      ),
+      
+      'carbon' => array(
+        'description' => 'carbon',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+      'water' => array(
+        'description' => 'water',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      
+     ),
+     'primary key' => array('config_id'),
+  );
+=======
   $schema['province'] = array (
   	'descripton' => 'Province list',
 	'fields' => array(
@@ -227,6 +265,7 @@ function howcool_schema(){
 	'primary key' => array('nid')
   );
 
+>>>>>>> d08f821e0be860db953979b7ec2e707b5e6ab573
   return $schema;
 }
 function howcool_uninstall(){
