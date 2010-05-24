@@ -52,27 +52,28 @@ class Config{
   public $checkers;
   public static $age_renges =array(
       "null"=>'ใส่อายุเลยจ้า',
-      '8-13' => '8-13 ปี', 
-      '14-17' => '14-17 ปี', 
-      '18-20' => '18-20 ปี',
+      
  );
+  public static function getDbValue($table, $field) {
+    $sql = "select $field from $table";
+    $result=db_query($sql);
+    $output = array();
+    while ($row = db_fetch_object($result))
+    {
+      $output[$row->$field]=$row->$field;
+    }
+    //drupal_set_message(print_r($output,1));
+    return $output;
+  }
   public static $job_renges =array(
       "null" => 'อาชีพ',
-      'student' => 'นักเรียน', 
-      'teacher' => 'อาจารย์', 
-      'farmer' => 'สันหลังของชาติ',
+    
   );
   public static $address_renges =array(
       "null"=>'จังหวัด',
-      'bkk' => 'กรุงเทพ', 
-      'chg' => 'เชียงใหม่', 
-      'chon' => 'ชลบุรี',
   );
   public static $weight_renges =array(
       "null"=>'น้ำหนัก',
-      '1' => '45', 
-      '2' => '50', 
-      '3' => '51',
   );
   public static $status_renges =array(
       '1' => 'โสด', 
@@ -81,9 +82,7 @@ class Config{
   );
   public static $hight_renges =array(
       "null"=>'ส่วนสูง',
-      '1' => '100-130', 
-      '2' => '131-150', 
-      '3' => '151-160',
+   
   );
   
      

@@ -239,14 +239,14 @@ function personal_form($form_state){
     $form['age'] = array(
       '#type' => 'select', 
       '#title' => t('ช่วงอายุ'), 
-      '#options' => Config::$age_renges,
+      '#options' => array_merge(Config::$age_renges,drupal_map_assoc(range(1,130))),
       '#required' =>TRUE,
     );
   }else{
     $form['age'] = array(
       '#type' => 'select', 
       '#title' => t('ช่วงอายุ'), 
-      '#options' => Config::$age_renges,
+      '#options' => array_merge(Config::$age_renges,drupal_map_assoc(range(1,130))),
       '#required' =>TRUE,
       '#default_value' => $form_state['values']['age'],
     );
@@ -256,15 +256,15 @@ function personal_form($form_state){
       '#type' => 'select', 
       '#title' => t('อาชีพ'), 
       //'#default_value' => variable_get('เลือกอาชีพ','student'),
-      '#options' => Config::$job_renges,
+      '#options' =>array_merge(Config::$job_renges, Config::getDbValue('occupation', 'name')),
  
     );
   }else{
     $form['job'] = array(
       '#type' => 'select', 
       '#title' => t('อาชีพ'), 
-      '#default_value' => $form_state['values']['job'],
-      '#options' => Config::$job_renges,
+      '#default_value' =>  Config::$job_renges,
+      '#options' =>array_merge(Config::$job_renges, Config::getDbValue('occupation', 'name')),
  
     );
   }
@@ -273,14 +273,14 @@ function personal_form($form_state){
       '#type' => 'select', 
       '#title' => t('ที่อยู่'), 
       //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
-      '#options' => Config::$address_renges,
+      '#options' => array_merge(Config::$address_renges, Config::getDbValue('province', 'name')),
     );
   }else{
     $form['address'] = array(
       '#type' => 'select', 
       '#title' => t('ที่อยู่'), 
       '#default_value' => $form_state['values']['address'],
-      '#options' => Config::$address_renges,
+      '#options' => array_merge(Config::$address_renges, Config::getDbValue('province', 'name')),
     );
   }
   if(empty($form_state['values']['hight'])){
@@ -289,7 +289,7 @@ function personal_form($form_state){
       '#title' => t('ส่วนสูง'),
       '#required' =>TRUE, 
       //'#default_value' => variable_get('เลือกส่วนสูง','1'),
-      '#options' => Config::$hight_renges,
+      '#options' =>  array_merge(Config::$hight_renges,drupal_map_assoc(range(30,320))),
     );
   }else{
     $form['hight'] = array(
@@ -297,7 +297,7 @@ function personal_form($form_state){
       '#title' => t('ส่วนสูง'),
       '#required' =>TRUE, 
       '#default_value' => $form_state['values']['hight'],
-      '#options' => Config::$hight_renges,
+      '#options' =>  array_merge(Config::$hight_renges,drupal_map_assoc(range(30,320))),
     );
   }
   if(empty($form_state['values']['weight'])){
@@ -306,7 +306,7 @@ function personal_form($form_state){
       '#title' => t('น้ำหนัก'),
       '#required' =>TRUE, 
       //'#default_value' => variable_get('เลือกน้ำหนัก','1'),
-      '#options' => Config::$weight_renges,
+      '#options' =>  array_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
     );
   }else{
     $form['weight'] = array(
@@ -314,7 +314,7 @@ function personal_form($form_state){
       '#title' => t('น้ำหนัก'),
       '#required' =>TRUE, 
       '#default_value' =>$form_state['values']['weight'],
-      '#options' => Config::$weight_renges,
+      '#options' => Carray_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
     );
   }
   if(empty($form_state['values']['status'])){
