@@ -76,6 +76,51 @@ class DisplayOutput
 }
 class ResultOutput
 {
+  private function displayImage($data){
+    $ans ="";
+    for($i = 0;$i<7;$i++){
+      $ans .= " <div class ='form-item'>
+                  <label class='option'> $i</label>
+              </div>";
+    
+    }
+   
+    return $ans;
+  }
+
+  public function showDetail($data){
+    return "
+        <div class='container_12'>
+          ".//Header
+          "
+         <div class='grid_4' >
+              <h1></h1>
+         </div>
+         <div class='grid_2''>
+              ".$data['carbon']."
+         </div>
+         <div class='grid_2'>
+              ".$data['water']."
+         </div>
+         <div class='grid_4'>
+              <h1></h1>
+         </div>
+         <div class = 'clear'></div>
+         ".//Body
+         "
+         <div class = 'grid_12'>
+           <div class ='cool_check'>
+            <div class = 'form-checkboxes'>
+           ".$this->displayImage(3).
+           "
+            </div>
+           </div>
+         </div>
+        </div>
+    ";
+  
+  }
+
   public function showScore($pic) {
      
      return " 

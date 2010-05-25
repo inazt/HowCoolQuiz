@@ -28,6 +28,18 @@ function howcool_menu() {
     'file' => 'howcool.inc',
    
   );
+  
+  $items['detail/%'] = array(
+    'title'=> 'HowCool!Result',
+    'description'=>'Show result',
+    'page callback'=>'detail_view',
+    'page arguments' => array(1),
+    'access arguments'=>array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'howcool.inc',
+   
+  );
+  
   $items['management'] =array(
     'title'=> 'HowCool!DataManagement',
     'description'=>'Show Data',
@@ -77,6 +89,31 @@ function result_view($input){
   return $show;
 }
 
+function detail_view($input){
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
+ drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+ $raw_data = DataManagement::getAllDetail();
+  for($i = 0 ;$i<(int)$_SESSION['count'];$i++){
+  
+    $scale = $_SESSION['values'.$i];
+    
+    drupal_set_message($raw_data[$_SESSION['key'.$i]]['name']);
+    drupal_set_message($raw_data[$_SESSION['key'.$i]]['image_path']);
+    drupal_set_message("carbon -> ".($raw_data[$_SESSION['key'.$i]]['carbon_factor']*$scale));
+    drupal_set_message("water -> ".($raw_data[$_SESSION['key'.$i]]['water_factor']*$scale));
+  
+  }
+  $data = array(
+    'carbon' => 3,
+    'water' => 5,
+  );
+  $r_output = new ResultOutput();
+  $output = $r_output->showDetail($data);
+  
+  return $output;
+}
 
 /**
     How Cool Form Stucture
@@ -480,7 +517,7 @@ function scale_form($form_state){
     $form['subgrid10'.$i] = $output->openGrid(10,'omega'); 
     $form['carbon'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['carbon']);
     $form['water'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['water']);
-
+    $form['key'.$i] = array('#type' => 'hidden', '#value' => $key);
     $form['divpop'.$i] = $output->openDiv('pop');
     $form['scale'.$i] = array(
       '#type' => 'select', 
@@ -519,16 +556,26 @@ function logic($form_state){
 
   $water = 0;
   $carbon = 0;
+  
+  $_SESSION['count'] = $form_state['values']['count'];
   for($i=0;$i<$form_state['values']['count'];$i++){
-    //$key =$form_state['values']['key'.$i];
+    $key =$form_state['values']['key'.$i];
     $carbon_value =$form_state['values']['carbon'.$i];
     $water_value =$form_state['values']['water'.$i];
     $scale = $form_state['values']['scale'.$i];
-     
     $water+=$scale*$water_value;
     $carbon+=$scale*$carbon_value;
+    
+    $_SESSION['key'.$i]=$key;
+    $_SESSION['value'.$i]=$scale;
+    
   }
-  drupal_set_message($water.",".$carbon);
+  
+  //detail data
+  ;
+   
+ 
+  //#sadsad
   $data = array(
     'nid' => '',
     'hash' => $hash,

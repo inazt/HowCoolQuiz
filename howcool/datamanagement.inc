@@ -210,6 +210,24 @@ class DataManagement{
     return $data;
   }
   
+  function getAllDetail(){
+    $mysql = "SELECT display.display_id, display.name, display.image_path, factor.carbon_factor, factor.water_factor
+FROM display
+JOIN factor ON display.display_id = factor.display_id";
+    $result = db_query($mysql);
+    $data = array();
+    while ($row = db_fetch_object($result))
+    {
+      $display_id = $row->display_id;
+      $data[$display_id]['name']=$row->name;
+      $data[$display_id]['image_path']=$row->image_path;
+      $data[$display_id]['carbon_factor']=$row->carbon_factor;
+      $data[$display_id]['water_factor']=$row->water_factor;
+    }
+    return $data;
+  }
+  
+  
   function getScaleData(){
     /*$mysql = "
 SELECT display.display_id, display.name, display.image_path, display.subject, display_item.item_id, display_item.label, display_item.value

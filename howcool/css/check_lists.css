@@ -1,5 +1,11 @@
 .cool_check {
   margin:auto;
+}
+.cool_check .copy-form-item{
+  width:125px;
+  margin-left:18px;
+  margin-right:10px;
+  float:left;
 } 
 .cool_check .form-checkboxes .form-item{
   width:125px;

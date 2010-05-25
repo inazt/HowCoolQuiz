@@ -225,6 +225,8 @@ function howcool_schema(){
      ),
      'primary key' => array('config_id'),
   );
+  
+  
   $schema['province'] = array (
   	'descripton' => 'Province list',
 	'fields' => array(
