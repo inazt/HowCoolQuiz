@@ -603,19 +603,19 @@ class DataManagement{
     DataManagement::addBehaviorItem(40,"นานกว่าในตัวเลือก",999);   
         
     DataManagement::addBehavior('ขวดแก้ว',"images/icon/how-cool_44.png",'คุณรับประทานเครื่องดื่มจากขวดแก้วกี่ชิ้น');
-       DataManagement::addFactor(40,0.496,0);
-        for($i=1;$i<=12;$i++) {
-          DataManagement::addBehaviorItem(40,"$i ชิ้น",$i);
-        }      
-    DataManagement::addBehaviorItem(40,"นานกว่าในตัวเลือก",999);    
-       
-
-    DataManagement::addBehavior('กระป๋อง',"images/icon/how-cool_45.png",'คุณรับประทานเครื่องดื่มจากกระป๋องทั้งหมดกี่ชิ้น');
-       DataManagement::addFactor(41,0.170,0);
+       DataManagement::addFactor(41,0.496,0);
         for($i=1;$i<=12;$i++) {
           DataManagement::addBehaviorItem(41,"$i ชิ้น",$i);
         }      
     DataManagement::addBehaviorItem(41,"นานกว่าในตัวเลือก",999);    
+       
+
+    DataManagement::addBehavior('กระป๋อง',"images/icon/how-cool_45.png",'คุณรับประทานเครื่องดื่มจากกระป๋องทั้งหมดกี่ชิ้น');
+       DataManagement::addFactor(42,0.170,0);
+        for($i=1;$i<=12;$i++) {
+          DataManagement::addBehaviorItem(42,"$i ชิ้น",$i);
+        }      
+    DataManagement::addBehaviorItem(42,"นานกว่าในตัวเลือก",999);    
     return $result;
   }
    
