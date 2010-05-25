@@ -110,12 +110,85 @@ class DataManagement{
     DataManagement::addBehavior('ตู้เย็น',"images/icon/how-cool_21.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('ไม่โครเวฟ',"images/icon/how-cool_22.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('เตาอบไฟฟ้า',"images/icon/how-cool_23.png",'ระยะที่ขับๆๆๆ');
+    
+    
+    
     DataManagement::addBehavior('เครื่องทำน้ำอุ่น',"images/icon/how-cool_24.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ฝักบัว',"images/icon/how-cool_25.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ขันตักน้ำ',"images/icon/how-cool_26.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('อ่างอาบน้ำ',"images/icon/how-cool_27.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('สุขภัณฑ์ราดน้ำ',"images/icon/how-cool_28.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('สุขภัณฑ์ชักโครก',"images/icon/how-cool_29.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('ฝักบัว',"images/icon/how-cool_25.png",'คุณใช้ฝักบัวอาบน้ำรวมทั้งวันประมาณกี่ครั้ง');
+    DataManagement::addFactor(43,0.003,20);
+    
+    DataManagement::addBehaviorItem(43,"1 ครั้ง",1);
+    DataManagement::addBehaviorItem(43,"2  ครั้ง",2);
+    DataManagement::addBehaviorItem(43,"3 ครั้ง",3);
+    DataManagement::addBehaviorItem(43,"4  ครั้ง",4);
+    DataManagement::addBehaviorItem(43,"5 ครั้ง",5);
+    DataManagement::addBehaviorItem(43,"มากกว่าจำนวนในตัวเลือก",999);
+    
+    
+    DataManagement::addBehavior('ขันตักน้ำ',"images/icon/how-cool_26.png",'คุณใช้ขันตักน้ำรวมทั้งวันประมาณกี่ครั้ง');
+    DataManagement::addFactor(44,0.000,1.2);
+    
+    DataManagement::addBehaviorItem(44,"1 ครั้ง",1);
+    DataManagement::addBehaviorItem(44,"2  ครั้ง",2);
+    DataManagement::addBehaviorItem(44,"3 ครั้ง",3);
+    DataManagement::addBehaviorItem(44,"5  ครั้ง",5);
+    DataManagement::addBehaviorItem(44,"10 ครั้ง",10);
+    DataManagement::addBehaviorItem(44,"20 ครั้ง",20);
+    DataManagement::addBehaviorItem(44,"30 ครั้ง",30);
+    DataManagement::addBehaviorItem(44,"40 ครั้ง",40);
+    DataManagement::addBehaviorItem(44,"50 ครั้ง",50);    
+    DataManagement::addBehaviorItem(44,"มากกว่าจำนวนในตัวเลือก",999);
+    
+        
+    DataManagement::addBehavior('อ่างอาบน้ำ',"images/icon/how-cool_27.png",'คุณใช้อ่างอาบน้ำรวมทั้งวันประมาณกี่ครั้ง');
+    
+    DataManagement::addFactor(45,0.003,110);
+    
+    DataManagement::addBehaviorItem(45,"1 ครั้ง",1);
+    DataManagement::addBehaviorItem(45,"2  ครั้ง",2);
+    DataManagement::addBehaviorItem(45,"3 ครั้ง",3);
+    DataManagement::addBehaviorItem(45,"4  ครั้ง",4);
+    DataManagement::addBehaviorItem(45,"5 ครั้ง",5);
+    DataManagement::addBehaviorItem(45,"6 ครั้ง",6);
+    DataManagement::addBehaviorItem(45,"7 ครั้ง",7);
+    DataManagement::addBehaviorItem(45,"8 ครั้ง",8);
+    DataManagement::addBehaviorItem(45,"9 ครั้ง",9);
+    DataManagement::addBehaviorItem(45,"10 ครั้ง",10);    
+    DataManagement::addBehaviorItem(45,"มากกว่าจำนวนในตัวเลือก",999);
+ 
+    
+      
+    DataManagement::addBehavior('สุขภัณฑ์ราดน้ำ',"images/icon/how-cool_28.png",'คุณใช้สุขภัณฑ์ราดน้ำไปประมาณกี่ครั้ง');
+    DataManagement::addFactor(46,0.000,2);
+    
+    DataManagement::addBehaviorItem(46,"1 ครั้ง",1);
+    DataManagement::addBehaviorItem(46,"2  ครั้ง",2);
+    DataManagement::addBehaviorItem(46,"3 ครั้ง",3);
+    DataManagement::addBehaviorItem(46,"4  ครั้ง",4);
+    DataManagement::addBehaviorItem(46,"5 ครั้ง",5);
+    DataManagement::addBehaviorItem(46,"6 ครั้ง",6);
+    DataManagement::addBehaviorItem(46,"7 ครั้ง",7);
+    DataManagement::addBehaviorItem(46,"8 ครั้ง",8);
+    DataManagement::addBehaviorItem(46,"9 ครั้ง",9);
+    DataManagement::addBehaviorItem(46,"10 ครั้ง",10);    
+    DataManagement::addBehaviorItem(46,"มากกว่าจำนวนในตัวเลือก",999);
+        
+    DataManagement::addBehavior('สุขภัณฑ์ชักโครก',"images/icon/how-cool_29.png",'คุณใช้สุขภัณฑ์ชักโครกไปประมาณกี่ครั้ง');
+    DataManagement::addFactor(46,0.000,18.5);
+    
+    DataManagement::addBehaviorItem(47,"1 ครั้ง",1);
+    DataManagement::addBehaviorItem(47,"2  ครั้ง",2);
+    DataManagement::addBehaviorItem(47,"3 ครั้ง",3);
+    DataManagement::addBehaviorItem(47,"4  ครั้ง",4);
+    DataManagement::addBehaviorItem(47,"5 ครั้ง",5);
+    DataManagement::addBehaviorItem(47,"6 ครั้ง",6);
+    DataManagement::addBehaviorItem(47,"7 ครั้ง",7);
+    DataManagement::addBehaviorItem(47,"8 ครั้ง",8);
+    DataManagement::addBehaviorItem(47,"9 ครั้ง",9);
+    DataManagement::addBehaviorItem(47,"10 ครั้ง",10);    
+        
+    
+    
     DataManagement::addBehavior('โถปัสสาวะ',"images/icon/how-cool_30.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('ก๊อกน้ำ',"images/icon/how-cool_31.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('เครื่องเป่าผม',"images/icon/how-cool_32.png",'ระยะที่ขับๆๆๆ');
