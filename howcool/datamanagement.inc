@@ -427,7 +427,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(60,"10 ชิ้น",10);   
     DataManagement::addBehaviorItem(60,"11 ชิ้น",11);  
     DataManagement::addBehaviorItem(60,"12 ชิ้น",12);        
-    DataManagement::addBehaviorItem(60,"นานกว่าในตัวเลือก",
+    DataManagement::addBehaviorItem(60,"นานกว่าในตัวเลือก",999);
     
     
         
