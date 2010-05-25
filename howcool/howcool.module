@@ -95,6 +95,7 @@ function detail_view($input){
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
  $raw_data = DataManagement::getAllDetail();
+ $info = array();
   for($i = 0 ;$i<(int)$_SESSION['count'];$i++){
   
     $scale = $_SESSION['values'.$i];
@@ -103,11 +104,19 @@ function detail_view($input){
     drupal_set_message($raw_data[$_SESSION['key'.$i]]['image_path']);
     drupal_set_message("carbon -> ".($raw_data[$_SESSION['key'.$i]]['carbon_factor']*$scale));
     drupal_set_message("water -> ".($raw_data[$_SESSION['key'.$i]]['water_factor']*$scale));
-  
+    $info[$i] = array('image_path' => $raw_data[$_SESSION['key'.$i]]['image_path'] ,
+                      'name' =>$raw_data[$_SESSION['key'.$i]]['name'],
+                      'carbon' =>($raw_data[$_SESSION['key'.$i]]['carbon_factor']*$scale),
+                      'water' =>($raw_data[$_SESSION['key'.$i]]['water_factor']*$scale),
+                      'scale' =>$scale,
+                      );
+    
   }
+  
   $data = array(
     'carbon' => 3,
     'water' => 5,
+    'info'=>$info,
   );
   $r_output = new ResultOutput();
   $output = $r_output->showDetail($data);

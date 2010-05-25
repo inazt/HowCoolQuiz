@@ -78,9 +78,23 @@ class ResultOutput
 {
   private function displayImage($data){
     $ans ="";
-    for($i = 0;$i<7;$i++){
+    
+    for($i = 0;$i<count($data);$i++){
+      $name = "<strong>".$data[$i]['name']."</strong>";
+      $img = "<img src =../".drupal_get_path('module', 'howcool').'/'.$data[$i]['image_path']."></img>";
+      $karma = "";
+      if($data[$i]['carbon']>0){
+        $karma .= "<strong>คุณก่อกรรม".$data[$i]['carbon']." กิโลกรรม";
+      }
+
+      if($data[$i]['water']>0){
+        $karma .= " ".$data[$i]['water']." ลิตร";
+      }else{
+        $karma .= "</strong>";
+      }     
+      
       $ans .= " <div class ='form-item'>
-                  <label class='option'> $i</label>
+                  <label class='option'> ".$name."<br>".$img."<br>".$karma."</label>
               </div>";
     
     }
@@ -111,7 +125,7 @@ class ResultOutput
          <div class = 'grid_12'>
            <div class ='cool_check'>
             <div class = 'form-checkboxes'>
-           ".$this->displayImage(3).
+           ".$this->displayImage($data['info']).
            "
             </div>
            </div>
