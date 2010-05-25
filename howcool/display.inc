@@ -84,13 +84,15 @@ class ResultOutput
       $img = "<img src =../".drupal_get_path('module', 'howcool').'/'.$data[$i]['image_path']."></img>";
       $karma = "";
       if($data[$i]['carbon']>0){
-        $karma .= "<strong>คุณก่อกรรม".$data[$i]['carbon']." กิโลกรรม";
+        $karma .= "ก่อกรรม<br>".$data[$i]['carbon']." กิโลกรรม";
+      }else{
+        $karma .= "ก่อกรรม<br>";
       }
 
       if($data[$i]['water']>0){
         $karma .= " ".$data[$i]['water']." ลิตร";
       }else{
-        $karma .= "</strong>";
+        $karma .= "";
       }     
       
       $ans .= " <div class ='form-item'>
@@ -111,9 +113,13 @@ class ResultOutput
               <h1></h1>
          </div>
          <div class='grid_2''>
+              <img src='../".drupal_get_path('module','howcool')."/images/empty-carbon.png'></img>
+              <br>
               ".$data['carbon']."
          </div>
          <div class='grid_2'>
+              <img src='../".drupal_get_path('module','howcool')."/images/empty-water.png'></img>
+              <br>
               ".$data['water']."
          </div>
          <div class='grid_4'>

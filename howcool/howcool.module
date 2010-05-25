@@ -98,12 +98,8 @@ function detail_view($input){
  $info = array();
   for($i = 0 ;$i<(int)$_SESSION['count'];$i++){
   
-    $scale = $_SESSION['values'.$i];
-    
-    drupal_set_message($raw_data[$_SESSION['key'.$i]]['name']);
-    drupal_set_message($raw_data[$_SESSION['key'.$i]]['image_path']);
-    drupal_set_message("carbon -> ".($raw_data[$_SESSION['key'.$i]]['carbon_factor']*$scale));
-    drupal_set_message("water -> ".($raw_data[$_SESSION['key'.$i]]['water_factor']*$scale));
+    $scale = $_SESSION['value'.$i];
+
     $info[$i] = array('image_path' => $raw_data[$_SESSION['key'.$i]]['image_path'] ,
                       'name' =>$raw_data[$_SESSION['key'.$i]]['name'],
                       'carbon' =>($raw_data[$_SESSION['key'.$i]]['carbon_factor']*$scale),
