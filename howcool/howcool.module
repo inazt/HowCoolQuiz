@@ -360,7 +360,7 @@ function personal_form($form_state){
       '#title' => t('น้ำหนัก'),
       '#required' =>TRUE, 
       '#default_value' =>$form_state['values']['weight'],
-      '#options' => Carray_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
+      '#options' => array_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
     );
   }
   if(empty($form_state['values']['status'])){
