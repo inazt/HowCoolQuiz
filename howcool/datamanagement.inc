@@ -30,7 +30,7 @@ class DataManagement{
     'water' => 300,
       );
     $result .= drupal_write_record($table, $data);
-    DataManagement::addBehavior('รถยนต์',"images/icon/how-cool_03.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถยนต์',"images/icon/how-cool_03.png",'คุณเดินทางด้วยรถยนต์เป็นระยะทางรวมประมาณเท่าไหร่');
     DataManagement::addFactor(1,0.106,0);
     DataManagement::addBehaviorItem(1,"1 กิโลเมตร",1);
     DataManagement::addBehaviorItem(1,"3  กิโลเมตร",3);
@@ -51,7 +51,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(1,"150 กิโลเมตร",150);
     DataManagement::addBehaviorItem(1,"200 กิโลเมตร",200);
     
-    DataManagement::addBehavior('รถยนต์ขนาดใหญ่',"images/icon/how-cool_04.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถยนต์ขนาดใหญ่',"images/icon/how-cool_04.png",'คุณเดินทางด้วยรถยนต์ขนาดใหญ่เป็นระยะทางรวมประมาณเท่าไหร่');
     DataManagement::addFactor(2,0.1516,0);
     DataManagement::addBehaviorItem(2,"1 กิโลเมตร",1);
     DataManagement::addBehaviorItem(2,"3  กิโลเมตร",3);
@@ -72,7 +72,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(2,"150 กิโลเมตร",150);
     DataManagement::addBehaviorItem(2,"200 กิโลเมตร",200);
     
-    DataManagement::addBehavior('รถจักรยานยนต์',"images/icon/how-cool_05.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถจักรยานยนต์',"images/icon/how-cool_05.png",'คุณเดินทางด้วยรถจักรยานยนต์เป็นระยะทางรวมประมาณเท่าไหร่');
     DataManagement::addFactor(3,0.135,0);
     DataManagement::addBehaviorItem(3,"1 กิโลเมตร",1);
     DataManagement::addBehaviorItem(3,"3  กิโลเมตร",3);
@@ -93,7 +93,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(3,"150 กิโลเมตร",150);
     DataManagement::addBehaviorItem(3,"200 กิโลเมตร",200);
         
-    DataManagement::addBehavior('รถไฟฟ้า',"images/icon/how-cool_06.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถไฟฟ้า',"images/icon/how-cool_06.png",'คุณเดินทางด้วยรถไฟฟ้าเป็นระยะทางรวมประมาณกี่สถานี');
     DataManagement::addFactor(4,0.297,0);
     DataManagement::addBehaviorItem(3,"1 สถานี",1);
     DataManagement::addBehaviorItem(3,"2 สถานี",2);
@@ -110,7 +110,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(3,"45 สถานี",45);
     DataManagement::addBehaviorItem(3,"50 สถานี",50);
 
-    DataManagement::addBehavior('รถไฟ',"images/icon/how-cool_07.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถไฟ',"images/icon/how-cool_07.png",'คุณเดินทางด้วยรถไฟเป็นระยะทางรวมประมาณเท่าไหร่');
     DataManagement::addFactor(6,0.434,0);
     DataManagement::addBehaviorItem(4,"สายเหนือ ",751);
     DataManagement::addBehaviorItem(4,"สายใต้ ",979.5);
@@ -120,7 +120,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(4,"สายแม่กลอง ",32.5); 
      
     
-    DataManagement::addBehavior('รถเมล์,รถทัวร์',"images/icon/how-cool_08.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('รถเมล์,รถทัวร์',"images/icon/how-cool_08.png",'คุณเดินทางด้วยรถเมล์เป็นระยะทางรวมประมาณเท่าไหร่');
     DataManagement::addFactor(7,0.125,0);
     DataManagement::addBehaviorItem(7,"1 กิโลเมตร",1);
     DataManagement::addBehaviorItem(7,"3  กิโลเมตร",3);
@@ -145,7 +145,7 @@ class DataManagement{
           
 
 
-    DataManagement::addBehavior('เครื่องบิน',"images/icon/how-cool_10.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องบิน',"images/icon/how-cool_10.png",'คุณเดินทางด้วยเครื่องบินไปที่ใด');
     DataManagement::addFactor(8,1,0);
     DataManagement::addBehaviorItem(8,"ในประเทศ",363);
     DataManagement::addBehaviorItem(8,"ในทวีปเอเชีย",2090);
@@ -156,7 +156,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(8,"ประเทศในทวีปอเมริกาใต้",7272);
  
     
-    DataManagement::addBehavior('หลอดไฟ',"images/icon/how-cool_11.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('หลอดไฟ',"images/icon/how-cool_11.png",'คุณใช้หลอดไฟรวมทั้งหมดกี่ดวง');
     DataManagement::addFactor(9,0.0088,0);
     
     DataManagement::addBehaviorItem(9,"1 ดวง",1);
@@ -174,7 +174,7 @@ class DataManagement{
     }  
     
     
-    DataManagement::addBehavior('โทรทัศน์',"images/icon/how-cool_13.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('โทรทัศน์',"images/icon/how-cool_13.png",'คุณเปิดโทรทัศน์เป็นเวลากี่ชั่วโมง');
     DataManagement::addFactor(11,0.012,0);
     for ($i=1;$i<=24;$i++) {
       DataManagement::addBehaviorItem(11,"$i ชั่วโมง",$i);
@@ -280,7 +280,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(20,"นานกว่าในตัวเลือก",999);    
     
     
-    DataManagement::addBehavior('เตาอบไฟฟ้า',"images/icon/how-cool_23.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เตาอบไฟฟ้า',"images/icon/how-cool_23.png",'คุณใช้เตาอบไฟฟ้ารวมแล้วกี่นาที');
     DataManagement::addFactor(21,0.041,0);
     DataManagement::addBehaviorItem(21,"1 นาที",1);
     DataManagement::addBehaviorItem(21,"3 นาที",3);
@@ -294,7 +294,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(21,"นานกว่าในตัวเลือก",999);        
     
     
-    DataManagement::addBehavior('เครื่องทำน้ำอุ่น',"images/icon/how-cool_24.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('เครื่องทำน้ำอุ่น',"images/icon/how-cool_24.png",'คุณมีเครื่องทำน้ำอุ่นกี่เครื่อง');
     DataManagement::addFactor(22,0.435,0);
     DataManagement::addBehaviorItem(22,"1 เครื่อง",1);
     DataManagement::addBehaviorItem(22,"2 เครื่อง",2);
@@ -513,7 +513,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(34,"20 มวน (1 ซอง)",20);   
     DataManagement::addBehaviorItem(34,"นานกว่าในตัวเลือก",999);      
     
-    DataManagement::addBehavior('กระดาษ',"images/icon/how-cool_37.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('กระดาษ',"images/icon/how-cool_37.png",'คุณใช้กระดาษไปทั้งหมดกี่แผ่น');
     DataManagement::addFactor(35,0.016,0);
     DataManagement::addBehaviorItem(35,"1 แผ่น",1);
     DataManagement::addBehaviorItem(35,"2 แผ่น",2);

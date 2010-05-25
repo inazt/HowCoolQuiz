@@ -61,12 +61,13 @@ div#navbar {
 
 .pop .form-item > label {
   color:white;
-  font-size:23px;
-  width: 50%;
+  font-size:22px;
+  width: 60%;
 }
 
 .pop .form-item > select {
   width:150px;
+  /* select box width */
 }
 .pop .form-item > div {
   width: 50%;
