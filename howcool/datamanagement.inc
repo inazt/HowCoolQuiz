@@ -190,7 +190,7 @@ class DataManagement{
     DataManagement::addBehaviorItem(46,"มากกว่าจำนวนในตัวเลือก",999);
         
     DataManagement::addBehavior('สุขภัณฑ์ชักโครก',"images/icon/how-cool_29.png",'คุณใช้สุขภัณฑ์ชักโครกไปประมาณกี่ครั้ง');
-    DataManagement::addFactor(46,0.000,18.5);
+    DataManagement::addFactor(47,0.000,18.5);
     
     DataManagement::addBehaviorItem(47,"1 ครั้ง",1);
     DataManagement::addBehaviorItem(47,"2  ครั้ง",2);
@@ -205,23 +205,276 @@ class DataManagement{
         
     
     
-    DataManagement::addBehavior('โถปัสสาวะ',"images/icon/how-cool_30.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ก๊อกน้ำ',"images/icon/how-cool_31.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('เครื่องเป่าผม',"images/icon/how-cool_32.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('กระดาษทิชชู่',"images/icon/how-cool_33.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ถุงยางอนามัย',"images/icon/how-cool_34.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehavior('โถปัสสาวะ',"images/icon/how-cool_30.png",'คุณใช้สุขภัณฑ์ปัสสาวะไปประมาณกี่ครั้ง');
+    DataManagement::addFactor(48,0.000,6);
     
-    DataManagement::addBehavior('ผ้าอนามัย',"images/icon/how-cool_35.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('บุหรี่',"images/icon/how-cool_36.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addBehaviorItem(48,"1 ครั้ง",1);
+    DataManagement::addBehaviorItem(48,"2 ครั้ง",2);
+    DataManagement::addBehaviorItem(48,"3 ครั้ง",3);
+    DataManagement::addBehaviorItem(48,"4 ครั้ง",4);
+    DataManagement::addBehaviorItem(48,"5 ครั้ง",5);
+    DataManagement::addBehaviorItem(48,"6 ครั้ง",6);
+    DataManagement::addBehaviorItem(48,"7 ครั้ง",7);
+    DataManagement::addBehaviorItem(48,"8 ครั้ง",8);
+    DataManagement::addBehaviorItem(48,"9 ครั้ง",9);
+    DataManagement::addBehaviorItem(48,"10 ครั้ง",10);  
+    
+    
+    
+    DataManagement::addBehavior('ก๊อกน้ำ',"images/icon/how-cool_31.png",'คุณเปิดก๊อกน้ำรวมทั้งวันเป็นเวลาประมาณกี่นาที');
+    DataManagement::addFactor(49,0.000,6);
+    
+    DataManagement::addBehaviorItem(49,"1 นาที",1);
+    DataManagement::addBehaviorItem(49,"3 นาที",3);
+    DataManagement::addBehaviorItem(49,"5 นาที",5);
+    DataManagement::addBehaviorItem(49,"10 นาที",10);
+    DataManagement::addBehaviorItem(49,"15 นาที",15);
+    DataManagement::addBehaviorItem(49,"20 นาที",20);
+    DataManagement::addBehaviorItem(49,"25 นาที",25);
+    DataManagement::addBehaviorItem(49,"30 นาที",30);
+    DataManagement::addBehaviorItem(49,"35 นาที",35);
+    DataManagement::addBehaviorItem(49,"40 นาที",40);     
+    DataManagement::addBehaviorItem(49,"45 นาที",45);
+    DataManagement::addBehaviorItem(49,"50 นาที",50);
+    DataManagement::addBehaviorItem(49,"55 นาที",55);
+    DataManagement::addBehaviorItem(49,"60 นาที",60);
+    DataManagement::addBehaviorItem(49,"นานกว่าในตัวเลือก",999);      
+    
+    DataManagement::addBehavior('เครื่องเป่าผม',"images/icon/how-cool_32.png",'คุณใช้เครื่องเป่าผมรวมทั้งวันเป็นเวลาประมาณกี่นาที');
+    DataManagement::addFactor(50,0.015,0);
+    
+    DataManagement::addBehaviorItem(50,"1 นาที",1);
+    DataManagement::addBehaviorItem(50,"3 นาที",3);
+    DataManagement::addBehaviorItem(50,"5 นาที",5);
+    DataManagement::addBehaviorItem(50,"10 นาที",10);
+    DataManagement::addBehaviorItem(50,"15 นาที",15);
+    DataManagement::addBehaviorItem(50,"20 นาที",20);
+    DataManagement::addBehaviorItem(50,"25 นาที",25);
+    DataManagement::addBehaviorItem(50,"30 นาที",30);
+    DataManagement::addBehaviorItem(50,"35 นาที",35);
+    DataManagement::addBehaviorItem(50,"40 นาที",40);     
+    DataManagement::addBehaviorItem(50,"45 นาที",45);
+    DataManagement::addBehaviorItem(50,"50 นาที",50);
+    DataManagement::addBehaviorItem(50,"55 นาที",55);
+    DataManagement::addBehaviorItem(50,"60 นาที",60);
+    DataManagement::addBehaviorItem(50,"นานกว่าในตัวเลือก",999);      
+    
+    
+    DataManagement::addBehavior('กระดาษทิชชู่',"images/icon/how-cool_33.png",'คุณใช้กระดาษทิชชู่ไปทั้งหมดประมาณกี่แผ่น');
+    DataManagement::addFactor(51,0.0018,0);
+    
+    DataManagement::addBehaviorItem(51,"1 แผ่น",1);
+    DataManagement::addBehaviorItem(51,"2 แผ่น",2);
+    DataManagement::addBehaviorItem(51,"3 แผ่น",3);
+    DataManagement::addBehaviorItem(51,"4 แผ่น",4);
+    DataManagement::addBehaviorItem(51,"5 แผ่น",5);
+    DataManagement::addBehaviorItem(51,"6 แผ่น",6);
+    DataManagement::addBehaviorItem(51,"7 แผ่น",7);
+    DataManagement::addBehaviorItem(51,"8 แผ่น",8);
+    DataManagement::addBehaviorItem(51,"9 แผ่น",9);
+    DataManagement::addBehaviorItem(51,"10 แผ่น",10);   
+    DataManagement::addBehaviorItem(51,"11 แผ่น",11);  
+    DataManagement::addBehaviorItem(51,"12 แผ่น",12);    
+    DataManagement::addBehaviorItem(51,"333 แผ่น (1 ม้วน)",12);        
+    DataManagement::addBehaviorItem(51,"นานกว่าในตัวเลือก",999);     
+      
+
+
+    DataManagement::addBehavior('ถุงยางอนามัย',"images/icon/how-cool_34.png",'คุณใช้ถุงยางอนามัยไปทั้งหมดกี่ชิ้น');
+    DataManagement::addFactor(52,0.016,0);
+    
+    DataManagement::addBehaviorItem(52,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(52,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(52,"3 ชิ้น (1 กล่อง)",3);
+    DataManagement::addBehaviorItem(52,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(52,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(52,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(52,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(52,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(52,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(52,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(52,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(52,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(52,"นานกว่าในตัวเลือก",999);     
+    
+    
+    DataManagement::addBehavior('ผ้าอนามัย',"images/icon/how-cool_35.png",'คุณใช้ผ้าอนามัยไปทั้งหมดกี่ชิ้น');
+    DataManagement::addFactor(53,0.023,0);
+    
+    DataManagement::addBehaviorItem(53,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(53,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(53,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(53,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(53,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(53,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(53,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(53,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(53,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(53,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(53,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(53,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(53,"นานกว่าในตัวเลือก",999);    
+    
+       
+    DataManagement::addBehavior('บุหรี่',"images/icon/how-cool_36.png",'คุณสูบบุหรี่ไปทั้งหมดกี่มวน');
+    DataManagement::addFactor(54,0.005,0);
+    
+    DataManagement::addBehaviorItem(54,"1 มวน",1);
+    DataManagement::addBehaviorItem(54,"2 มวน",2);
+    DataManagement::addBehaviorItem(54,"3 มวน",3);
+    DataManagement::addBehaviorItem(54,"4 มวน",4);
+    DataManagement::addBehaviorItem(54,"5 มวน",5);
+    DataManagement::addBehaviorItem(54,"6 มวน",6);
+    DataManagement::addBehaviorItem(54,"7 มวน",7);
+    DataManagement::addBehaviorItem(54,"8 มวน",8);
+    DataManagement::addBehaviorItem(54,"9 มวน",9);
+    DataManagement::addBehaviorItem(54,"10 มวน",10);   
+    DataManagement::addBehaviorItem(54,"11 มวน",11);  
+    DataManagement::addBehaviorItem(54,"12 มวน",12);         
+    DataManagement::addBehaviorItem(54,"20 มวน (1 ซอง)",20);   
+    DataManagement::addBehaviorItem(54,"นานกว่าในตัวเลือก",999);      
+    
     DataManagement::addBehavior('กระดาษ',"images/icon/how-cool_37.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ถุงพลาสติก',"images/icon/how-cool_38.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ถุงกระดาษ',"images/icon/how-cool_39.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ภาชนะพลาสติก',"images/icon/how-cool_40.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ภาชนะโฟม',"images/icon/how-cool_41.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ภาชนะกระดาษ',"images/icon/how-cool_42.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ขวาดพลาสติก',"images/icon/how-cool_43.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('ขวดแก้ว',"images/icon/how-cool_44.png",'ระยะที่ขับๆๆๆ');
-    DataManagement::addBehavior('กระป๋อง',"images/icon/how-cool_45.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addFactor(55,0.016,0);
+    DataManagement::addBehaviorItem(55,"1 แผ่น",1);
+    DataManagement::addBehaviorItem(55,"2 แผ่น",2);
+    DataManagement::addBehaviorItem(55,"3 แผ่น",3);
+    DataManagement::addBehaviorItem(55,"4 แผ่น",4);
+    DataManagement::addBehaviorItem(55,"5 แผ่น",5);
+    DataManagement::addBehaviorItem(55,"10 แผ่น (หนังสือพิมพ์ข่าวกีฬา)",10);
+    DataManagement::addBehaviorItem(55,"20 แผ่น",20);
+    DataManagement::addBehaviorItem(55,"30 แผ่น",30);
+    DataManagement::addBehaviorItem(55,"40 แผ่น (หนังสือพิมพ์)",40);
+    DataManagement::addBehaviorItem(55,"50 แผ่น (หนังสือการ์ตูน)",50);   
+    DataManagement::addBehaviorItem(55,"100 แผ่น (นิตยสาร)",100);  
+    DataManagement::addBehaviorItem(55,"200 แผ่น (หนังสือพ๊อคเก็ท)",200);    
+    DataManagement::addBehaviorItem(55,"300 แผ่น (หนังสือ textbook)",300);        
+    DataManagement::addBehaviorItem(55,"นานกว่าในตัวเลือก",999);     
+    
+        
+    DataManagement::addBehavior('ถุงพลาสติก',"images/icon/how-cool_38.png",'คุณรับถุงพลาสติกมากี่ใบ');
+    DataManagement::addFactor(56,0.25,0);
+    DataManagement::addBehaviorItem(56,"1 ใบ",1);
+    DataManagement::addBehaviorItem(56,"2 ใบ",2);
+    DataManagement::addBehaviorItem(56,"3 ใบ",3);
+    DataManagement::addBehaviorItem(56,"4 ใบ",4);
+    DataManagement::addBehaviorItem(56,"5 ใบ",5);
+    DataManagement::addBehaviorItem(56,"6 ใบ",6);
+    DataManagement::addBehaviorItem(56,"7 ใบ",7);
+    DataManagement::addBehaviorItem(56,"8 ใบ",8);
+    DataManagement::addBehaviorItem(56,"9 ใบ",9);
+    DataManagement::addBehaviorItem(56,"10 ใบ",10);        
+    DataManagement::addBehaviorItem(56,"นานกว่าในตัวเลือก",999);    
+    
+        
+    DataManagement::addBehavior('ถุงกระดาษ',"images/icon/how-cool_39.png",'คุณรับถุงกระดาษมากี่ใบ');
+    DataManagement::addFactor(57,0.1,0);
+    DataManagement::addBehaviorItem(57,"1 ใบ",1);
+    DataManagement::addBehaviorItem(57,"2 ใบ",2);
+    DataManagement::addBehaviorItem(57,"3 ใบ",3);
+    DataManagement::addBehaviorItem(57,"4 ใบ",4);
+    DataManagement::addBehaviorItem(57,"5 ใบ",5);
+    DataManagement::addBehaviorItem(57,"6 ใบ",6);
+    DataManagement::addBehaviorItem(57,"7 ใบ",7);
+    DataManagement::addBehaviorItem(57,"8 ใบ",8);
+    DataManagement::addBehaviorItem(57,"9 ใบ",9);
+    DataManagement::addBehaviorItem(57,"10 ใบ",10);        
+    DataManagement::addBehaviorItem(57,"นานกว่าในตัวเลือก",999);    
+    
+    
+        
+    DataManagement::addBehavior('ภาชนะพลาสติก',"images/icon/how-cool_40.png",'คุณรับประทานอาหารจากภาชนะพลาสติกกี่ชิ้น');
+    DataManagement::addBehaviorItem(58,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(58,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(58,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(58,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(58,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(58,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(58,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(58,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(58,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(58,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(58,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(58,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(58,"นานกว่าในตัวเลือก",999);   
+    
+    DataManagement::addBehavior('ภาชนะโฟม',"images/icon/how-cool_41.png",'คุณรับประทานอาหารจากภาชนะโฟมกี่ชิ้น');
+    DataManagement::addBehaviorItem(59,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(59,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(59,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(59,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(59,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(59,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(59,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(59,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(59,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(59,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(59,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(59,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(59,"นานกว่าในตัวเลือก",999);   
+    
+    
+    DataManagement::addBehavior('ภาชนะกระดาษ',"images/icon/how-cool_42.png",'คุณรับประทานอาหารจากภาชนะกระดาษกี่ชิ้น');
+    DataManagement::addBehaviorItem(60,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(60,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(60,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(60,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(60,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(60,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(60,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(60,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(60,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(60,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(60,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(60,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(60,"นานกว่าในตัวเลือก",
+    
+    
+        
+    DataManagement::addBehavior('ขวดพลาสติก',"images/icon/how-cool_43.png",'คุณรับประทานเครื่องดื่มจากภาชนะพลาสติกกี่ชิ้น');
+    DataManagement::addBehaviorItem(61,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(61,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(61,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(61,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(61,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(61,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(61,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(61,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(61,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(61,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(61,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(61,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(61,"นานกว่าในตัวเลือก",999);   
+        
+    DataManagement::addBehavior('ขวดแก้ว',"images/icon/how-cool_44.png",'คุณรับประทานเครื่องดื่มจากขวดแก้วกี่ชิ้น');
+    DataManagement::addBehaviorItem(62,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(62,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(62,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(62,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(62,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(62,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(62,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(62,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(62,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(62,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(62,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(62,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(62,"นานกว่าในตัวเลือก",999);       
+
+    DataManagement::addBehavior('กระป๋อง',"images/icon/how-cool_45.png",'คุณรับประทานเครื่องดื่มจากกระป๋องทั้งหมดกี่ชิ้น');
+    DataManagement::addBehaviorItem(63,"1 ชิ้น",1);
+    DataManagement::addBehaviorItem(63,"2 ชิ้น",2);
+    DataManagement::addBehaviorItem(63,"3 ชิ้น",3);
+    DataManagement::addBehaviorItem(63,"4 ชิ้น",4);
+    DataManagement::addBehaviorItem(63,"5 ชิ้น",5);
+    DataManagement::addBehaviorItem(63,"6 ชิ้น",6);
+    DataManagement::addBehaviorItem(63,"7 ชิ้น",7);
+    DataManagement::addBehaviorItem(63,"8 ชิ้น",8);
+    DataManagement::addBehaviorItem(63,"9 ชิ้น",9);
+    DataManagement::addBehaviorItem(63,"10 ชิ้น",10);   
+    DataManagement::addBehaviorItem(63,"11 ชิ้น",11);  
+    DataManagement::addBehaviorItem(63,"12 ชิ้น",12);        
+    DataManagement::addBehaviorItem(63,"นานกว่าในตัวเลือก",999);       
     
     return $result;
   }
