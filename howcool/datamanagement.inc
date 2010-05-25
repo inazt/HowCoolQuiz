@@ -94,6 +94,22 @@ class DataManagement{
     DataManagement::addBehaviorItem(3,"200 กิโลเมตร",200);
         
     DataManagement::addBehavior('รถไฟฟ้า',"images/icon/how-cool_06.png",'ระยะที่ขับๆๆๆ');
+    DataManagement::addFactor(4,0.297,0);
+    DataManagement::addBehaviorItem(4,"1 สถานี",1);
+    DataManagement::addBehaviorItem(4,"2 สถานี",2);
+    DataManagement::addBehaviorItem(4,"3 สถานี",3);
+    DataManagement::addBehaviorItem(4,"4 สถานี",4);
+    DataManagement::addBehaviorItem(4,"5 สถานี",5);
+    DataManagement::addBehaviorItem(4,"10 สถานี",10);
+    DataManagement::addBehaviorItem(4,"15 สถานี",15);
+    DataManagement::addBehaviorItem(4,"20 สถานี",20);
+    DataManagement::addBehaviorItem(4,"25 สถานี",25);
+    DataManagement::addBehaviorItem(4,"30 สถานี",30);
+    DataManagement::addBehaviorItem(4,"35 สถานี",35);
+    DataManagement::addBehaviorItem(4,"40 สถานี",40);
+    DataManagement::addBehaviorItem(4,"45 สถานี",45);
+    DataManagement::addBehaviorItem(4,"50 สถานี",50);
+
     DataManagement::addBehavior('รถไฟ',"images/icon/how-cool_07.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('รถเมล์,รถทัวร์',"images/icon/how-cool_08.png",'ระยะที่ขับๆๆๆ');
     DataManagement::addBehavior('เครื่องบิน',"images/icon/how-cool_10.png",'ระยะที่ขับๆๆๆ');
