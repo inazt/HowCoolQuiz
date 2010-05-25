@@ -266,12 +266,12 @@ function save_result($data) {
   return var_export($result,1) ;
 }
 function gen_graph($data) {
-  $carbonday=$data['carbon']/100;
-  $point_carbon = $data['carbon'];
-  $point_water = $data['water'];
-
+  
+  $point_carbon = $data['carbon']+20;
+  $point_water = $data['water']+20;
+  $carbonday=$point_carbon/100;
   $carbonyear=$carbonday*100;
-  $waterday=$data['water']/100  ;
+  $waterday=$point_water/100  ;
   $wateryear=$waterday*100;
   $weight = Config::$weight_renges[$data['weight']];
   
@@ -287,6 +287,7 @@ function gen_graph($data) {
     $carbonyear = $carbonyear/$max*50;
   }
   */
+  
   
 
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
