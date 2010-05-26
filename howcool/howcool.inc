@@ -265,38 +265,78 @@ function save_result($data) {
   $result=drupal_write_record('personal', $data);
   return var_export($result,1) ;
 }
+
+function compareLv($def_lv,$lv){
+  if($def_lv >$lv){
+    return $def_lv;
+  }else{
+    return $lv;
+  }
+}
+
 function gen_graph($data) {
   
   $point_carbon = $data['carbon']+0.99;
   $point_water = $data['water']+5.75;
+  $lv =0;
+  
+ // drupal_set_message(print_r($data['weight'],1));
+  
+  if($point_water >300){
+    $waterday =10;
+    $lv =  compareLv($lv,4);
+  }else if($point_water>200){
+    $waterday =($point_water-200)*(4/100)  + 5; 
+    $lv =  compareLv($lv,3);
+  }else if($point_water >100){
+    $waterday = ($point_water-100)/100 +3;
+    $lv =  compareLv($lv,2);
+  }else if($point_water>50){
+    $waterday = 2;
+    $lv =  compareLv($lv,1);
+  }else if($point_water >5.75){
+    $waterday = 1;
+    $lv =  compareLv($lv,1);
+  }else{
+    $waterday = 0.1;
+    $lv =  compareLv($lv,1);
+  }
   
   if($point_carbon >11){
     $carbonday =10;
+    $lv =  compareLv($lv,4);
   }else if($point_carbon>7){
     $carbonday =($point_carbon-7)  + 5; 
+    $lv =  compareLv($lv,3);
   }else if($point_carbon >4){
     $carbonday = ($point_carbon-4)/3 +3;
-  }else if($pint_carbon>0.99){
+    $lv =  compareLv($lv,2);
+  }else if($point_carbon>0.99){
     $carbonday = ($point_carbon-1)/3 +1;
+    $lv =  compareLv($lv,1);
   }else{
-    $carbon_day = 0;
+    $carbonday = 0.1;
+    $lv =  compareLv($lv,1);
   }
-  
+   
   
   $carbonyear=$carbonday*100;
   //$waterday=$point_water/100  ;
   $wateryear=$waterday*100;
-  $weight = Config::$weight_renges[$data['weight']];
+  $weight = $data['weight'];
   
   $carbonyear=log10($carbonyear*100)*10;
   $wateryear=log10($wateryear*100)*10;
-  
-  $lv = 1;
+   
+// $lv = 1;
   $img = "images/info/$lv.png";
 
+  $point_carbon = ceil($point_carbon);
+  $point_water = ceil($point_water);
+  
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/gengraph.js');
-  drupal_add_js(array('howcool' =>  array('carbonday' => 10, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
+  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');

@@ -86,6 +86,7 @@ function result_view($input){
   drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
   drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
   $show =gen_graph(get_result($input));
+  $show .= drupal_get_form('form_detail',$form_state);
   return $show;
 }
 
@@ -127,6 +128,28 @@ function detail_view($input){
     How Cool Form Stucture
 
 */
+
+
+function form_detail($form_state){
+  $output = new DisplayOutput();
+  $form['white_class'] =$output->openDiv('white_class');
+  $form['block5']=$output->createGrid(5);
+  $form['grid_open'] = $output->openGrid(2);
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Next'),
+    
+  );
+  $form['grid_close'] = $output->closeGrid();
+  $form['block6']=$output->createGridWithLine(5);
+  $form['close_white_class'] =$output->closeDiv();
+  //$form['submit_close_container'] = $output->closeContainer();
+  return $form;
+}
+function form_detail_submit($form_state){
+   drupal_goto('detail/s');
+}
+
 function form_generation($form_state,$page){
   if(empty($form_state['values'])){
     //drupal_set_message(form_decision(email_form($form_state)));  

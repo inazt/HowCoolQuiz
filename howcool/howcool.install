@@ -191,6 +191,7 @@ function howcool_schema(){
      ),
      'primary key' => array('item_id'),
   );
+ 
   $schema['howcool_config']=array(
     'description' =>'Config of howcool',
     'fields'=>array(    
