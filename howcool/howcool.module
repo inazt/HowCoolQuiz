@@ -653,8 +653,11 @@ function form_generation_validate(&$form, &$form_state) {
   //form_set_error('time', t('An event may not end before it starts.'));
   $values=$form_state['values'];
   $page=$values['page'];
+  $errorFlag=0;
   if($page=='personal' && $values['age']=='null') {
-    form_set_error('age', t('age is required!'));
+    ++$errorFlag;
+    form_set_error('age', ' ');
+    array_pop($_SESSION['messages']['error']);
   }
   else if($page=='check' && array_sum($values['point'])==0) {
      form_set_error('time', t('activity is required!'));
@@ -670,14 +673,22 @@ function form_generation_validate(&$form, &$form_state) {
   }
 
   if ($page=='personal' && $values['weight']=="null") {
-    form_set_error('weight', t('weight required!'));
+    ++$errorFlag;
+    form_set_error('weight', ' ');
+    array_pop($_SESSION['messages']['error']);
   }
   if ($page=='personal' && $values['hight']=="null") {
-    form_set_error('hight', t('hight required!'));
+    ++$errorFlag;
+    form_set_error('hight', ' ');
+    array_pop($_SESSION['messages']['error']);
   }
   if ($page=='personal' && $values['sex']=="null") {
-    form_set_error('sex', t('sex required!'));
+    ++$errorFlag;
+    form_set_error('sex', ' ssdfsf');
+    array_pop($_SESSION['messages']['error']);
   }    
+  if($errorFlag>0) {  form_set_error('sexd', 'กรุณากรอกข้อมูลในช่องสีแดง'); }
+
 }
 
 /**
