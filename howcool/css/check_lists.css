@@ -36,3 +36,12 @@
    font-weight:bold;
  
 }
+#detailxx {
+  border-bottom:none;
+}
+
+.cool_check .form-checkboxes .detail_display .form-item{
+    padding:0;
+    border-bottom:none;
+}
+

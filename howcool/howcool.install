@@ -170,14 +170,14 @@ function howcool_schema(){
       'label' => array(
         'description' => 'label',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 40,
         'not null'=>TRUE
       ),
       
       'value' => array(
         'description' => 'value',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 30,
         'not null'=>TRUE
       ),
       

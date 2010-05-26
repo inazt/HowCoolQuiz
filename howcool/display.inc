@@ -19,12 +19,21 @@ class DisplayOutput
     );
     return $form_element;
   }
-  public function openDiv($name){
-    $form_element = array(
-      '#type'=>'markup',
-      '#value'=>"<div class='".$name."'>",
-    );
-    return $form_element;
+  public function openDiv($name,$id='ss'){
+    if($id=='ss'){
+      $form_element = array(
+        '#type'=>'markup',
+        '#value'=>"<div class='".$name."'>",
+      );
+      return $form_element;
+    }else{
+      $form_element = array(
+        '#type'=>'markup',
+        '#value'=>"<div class='".$name."' id='".$id."'>",
+      );
+      return $form_element;
+    
+    }
   }
   public function closeDiv(){
     $form_element = array(
@@ -141,10 +150,12 @@ class ResultOutput
          ".//Body
          "
          <div class = 'grid_12'>
-           <div class ='cool_check'>
+           <div class ='cool_check' id='detailxx'>
             <div class = 'form-checkboxes'>
+            <div class='detail_display'>
            ".$this->displayImage($data['info']).
            "
+            </div>
             </div>
            </div>
          </div>

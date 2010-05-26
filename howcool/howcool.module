@@ -287,8 +287,8 @@ function personal_form($form_state){
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
   $form['grid1_12']=$output->createGrid(1,'<p></p>');
   $form['grid1_13']=$output->openGrid(6,'<p></p>');
-  $form['openDiv']=$output->openDiv('pop');
- 
+  //$form['openDiv']=$output->openDiv('pop');
+    $form['openDiv']=$output->openDiv('now');
   $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
   if(empty($form_state['values']['sex'])){
     $form['sex'] = array(
@@ -410,6 +410,7 @@ function personal_form($form_state){
   }
   $form['page'] = array('#type' => 'hidden', '#value' => 'personal');
     $form['closeDivPop']=$output->closeDiv();
+//    $form['closeDivNow']=$output->closeDiv();
   $form['closeGrid']=$output->closeGrid();
   $form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
   
@@ -563,15 +564,10 @@ function scale_form($form_state){
   foreach($form_state['values']['point'] as $key){
     //$myobject = Checker::getChecker($key);
     $data = DataManagement::getScaleData();
-    
-    //$form['gridd12'.$i]=$output->openGrid(12);  
-    //$form['subgrid2']=$output->createGrid(2,'sdff'.$img_url,'alpha');   		
+
     if($key>0){
     //ja run if only if have select ok?
-    
     $scale = array_combine($data[$key]['value'],$data[$key]['label']);
-    //drupal_set_message(print_r($myobject->image,1));
-    // $form['image'.$i]= array('#type'=> 'markup','#value' => $myobject->image);
     $form['grid12'.$i] = $output->openGrid(12);  
     $form['subgrid2'.$i] = $output->createGrid(2,"<img src=' " . drupal_get_path('module', 'howcool') ."/".$data[$key]['image_path']."'>",'alpha');      
     $form['subgrid10'.$i] = $output->openGrid(10,'omega'); 
@@ -582,8 +578,8 @@ function scale_form($form_state){
     $form['scale'.$i] = array(
       '#type' => 'select', 
       '#title' => $data[$key]['subject'], 
-      //'#default_value' => variable_get('เลือกจังหวัดที่อาศัย','bkk'),
       '#options' => $scale, 
+      
       );
      $form['closediv'.$i]=$output->closeDiv();
      $form['closesub2'.$i]=$output->closeGrid();
