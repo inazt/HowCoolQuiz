@@ -39,19 +39,16 @@ div#navbar {
 	background-color: #8FC73E;
 	padding: 10px 0;
 }
+
 .pop {
   clear:left;
+  position:relative;
 }
 .pop .form-item{
  width:100%;
  clear:left;
 }
-. 
-
-.pop .form-select { position: relative; width: 190px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } 
-
-.disabled { opacity: 0.5; filter: alpha(opacity=50); }
-
+ 
 .pop .form-item > * {
   float:left;
 }
@@ -62,16 +59,17 @@ div#navbar {
 .pop .form-item > label {
   color:white;
   font-size:22px;
-  width: 60%;
+  width: 50%;
 }
 
 .pop .form-item > select {
-  width:150px;
+  width:140px;
   /* select box width */
 }
 .pop .form-item > div {
   width: 50%;
 }
+
 #weight{
 font-size:25px;
  color:white;
@@ -114,3 +112,11 @@ color:white;
 .sufon{
  
 }
+
+span.customStyleSelectBox { font-size:11px; background-color: #f5f0de; color:#7c7c7c; padding:5px 7px; border:1px solid #e7dab0; -moz-border-radius: 5px; -webkit-border-radius: 5px;border-radius: 5px 5px; }
+span.customStyleSelectBox.changed { background-color: #f0dea4; }
+span.customStyleSelectBox.customError { background-color:red; }
+.customStyleSelectBoxInner { background:url(http://www.adamcoulombe.info/lab/jquery/select-box/canvas-list-nav-item-arrow-.gif) no-repeat center right; }
+</style>
+
+

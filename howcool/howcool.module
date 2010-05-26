@@ -94,6 +94,8 @@ function detail_view($input){
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+
+
  $raw_data = DataManagement::getAllDetail();
  $info = array();
   for($i = 0 ;$i<(int)$_SESSION['count'];$i++){
@@ -250,6 +252,8 @@ function email_form($form_state){
 function personal_form($form_state){
      drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
      drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
+
+   //  drupal_add_css(drupal_get_path('module','howcool'). '/css/
   $output=new DisplayOutput();
  
   $form['conatiner12']=$output->openContainer();
@@ -257,7 +261,7 @@ function personal_form($form_state){
   $form['grid1_1']=$output->createGrid(1,'<p></p>');
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
   $form['grid1_12']=$output->createGrid(1,'<p></p>');
-  $form['grid1_13']=$output->openGrid(5,'<p></p>');
+  $form['grid1_13']=$output->openGrid(6,'<p></p>');
   $form['openDiv']=$output->openDiv('pop');
  
   $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
@@ -359,7 +363,7 @@ function personal_form($form_state){
       '#title' => t('น้ำหนัก'),
       '#required' =>TRUE, 
       '#default_value' =>$form_state['values']['weight'],
-      '#options' => Carray_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
+      '#options' => array_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
     );
   }
   if(empty($form_state['values']['status'])){
@@ -402,6 +406,11 @@ function personal_form($form_state){
   $form['c_block7'] =$output->closeGrid();
   $form['block6'] = $output->createGridWithLine(4);
   
+  $form['closeDivPop']=$output->closeDiv();
+  $form['closeGrid']=$output->closeGrid();
+  $form['closeGrid']=$output->closeGrid();
+  //$form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
+
   $form['closeContainer']=$output->closeContainer();
   
   
@@ -628,6 +637,8 @@ function logic($form_state){
 function form_generation_validate(&$form, &$form_state) {
   //drupal_set_message('ok do');
     drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+         drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
+     drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
   //drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
   //form_set_error('time', t('An event may not end before it starts.'));
   $values=$form_state['values'];

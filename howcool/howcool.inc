@@ -291,7 +291,7 @@ function gen_graph($data) {
   $img = "images/info/$lv.png";
 
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
-  drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
+  drupal_add_js(drupal_get_path('module', 'howcool') . '/js/gengraph.js');
   drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
