@@ -10,9 +10,11 @@
 .cool_check .form-checkboxes .form-item{
   text-align:center;
   width:125px;
-  margin-left:18px;
-  margin-right:10px;
+  /*margin-left:18px;
+  margin-right:10px;*/
   float:left;
+  padding:30px 10px 0;
+  border-bottom:1px solid #FFFFFF;
 }
 .cool_check .form-item label{
   color:white;
