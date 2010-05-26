@@ -83,8 +83,8 @@ function form_view(){
 function result_view($input){
   //$show = 'this is result!!'.$input;
   //$show .= print_r(get_result($input),1);
-     drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
-     drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
+  drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
+  drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
   $show =gen_graph(get_result($input));
   return $show;
 }
@@ -94,7 +94,8 @@ function detail_view($input){
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
-
+ drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
+ drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
 
  $raw_data = DataManagement::getAllDetail();
  $info = array();
@@ -112,8 +113,8 @@ function detail_view($input){
   }
   
   $data = array(
-    'carbon' => 3,
-    'water' => 5,
+    'carbon' => '0.99 กิโลกรรม',
+    'water' => '5.75 ลิตร',
     'info'=>$info,
   );
   $r_output = new ResultOutput();
@@ -233,7 +234,8 @@ function email_form($form_state){
   $form['closeEmailGrid'] = $output->closeGrid();
   $form['block4']=$output->createGrid(4);
   $form['closeContainer'] = $output->closeContainer();
-  $form['submit_container'] = $output->openContainer(12);
+  
+  //$form['submit_container'] = $output->openContainer(12);
   $form['white_class'] =$output->openDiv('white_class');
   $form['block5']=$output->createGrid(5);
   $form['grid_open'] = $output->openGrid(2);
@@ -245,7 +247,7 @@ function email_form($form_state){
   $form['grid_close'] = $output->closeGrid();
   $form['block6']=$output->createGridWithLine(5);
   $form['close_white_class'] =$output->closeDiv();
-  $form['submit_close_container'] = $output->closeContainer();
+  //$form['submit_close_container'] = $output->closeContainer();
   return $form;
 }
 
@@ -390,6 +392,16 @@ function personal_form($form_state){
   
   
   $form['block12'] =$output->createGridWithLine(12);
+  
+  $form['closeDivPop']=$output->closeDiv();
+  $form['closeGrid']=$output->closeGrid();
+  $form['closeGrid']=$output->closeGrid();
+  //$form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
+  $form['block13'] =$output->createGridWithLine(12);
+  $form['closeContainer']=$output->closeContainer();
+  
+  
+  $form['white_class'] =$output->openDiv('white_class');
   $form['block5'] = $output->createGrid(4);
   $form['block7'] = $output->openGrid(4);
   
@@ -405,13 +417,7 @@ function personal_form($form_state){
   );
   $form['c_block7'] =$output->closeGrid();
   $form['block6'] = $output->createGridWithLine(4);
-  
-  $form['closeDivPop']=$output->closeDiv();
-  $form['closeGrid']=$output->closeGrid();
-  $form['closeGrid']=$output->closeGrid();
-  //$form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
-
-  $form['closeContainer']=$output->closeContainer();
+  $form['close_white_class'] =$output->closeDiv();
   
   
   return $form;
@@ -482,7 +488,11 @@ function check_form($form_state){
   $form['closetagDiv'] = $output->closeDiv();
   $form['closeGrid'] = $output->closeLineGrid();
   
-  $form['block12'] =$output->createGridWithLine(12);
+  $form['block12'] =$output->createGridWithLine(12); 
+  
+  $form['closeContainer'] = $output->closeContainer();
+  
+  $form['white_class'] =$output->openDiv('white_class');
   $form['block5'] = $output->createGrid(4);
   $form['block7'] = $output->openGrid(4);
   
@@ -498,9 +508,8 @@ function check_form($form_state){
   );
   $form['c_block7'] =$output->closeGrid();
   $form['block6'] = $output->createGridWithLine(4);
+  $form['close_white_class'] =$output->closeDiv();
   
-  
-  $form['closeContainer'] = $output->closeContainer();
   return $form;
   
 }
@@ -532,7 +541,7 @@ function scale_form($form_state){
     //$myobject = Checker::getChecker($key);
     $data = DataManagement::getScaleData();
     
-    $form['grid12'.$i]=$output->openGrid(12);  
+    //$form['gridd12'.$i]=$output->openGrid(12);  
     //$form['subgrid2']=$output->createGrid(2,'sdff'.$img_url,'alpha');   		
     if($key>0){
     //ja run if only if have select ok?
@@ -559,12 +568,13 @@ function scale_form($form_state){
      $i++;
     }
   }
-  
-  $form['closeContainer']=$output->closeContainer();
   $form['count']= array('#type' => 'hidden', '#value' => $i);
   $form['page'] = array('#type' => 'hidden', '#value' => 'scale');  
+
+  $form['block12'] =$output->createGridWithLine(12);  
+  $form['closeContainer']=$output->closeContainer();
   
-  $form['block12'] =$output->createGridWithLine(12);
+  $form['white_class'] =$output->openDiv('white_class');
   $form['block5'] = $output->createGrid(4);
   $form['block7'] = $output->openGrid(4);
   
@@ -580,7 +590,7 @@ function scale_form($form_state){
   );
   $form['c_block7'] =$output->closeGrid();
   $form['block6'] = $output->createGridWithLine(4);
-  
+  $form['close_white_class'] =$output->closeDiv();
   return $form;
 }
 

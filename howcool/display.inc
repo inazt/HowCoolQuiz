@@ -5,8 +5,9 @@ class DisplayOutput
       $ans = array();
       for($i = 0 ;$i<count($data['name']);$i++){
         
-        $ans[$i] = '<img src='.drupal_get_path('module', 'howcool').'/'.$data['image_path'][$i].'></img>';
-        $ans[$i] .='<strong>'.$data['name'][$i].'</strong><br>';
+        $ans[$i] ='<strong>'.$data['name'][$i].'</strong><br>';
+        $ans[$i] .= '<img src='.drupal_get_path('module', 'howcool').'/'.$data['image_path'][$i].'></img>';
+        
       }
       return $ans;
   }
@@ -85,43 +86,53 @@ class ResultOutput
       $img = "<img src =../".drupal_get_path('module', 'howcool').'/'.$data[$i]['image_path']."></img>";
       $karma = "";
       if($data[$i]['carbon']>0){
-        $karma .= "ก่อกรรม<br>".$data[$i]['carbon']." กิโลกรรม";
+        $karma .= "".$data[$i]['carbon']." กิโลกรรม";
       }else{
-        $karma .= "ก่อกรรม<br>";
+        $karma .= "";
       }
 
       if($data[$i]['water']>0){
-        $karma .= " ".$data[$i]['water']." ลิตร";
+        $karma .= "<br>".$data[$i]['water']." ลิตร";
       }else{
         $karma .= "";
       }     
-      
       $ans .= " <div class ='form-item'>
-                  <label class='option'> ".$name."<br>".$img."<br>".$karma."</label>
+               <label class='option'> ".$img."<br>".$name."<br>".$karma."</label>
               </div>";
-    
+      
     }
+    
    
     return $ans;
   }
 
   public function showDetail($data){
     return "
+        <div class='detail_all'>
         <div class='container_12'>
+         <div class='grid_12'>
+            <img src='../".drupal_get_path('module','howcool')."/images/detail_menu.png'></img>
+         </div>
           ".//Header
           "
          <div class='grid_4' >
               <h1></h1>
          </div>
          <div class='grid_2''>
+          
               <img src='../".drupal_get_path('module','howcool')."/images/empty-carbon.png'></img>
               <br>
+              <strong>หายใจ</strong>
+              <br>
               ".$data['carbon']."
+          
          </div>
          <div class='grid_2'>
               <img src='../".drupal_get_path('module','howcool')."/images/empty-water.png'></img>
               <br>
-              ".$data['water']."
+              <strong>ใช้น้ำ</strong>
+              <br>
+              ".$data['water']." 
          </div>
          <div class='grid_4'>
               <h1></h1>
@@ -137,6 +148,13 @@ class ResultOutput
             </div>
            </div>
          </div>
+        </div>
+        <div class='white_space'>
+        
+        </div>
+        <div class='white_class'>
+        
+        </div>
         </div>
     ";
   

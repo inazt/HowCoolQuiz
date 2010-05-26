@@ -269,30 +269,34 @@ function gen_graph($data) {
   
   $point_carbon = $data['carbon']+0.99;
   $point_water = $data['water']+5.75;
-  $carbonday=$point_carbon/100;
+  
+  if($point_carbon >11){
+    $carbonday =10;
+  }else if($point_carbon>7){
+    $carbonday =($point_carbon-7)  + 5; 
+  }else if($point_carbon >4){
+    $carbonday = ($point_carbon-4)/3 +3;
+  }else if($pint_carbon>0.99){
+    $carbonday = ($point_carbon-1)/3 +1;
+  }else{
+    $carbon_day = 0;
+  }
+  
+  
   $carbonyear=$carbonday*100;
-  $waterday=$point_water/100  ;
+  //$waterday=$point_water/100  ;
   $wateryear=$waterday*100;
   $weight = Config::$weight_renges[$data['weight']];
   
   $carbonyear=log10($carbonyear*100)*10;
   $wateryear=log10($wateryear*100)*10;
-  //Check Maigern 60 !!!
-  /*if($wateryear > 50){
-    $max = ceil($wateryear/10)*10;
-    $wateryear = $wateryear/$max*50;
-  }
-  if($carbonyear > 50){
-    $max = ceil($carbonyear/10)*10;
-    $carbonyear = $carbonyear/$max*50;
-  }
-  */
+  
   $lv = 1;
   $img = "images/info/$lv.png";
 
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/gengraph.js');
-  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
+  drupal_add_js(array('howcool' =>  array('carbonday' => 10, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
