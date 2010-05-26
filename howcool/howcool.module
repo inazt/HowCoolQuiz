@@ -220,17 +220,7 @@ function email_form($form_state){
   }
 
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Next'),
-    
-  );
-  $form['submit']['#theme'] = 'button';
-  $form['submit']['#button_type'] = 'image';
-  $form['submit']['#attributes'] = array(
-    'src' => drupal_get_path('module', 'howcool') . '/images/menuchoice2.png' ,
-    'alt' => t(Search)
-  );
+  
   /*
   $form['myhtml_footer'] = array(
     '#type'=>'markup',
@@ -241,6 +231,19 @@ function email_form($form_state){
   $form['closeEmailGrid'] = $output->closeGrid();
   $form['block4']=$output->createGrid(4);
   $form['closeContainer'] = $output->closeContainer();
+  $form['submit_container'] = $output->openContainer(12);
+  $form['white_class'] =$output->openDiv('white_class');
+  $form['block5']=$output->createGrid(5);
+  $form['grid_open'] = $output->openGrid(2);
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Next'),
+    
+  );
+  $form['grid_close'] = $output->closeGrid();
+  $form['block6']=$output->createGridWithLine(5);
+  $form['close_white_class'] =$output->closeDiv();
+  $form['submit_close_container'] = $output->closeContainer();
   return $form;
 }
 
@@ -377,6 +380,15 @@ function personal_form($form_state){
   );
   }
   $form['page'] = array('#type' => 'hidden', '#value' => 'personal');
+    $form['closeDivPop']=$output->closeDiv();
+  $form['closeGrid']=$output->closeGrid();
+  $form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
+  
+  
+  $form['block12'] =$output->createGridWithLine(12);
+  $form['block5'] = $output->createGrid(4);
+  $form['block7'] = $output->openGrid(4);
+  
   $form['back'] = array(
     '#type' => 'submit',
     '#value' => t('Back'),
@@ -387,11 +399,11 @@ function personal_form($form_state){
     '#value' => t('Next'),
    
   );
+  $form['c_block7'] =$output->closeGrid();
+  $form['block6'] = $output->createGridWithLine(4);
   
-  $form['closeDivPop']=$output->closeDiv();
-  $form['closeGrid']=$output->closeGrid();
-  $form['grid1_3']=$output->createGridWithLine(1,'<p></p>');
   $form['closeContainer']=$output->closeContainer();
+  
   
   return $form;
 }
@@ -457,13 +469,14 @@ function check_form($form_state){
       '#default_value' =>$def_value,
     );
   }
-  
+  $form['page'] = array('#type' => 'hidden', '#value' => 'check');  
   $form['closetagDiv'] = $output->closeDiv();
   $form['closeGrid'] = $output->closeLineGrid();
-  $form['arrange_form'] = $output->createGrid(5);
-  $form['open_submit'] = $output->openGrid(2);
-  $form['opentagForm'] = $output->openDiv('cool_submit');
-  $form['page'] = array('#type' => 'hidden', '#value' => 'check');  
+  
+  $form['block12'] =$output->createGridWithLine(12);
+  $form['block5'] = $output->createGrid(4);
+  $form['block7'] = $output->openGrid(4);
+  
   $form['back'] = array(
     '#type' => 'submit',
     '#value' => t('Back'),
@@ -474,9 +487,10 @@ function check_form($form_state){
     '#value' => t('Next'),
    
   );
-  $form['closetagDivSubmit'] = $output->closeDiv();
-  $form['close_submit'] = $output->closeGrid();
-  $form['arrange_form2'] = $output->createGridWithLine(5);
+  $form['c_block7'] =$output->closeGrid();
+  $form['block6'] = $output->createGridWithLine(4);
+  
+  
   $form['closeContainer'] = $output->closeContainer();
   return $form;
   
@@ -540,6 +554,11 @@ function scale_form($form_state){
   $form['closeContainer']=$output->closeContainer();
   $form['count']= array('#type' => 'hidden', '#value' => $i);
   $form['page'] = array('#type' => 'hidden', '#value' => 'scale');  
+  
+  $form['block12'] =$output->createGridWithLine(12);
+  $form['block5'] = $output->createGrid(4);
+  $form['block7'] = $output->openGrid(4);
+  
   $form['back'] = array(
     '#type' => 'submit',
     '#value' => t('Back'),
@@ -550,7 +569,9 @@ function scale_form($form_state){
     '#value' => t('Next'),
    
   );
-
+  $form['c_block7'] =$output->closeGrid();
+  $form['block6'] = $output->createGridWithLine(4);
+  
   return $form;
 }
 

@@ -4,8 +4,9 @@ class DisplayOutput
   public static function renderNamesImages($data){
       $ans = array();
       for($i = 0 ;$i<count($data['name']);$i++){
-        $ans[$i] ='<strong>'.$data['name'][$i].'</strong><br>';
-        $ans[$i] .= '<img src='.drupal_get_path('module', 'howcool').'/'.$data['image_path'][$i].'></img>';
+        
+        $ans[$i] = '<img src='.drupal_get_path('module', 'howcool').'/'.$data['image_path'][$i].'></img>';
+        $ans[$i] .='<strong>'.$data['name'][$i].'</strong><br>';
       }
       return $ans;
   }

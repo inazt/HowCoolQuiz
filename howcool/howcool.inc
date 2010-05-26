@@ -267,8 +267,8 @@ function save_result($data) {
 }
 function gen_graph($data) {
   
-  $point_carbon = $data['carbon']+20;
-  $point_water = $data['water']+20;
+  $point_carbon = $data['carbon']+0.99;
+  $point_water = $data['water']+5.75;
   $carbonday=$point_carbon/100;
   $carbonyear=$carbonday*100;
   $waterday=$point_water/100  ;
@@ -287,8 +287,8 @@ function gen_graph($data) {
     $carbonyear = $carbonyear/$max*50;
   }
   */
-  
-  
+  $lv = 1;
+  $img = "images/info/$lv.png";
 
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/example.js');
@@ -299,5 +299,5 @@ function gen_graph($data) {
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
  $output=new ResultOutput();
-  return $output->showScore('images/info/2.png');
+  return $output->showScore($img);
 }
