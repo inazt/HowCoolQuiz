@@ -720,11 +720,11 @@ function form_generation_validate(&$form, &$form_state) {
     array_pop($_SESSION['messages']['error']);
   }
   else if($page=='check' && array_sum($values['point'])==0) {
-     form_set_error('time', t('activity is required!'));
+     form_set_error('time', t('ระบุรายละเอียดกิจกรรมด้วยครับ'));
   }
   else if ($page=='email' && strlen(trim($values['email'])) > 0  ) {
     if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $values['email']))
-       form_set_error('submitted][email_address', t('Your email address is not valid.'));
+       form_set_error('submitted][email_address', t('กรุณาระบุอีเมล์ให้ถูกต้องด้วยครับ'));
       //form_set_error('time',t('email invalid'));  
   }
   
