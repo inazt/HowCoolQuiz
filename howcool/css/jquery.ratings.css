@@ -166,4 +166,23 @@ div.messages.error ul { list-style:none }
   width: 70%;
 }
 
+.joke_result {
+  /*width:940px;*/
+  font-size:20px;
+  color:white;
+}
+.joke_result .headline{
+  font-size:35px;
+  margin-top:-27px;
+  font-weight:bold;
+}
 
+.joke_result .content{
+  margin-top:-29px;
+}
+.joke_result .img{
+  width:150px;
+  float:left;  
+  margin-left:43px;
+  margin-right:28px;
+}

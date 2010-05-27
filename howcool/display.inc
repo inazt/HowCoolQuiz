@@ -120,7 +120,8 @@ class ResultOutput
         <div class='detail_all'>
         <div class='container_12'>
          <div class='grid_12'>
-            <img src='../".drupal_get_path('module','howcool')."/images/detail_menu.png'></img>
+         
+            <div class='sufon HeadResultTitle HeadResultCenter'>รายละเอียดของผลกรรมที่ผ่านมา</div><hr class='white-bottom'>
          </div>
           ".//Header
           "
@@ -163,16 +164,15 @@ class ResultOutput
         <div class='white_space'>
         
         </div>
-        <div class='white_class'>
-        
-        </div>
         </div>
     ";
   
   }
 
-  public function showScore($pic) {
-     
+  public function showScore($data) {
+     $pic = $data['pic'];
+     $headline =$data['headline'];
+     $content =$data['content'];
      return " 
      
       <div class='container_12'>
@@ -183,7 +183,17 @@ class ResultOutput
          <div class = 'clear'></div>
           	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
          <div class = 'grid_12' style = 'height:150px;'>
-              <img src='../".drupal_get_path('module','howcool')."/".$pic."'></img>
+            <div class ='joke_result'>
+              <div class ='img'>
+               <img src='../".drupal_get_path('module','howcool')."/".$pic."'></img>
+              </div>
+              <div class='headline'>
+                $headline
+              </div>
+              <div class ='content'>
+                $content
+              </div>
+            </div>
          </div>
   
          <div class = 'clear'></div>

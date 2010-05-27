@@ -209,7 +209,7 @@ function howcool_schema(){
       'selects'=>array(
         'description' => 'randomnumber',
         'type' => 'varchar',
-        'length' => 300,
+        'length' => 2000,
         'not null'=>TRUE
       ),
     ),

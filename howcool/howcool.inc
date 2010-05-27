@@ -327,9 +327,13 @@ function gen_graph($data) {
   
   $carbonyear=log10($carbonyear*100)*10;
   $wateryear=log10($wateryear*100)*10;
-   
-// $lv = 1;
-  $img = "images/info/$lv.png";
+ 
+  $img = "images/info/h$lv.png";
+  $headline = getHeadline($lv);
+  $content = getContent($lv);
+  //$headline = 'ss';
+  //$content = '';
+  $insert_data = array('pic'=>$img,'headline'=>$headline,'content'=>$content,);
  
   $point_carbon = ceil($point_carbon*100)/100;
   $point_water = ceil($point_water*100)/100;
@@ -342,5 +346,28 @@ function gen_graph($data) {
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
  //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
  $output=new ResultOutput();
-  return $output->showScore($img);
+  return $output->showScore($insert_data);
 }
+
+function getHeadline($lv){
+  $ans ="<strong>ระดับความ Coo! : \"คูล\"หญิง \"คูล\"ชาย</strong>";
+ switch($lv){
+    case 4 : $ans ="<strong>ระดับความ Coo! : โจ๊กโซ\"คูล\"</strong>";break;
+    case 3 : $ans ="<strong>ระดับความ Coo! : จอน\"คูล\"แสด</strong>";break;
+    case 2 : $ans ="<strong>ระดับความ Coo! : จ๊อด\"คูล\"นี่</strong>";break;
+  }
+  return $ans;
+}
+
+function getContent($lv){
+  $ans ="สุดยอดเลยคุณคือคนที่โลกต้องการและยกให้เป็น\"คูล\" ผู้สูงศักดิ์เลยทีเดียวลองชวนเพื่อนหรือคนรอบข้าง ให้ทำตัวอย่างคุณดู เพื่อคุณจะได้อยู่ในโลกที่สูงศักดิ์ที่โลกเราพึงพอใจและไร้ซึ่งกรรม";
+
+  switch($lv){
+    case 4 :$ans ="บร๊ะเจ้านี่คุณสร้างกรรมไว้กับโลกใบนี้อย่างมหาศาล ราวกับว่าการใส่ใจสิ่งแวดล้อมของคุณมันเพียงแค่เรื่องตลก ที่ไร้สาระเลยทีเดียว หากคุณยังทำเช่นนี้ต่อไปกรรมที่คุณก่อขึ้นจะส่งผลกระทบที่เลวร้ายชนิดที่คุณอาจคาดไม่ถึงเลย<br>ปรับตัวซะนะโจ๊ก โลกยังให้โอกาสคุณอยู่เสมอ";break;
+    case 3 : $ans ="\"คูล\" แสดดดด คือ คุณไม่ค่อยคูลเลย คุณยังคงเพิกเฉยกับปัญหาสิ่งแวดล้อมแล้วใช้ชีวิตอย่างไม่มีสติอยู่ คงจะดีกว่านี้มากหากคุณจะลองปรับตัวคุณขึ้น เพื่อเป็นการลดกรรมที่คุณทำไว้กับโลก เพื่อที่คุณจะได้คูลจริงๆซะที"; break;
+    case 2 :   $ans ="ไม่เลวเลย แต่ก็ยังไม่ดีนักสำหรับความ \"คูล\" ของคุณ ลดกรรมลงอีกหน่อย คุณได้ คูลจริงๆแน่ๆ สู้เค้านะจ๊อด";break;
+  }
+  return $ans;
+
+}
+
