@@ -158,7 +158,7 @@ function form_detail_submit($form_state){
 
 function form_generation($form_state,$page){
   if(empty($form_state['values'])){
-    //drupal_set_message(form_decision(email_form($form_state)));  
+    //drupal_set_message(form_decision(เ($form_state)));  
     return email_form($form_state);
   }else if($form_state['values']['op']=='Back'){
     //drupal_set_message(form_decision(form_back_generation($form_state)));  
@@ -218,14 +218,17 @@ function email_form($form_state){
   $output = new DisplayOutput();
   $form['openContainer'] = $output->openContainer(12);
   //$form['openGrid']= $output->createGrid(6);
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menupersonal.png' ."'> ",'spacer');
-  $form['block1']=$output->createGrid(4);
+  $form['headLine1']= $output->createGridWithLine(12,"        
+                <div class='sufon HeadResultTitle HeadResultCenter'>กรุณากรอกอีเมล์ของท่าน</div> 
+                <hr class='white-bottom'/>     
+         ",'spacer');
+  $form['block1']=$output->createGrid(1);
   $form['openGrid']= $output->openGrid(4);
   //insert picture
   $form['image'] = $output->insertPicture('images/picquiz.png');
   $form['closeGrid'] = $output->closeGrid();
   $form['block2']=$output->createGridWithLine(4);
-  $form['block3']=$output->createGrid(4);
+  $form['block3']=$output->createGrid(7);
   $form['openEmailGrid'] = $output->openGrid(4);
   /*$form['myhtml'] = array(
     '#type'=>'markup',
@@ -288,7 +291,8 @@ function personal_form($form_state){
   $output=new DisplayOutput();
  
   $form['conatiner12']=$output->openContainer();
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menupersonal.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"      <div  class='sufon HeadResultTitle HeadResultCenter'>กรุณากรอกข้อมูลส่วนตัวของท่าน</div> 
+                <hr class='white-bottom'/>     ",'spacer');
   $form['grid1_1']=$output->createGrid(1,'<p></p>');
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
   $form['grid1_12']=$output->createGrid(1,'<p></p>');
@@ -319,14 +323,14 @@ function personal_form($form_state){
     $form['age'] = array(
       '#type' => 'select', 
       '#title' => t('ช่วงอายุ'), 
-      '#options' => array_merge(Config::$age_renges,drupal_map_assoc(range(1,130))),
+      '#options' => drupal_map_assoc(array_merge(Config::$age_renges,range(1,130) ) ),
       '#required' =>TRUE,
     );
   }else{
     $form['age'] = array(
       '#type' => 'select', 
       '#title' => t('ช่วงอายุ'), 
-      '#options' => array_merge(Config::$age_renges,drupal_map_assoc(range(1,130))),
+      '#options' => drupal_map_assoc(array_merge(Config::$age_renges,range(1,130) ) ),
       '#required' =>TRUE,
       '#default_value' => $form_state['values']['age'],
     );

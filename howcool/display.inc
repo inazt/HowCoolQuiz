@@ -176,8 +176,9 @@ class ResultOutput
      return " 
      
       <div class='container_12'>
-          <div class='grid_12' style='text-align:center;'>
-              <img src='../".drupal_get_path('module','howcool')."/images/title_step_result.png'></img>
+          <div class='grid_12'>
+                <div class='sufon HeadResult  HeadResultCenter' style='margin-bottom:0px'>ผลตรวจสอบกรรมที่คุณก่อไว้กับโลกในวันที่ผ่านมา</div> 
+                <hr class='white-bottom'/> 
          </div>
          <div class = 'clear'></div>
           	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
@@ -186,18 +187,19 @@ class ResultOutput
          </div>
   
          <div class = 'clear'></div>
-          	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
-         <div class='grid_12' style='text-align:center;'>
-               <img src='../".drupal_get_path('module','howcool')."/images/title_step_result_2.png'></img>
+         <div class='grid_12' style='height:20px'></div><div class='clear'></div>
+         <div class='grid_12'>
+                <div class='sufon HeadResultTitle'>ผลกรรมในช่วง 1 วัน</div> 
+                <hr class='white-bottom'/>     
          </div>
          <div class = 'clear'></div>
-         	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
+         <div class='grid_12' style='height:20px'></div>
+         <div class='clear'></div>
         ".//<!--------------------------Start Day------------->
 	      "
 	      <div class='grid_12'>
 	        <div class='grid_2 alpha'> 
-	              <div id = 'weight' class ='people_pic'></div>
-      		      
+	              <div id = 'weight' class ='people_pic'></div>    
 	        </div>
 	        <div class='grid_5'>
 	              <div id = 'point_water'></div>
@@ -233,8 +235,9 @@ class ResultOutput
 	      ".//<!--------------------------End day & Start Space------------------------>
 	      "
         
-	      <div class='grid_12' style='text-align:center;'>
-              <img src='../".drupal_get_path('module','howcool')."/images/title_step_result_3.png'></img>
+         <div class='grid_12'>
+                <div class='sufon HeadResultTitle'>ผลกรรมในช่วง 1 ปี</div> 
+                <hr class='white-bottom'/>     
          </div>
 	      ".//<!--------------------------End Space $ Start Year ------------------------>
 	      "
@@ -263,9 +266,8 @@ class ResultOutput
         	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
 	      ".//<!-------------------`-------End Year & Start foot Content ------------------------>
 	      "
-	      
           <div class='grid_12'>
-		      <p></p>
+		       <p align='center'><a name=\"fb_share\" type=\"icon_link\" href=\"http://www.facebook.com/sharer.php\">Share</a><script src=\"http://static.ak.fbcdn.net/connect.php/js/FB.Share\" type=\"text/javascript\"></script></p>
 	      </div>
 	      <div class='clear'></div>	
         ".//<!--------------------------End foot content & End Everything ------------------------>      
