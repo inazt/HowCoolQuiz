@@ -34,6 +34,19 @@ div.spacer {
 
 	height: 60px;
 }
+div.linespacer {  
+     background-color: red;  
+     height: 2px;  
+} 
+.white-bottom {
+    height:4px;
+    background-color:white;
+    -moz-border-radius: 5px; -webkit-border-radius: 5px;border-radius: 5px 5px; 
+    width:93%;
+    margin-bottom:0px;
+    margin-top:0;
+}    
+
 
 div#navbar {
 	background-color: #8FC73E;
@@ -108,6 +121,28 @@ color:white;
   font-size:35px;
   color:white;
   text-align:center;
+}
+.HeadResultTitle{
+  font-size:30px;
+  color:white;
+  font-style:bold;
+  float:left;
+  margin-left:200px;
+} 
+.HeadResultTitle hr {
+ -moz-border-radius: 5px; -webkit-border-radius: 5px;border-radius: 5px 5px; 
+  
+  /*border-color:#CCCCCC;
+  border-right:0 solid #CCCCCC;
+  border-style:solid;
+  */
+  height:4px;
+  
+ /* height:0; */
+}
+.HeadResultCenter {
+  text-align:center;float:none;margin-left:auto;margin-right:auto;
+
 }
 .sufon{
  
