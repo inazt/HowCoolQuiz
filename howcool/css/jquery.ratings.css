@@ -59,7 +59,7 @@ div#navbar {
 .pop .form-item > label {
   color:white;
   font-size:22px;
-  width: 70%;
+  width: 50%;
 }
 
 
@@ -126,35 +126,9 @@ div.messages.error { width:50%;   margin-left:auto; margin-right:auto; text-alig
 div.messages.error ul { list-style:none }
  
  
-.now {
-  clear:left;
-  position:relative;
-}
-.now .form-item{
- width:100%;
- clear:left;
-}
- 
-.now .form-item > * {
-  float:left;
-}
-.now .form-required{
 
-  color:white;
+.pop .now .form-item > label {
+  width: 70%;
 }
 
-.now .form-item > label {
-  color:white;
-  font-size:22px;
-  width: 50%;
-}
-
-
-.now .form-item > select {
-  width:155px;
-  /* select box width */
-}
-.now .form-item > div {
-  width: 50%;
-}
 

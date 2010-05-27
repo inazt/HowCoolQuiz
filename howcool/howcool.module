@@ -86,6 +86,7 @@ function result_view($input){
   drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
   drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
   $show =gen_graph(get_result($input));
+  $_SESSION['hash'] =$input;
   $show .= drupal_get_form('form_detail',$form_state);
   return $show;
 }
@@ -100,14 +101,18 @@ function detail_view($input){
 
  $raw_data = DataManagement::getAllDetail();
  $info = array();
-  for($i = 0 ;$i<(int)$_SESSION['count'];$i++){
   
-    $scale = $_SESSION['value'.$i];
+  $keep_info = unserialize(DataManagement::getDetailData($input));
 
-    $info[$i] = array('image_path' => $raw_data[$_SESSION['key'.$i]]['image_path'] ,
-                      'name' =>$raw_data[$_SESSION['key'.$i]]['name'],
-                      'carbon' =>($raw_data[$_SESSION['key'.$i]]['carbon_factor']*$scale),
-                      'water' =>($raw_data[$_SESSION['key'.$i]]['water_factor']*$scale),
+  for($i = 0 ;$i<count($keep_info['data']);$i++){
+  
+    $scale = $keep_info['data'][$i]['value'];
+    $key = $keep_info['data'][$i]['key'];
+
+    $info[$i] = array('image_path' => $raw_data[$key]['image_path'] ,
+                      'name' =>$raw_data[$key]['name'],
+                      'carbon' =>($raw_data[$key]['carbon_factor']*$scale),
+                      'water' =>($raw_data[$key]['water_factor']*$scale),
                       'scale' =>$scale,
                       );
     
@@ -147,7 +152,8 @@ function form_detail($form_state){
   return $form;
 }
 function form_detail_submit($form_state){
-   drupal_goto('detail/s');
+   $hash =$_SESSION['hash'];
+   drupal_goto('detail/'.$hash);
 }
 
 function form_generation($form_state,$page){
@@ -287,8 +293,8 @@ function personal_form($form_state){
   $form['grid4_111']=$output->createGrid(4,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/p1_0.png' ."'> ");
   $form['grid1_12']=$output->createGrid(1,'<p></p>');
   $form['grid1_13']=$output->openGrid(6,'<p></p>');
-  //$form['openDiv']=$output->openDiv('pop');
-    $form['openDiv']=$output->openDiv('now');
+  $form['openDiv']=$output->openDiv('pop');
+    //$form['openDiv']=$output->openDiv('now');
   $form['email']= array('#type' => 'hidden', '#value' => $form_state['values']['email']);
   if(empty($form_state['values']['sex'])){
     $form['sex'] = array(
@@ -575,6 +581,7 @@ function scale_form($form_state){
     $form['water'.$i] = array('#type' => 'hidden', '#value' => $data[$key]['water']);
     $form['key'.$i] = array('#type' => 'hidden', '#value' => $key);
     $form['divpop'.$i] = $output->openDiv('pop');
+    $form['divpops'.$i] = $output->openDiv('now');
     $form['scale'.$i] = array(
       '#type' => 'select', 
       '#title' => $data[$key]['subject'], 
@@ -582,6 +589,7 @@ function scale_form($form_state){
       
       );
      $form['closediv'.$i]=$output->closeDiv();
+     $form['closedivs'.$i]=$output->closeDiv();
      $form['closesub2'.$i]=$output->closeGrid();
      $form['closegrid12'.$i]=$output->closeLineGrid();
      $i++;
@@ -620,8 +628,9 @@ function logic($form_state){
 
   $water = 0;
   $carbon = 0;
-  
-  $_SESSION['count'] = $form_state['values']['count'];
+  $keep_info=array();
+  $keep_info['hash'] =$hash;
+  $keep_info['data'] =$data;
   for($i=0;$i<$form_state['values']['count'];$i++){
     $key =$form_state['values']['key'.$i];
     $carbon_value =$form_state['values']['carbon'.$i];
@@ -629,16 +638,17 @@ function logic($form_state){
     $scale = $form_state['values']['scale'.$i];
     $water+=$scale*$water_value;
     $carbon+=$scale*$carbon_value;
-    
-    $_SESSION['key'.$i]=$key;
-    $_SESSION['value'.$i]=$scale;
-    
+    $keep_info['data'][$i]['key'] = $key;
+    $keep_info['data'][$i]['value'] = $scale;
   }
+  $_SESSION['data'] = serialize($keep_info);
+  $send_info = array(
+    'bid' =>'',
+    'hash' =>$hash,
+    'selects' => serialize($keep_info),
   
-  //detail data
-  ;
-   
- 
+  );  
+  drupal_write_record('howcool_behav',$send_info);
   //#sadsad
   $data = array(
     'nid' => '',
