@@ -92,13 +92,13 @@ function result_view($input){
 }
 
 function detail_view($input){
- drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
- drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
- drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
- drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
- drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
- drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
-
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+   drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
+   drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
+   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
  $raw_data = DataManagement::getAllDetail();
  $info = array();
   
@@ -125,7 +125,7 @@ function detail_view($input){
   );
   $r_output = new ResultOutput();
   $output = $r_output->showDetail($data);
-  
+  $output .= drupal_get_form('form_back_toResult',$form_state);
   return $output;
 }
 
@@ -133,7 +133,28 @@ function detail_view($input){
     How Cool Form Stucture
 
 */
+function form_back_toResult($form_state){
+  $output = new DisplayOutput();
+  $form['white_class'] =$output->openDiv('white_class');
+  $form['block5']=$output->createGrid(5);
+  $form['grid_open'] = $output->openGrid(2);
+  $form['back'] = array(
+    '#type' => 'submit',
+    '#value' => t('Back'),
+   
+  );
+  $form['grid_close'] = $output->closeGrid();
+  $form['block6']=$output->createGridWithLine(5);
+  $form['close_white_class'] =$output->closeDiv();
+  //$form['submit_close_container'] = $output->closeContainer();
+  return $form;
 
+}
+
+function form_back_toResult_submit($form_state){
+   $hash =$_SESSION['hash'];
+   drupal_goto('result/'.$hash);
+}
 
 function form_detail($form_state){
   $output = new DisplayOutput();

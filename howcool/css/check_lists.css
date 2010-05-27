@@ -43,5 +43,14 @@
 .cool_check .form-checkboxes .detail_display .form-item{
     padding:0;
     border-bottom:none;
+    width:125px;
+    height:200px;
+    margin-left:18px;
+    margin-right:10px;
+    float:left;
+
+}
+.detail_all .grid_2{
+    padding-top:20px;
 }
 
