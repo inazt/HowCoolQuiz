@@ -267,8 +267,31 @@ class ResultOutput
 	      ".//<!-------------------`-------End Year & Start foot Content ------------------------>
 	      "
           <div class='grid_12'>
-		       <p align='center'><a name=\"fb_share\" type=\"icon_link\" href=\"http://www.facebook.com/sharer.php\">Share</a><script src=\"http://static.ak.fbcdn.net/connect.php/js/FB.Share\" type=\"text/javascript\"></script></p>
-	      </div>
+          
+		       <p align='center'>	  			
+ 					   
+<div class=\"addthis_toolbox style='align:center' \">   
+    <div class=\"custom_images\" style='text-align:center'>
+      
+  			  <a class=\"addthis_button_email\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/email.png'.   " \" width=\"60\" height=\"60\" alt=\"Email\" title='ส่งอีเมล์แบ่งปันให้เพื่อน' /></a>
+    
+            <a class=\"addthis_button_twitter\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/twitter2.png'.   " \" width=\"60\" height=\"60\" alt=\"Twitter\" /></a>
+            <a class=\"addthis_button_facebook\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/facebook.png'.   " \" width=\"60\" height=\"60\" alt=\"Facebook\" /></a>
+           
+            
+    </div>
+</div>
+
+						<script type=\"text/javascript\" src=\"http://s7.addthis.com/js/250/addthis_widget.js#username=nazt\"></script>
+						<!-- AddThis Button END -->
+
+  			  </p>
+	      </div> 
+	      
+	      
+	      
+	      
+	      
 	      <div class='clear'></div>	
         ".//<!--------------------------End foot content & End Everything ------------------------>      
         "
