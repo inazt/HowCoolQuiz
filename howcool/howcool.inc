@@ -330,10 +330,9 @@ function gen_graph($data) {
    
 // $lv = 1;
   $img = "images/info/$lv.png";
-
-  $point_carbon = ceil($point_carbon);
-  $point_water = ceil($point_water);
-  
+ 
+  $point_carbon = ceil($point_carbon*100)/100;
+  $point_water = ceil($point_water*100)/100;
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/gengraph.js');
   drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');

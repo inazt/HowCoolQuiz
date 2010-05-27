@@ -12,8 +12,8 @@ $(document).ready(function() {
    $('#weightz').html(Drupal.settings.howcool.weight+" ก.ก.");
    $('#point_water').html(Drupal.settings.howcool.point_water+" ลิตร");
    $('#point_carbon').html(Drupal.settings.howcool.point_carbon+" กิโลกรรม");
-   $('#point_water_year').html(Drupal.settings.howcool.point_water*365+" ลิตร");
-   $('#point_carbon_year').html(Drupal.settings.howcool.point_carbon*365+" กิโลกรรม");
+   $('#point_water_year').html(Math.ceil(Drupal.settings.howcool.point_water*365)+" ลิตร");
+   $('#point_carbon_year').html(Math.ceil(Drupal.settings.howcool.point_carbon*365)+" กิโลกรรม");
    $('#show_image').html(Drupal.settings.howcool.image+" กิโลกรรม");
    
 });

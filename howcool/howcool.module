@@ -369,7 +369,7 @@ function personal_form($form_state){
       '#title' => t('ส่วนสูง'),
       '#required' =>TRUE, 
       //'#default_value' => variable_get('เลือกส่วนสูง','1'),
-      '#options' =>  array_merge(Config::$hight_renges,drupal_map_assoc(range(30,320))),
+      '#options' =>  drupal_map_assoc(array_merge(Config::$hight_renges,range(30,320))),
     );
   }else{
     $form['hight'] = array(
@@ -377,7 +377,7 @@ function personal_form($form_state){
       '#title' => t('ส่วนสูง'),
       '#required' =>TRUE, 
       '#default_value' => $form_state['values']['hight'],
-      '#options' =>  array_merge(Config::$hight_renges,drupal_map_assoc(range(30,320))),
+      '#options' =>  drupal_map_assoc(array_merge(Config::$hight_renges,range(30,320))),
     );
   }
   if(empty($form_state['values']['weight'])){
@@ -386,7 +386,7 @@ function personal_form($form_state){
       '#title' => t('น้ำหนัก'),
       '#required' =>TRUE, 
       //'#default_value' => variable_get('เลือกน้ำหนัก','1'),
-      '#options' =>  array_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
+      '#options' => drupal_map_assoc(array_merge(Config::$weight_renges,range(5,500))), 
     );
   }else{
     $form['weight'] = array(
@@ -394,7 +394,7 @@ function personal_form($form_state){
       '#title' => t('น้ำหนัก'),
       '#required' =>TRUE, 
       '#default_value' =>$form_state['values']['weight'],
-      '#options' => array_merge(Config::$weight_renges,drupal_map_assoc(range(5,500))), 
+      '#options' => drupal_map_assoc(array_merge(Config::$weight_renges,range(5,500))), 
     );
   }
   if(empty($form_state['values']['status'])){
@@ -466,7 +466,7 @@ function check_form($form_state){
   $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
   $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
   $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
-
+  drupal_set_message(print_r($form['weight'],1));
   /**
      set something
   */
@@ -484,6 +484,7 @@ function check_form($form_state){
   $info = DisplayOutput::renderNamesImages($data);
   $subjects = $subjects['subjects'];
   $value =$data['display_id'];
+  
   
   $score = 0;
   
