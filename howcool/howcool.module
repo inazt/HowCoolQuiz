@@ -256,6 +256,7 @@ function email_form($form_state){
     '#value'=>theme('headline','Yo Mannn'),
   
   );*/
+  $form['sufon'] = $output->openDiv('sufon');
   if(empty($form_state['values']['email'])){
     $form['email'] = array(
       '#type' => 'textfield', 
@@ -274,6 +275,7 @@ function email_form($form_state){
       '#required' => TRUE,
     );
   }
+  $form['close_sufon'] =$output->closeDiv();
 
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
   
@@ -494,7 +496,7 @@ function check_form($form_state){
   $form['hight']= array('#type' => 'hidden', '#value' => $form_state['values']['hight']);
   $form['weight']= array('#type' => 'hidden', '#value' => $form_state['values']['weight']);
   $form['status']= array('#type' => 'hidden', '#value' => $form_state['values']['status']);
-  drupal_set_message(print_r($form['weight'],1));
+
   /**
      set something
   */

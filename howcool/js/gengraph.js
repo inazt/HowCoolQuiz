@@ -2,11 +2,11 @@
 
 $(document).ready(function() {
   
-   $('#water-day').score(Drupal.settings.howcool.waterday,"water");  
-   $('#water-year').score(Drupal.settings.howcool.wateryear,"water");   
+   $('#water-day').score(Drupal.settings.howcool.waterday,"water",Drupal.settings.howcool.max_waterday);  
+   $('#water-year').score(Drupal.settings.howcool.wateryear,"water",Drupal.settings.howcool.max_wateryear);   
+   $('#carbon-day').score(Drupal.settings.howcool.carbonday,"carbon",Drupal.settings.howcool.max_cabonday);
+   $('#carbon-year').score(Drupal.settings.howcool.carbonyear,"carbon",Drupal.settings.howcool.max_cabonyear);
    
-   $('#carbon-day').score(Drupal.settings.howcool.carbonday,"carbon");
-   $('#carbon-year').score(Drupal.settings.howcool.carbonyear,"carbon");
    
    $('#weight').html(Drupal.settings.howcool.weight+" ก.ก.");
    $('#weightz').html(Drupal.settings.howcool.weight+" ก.ก.");

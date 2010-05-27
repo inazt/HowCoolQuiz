@@ -1,6 +1,7 @@
-jQuery.fn.score	 = function(initialRating,icon) {
+jQuery.fn.score	 = function(initialRating,icon,line_max) {
   stars=Math.ceil(initialRating/10)*10;
   lines=(stars/10)-1;
+ // lines=line_max;
   plot=10-(stars-initialRating);
   //Save  the jQuery object for later use.
   var elements = this;

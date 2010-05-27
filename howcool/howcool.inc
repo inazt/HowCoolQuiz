@@ -337,9 +337,13 @@ function gen_graph($data) {
  
   $point_carbon = ceil($point_carbon*100)/100;
   $point_water = ceil($point_water*100)/100;
+  $max_cabonday = getMaxStar($cabonday);
+  $max_cabonyear = getMaxStar($cabonyear);
+  $max_waterday = getMaxStar($waterday);
+  $max_wateryear = getMaxStar($wateryear);
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/jquery.ratings.js');
   drupal_add_js(drupal_get_path('module', 'howcool') . '/js/gengraph.js');
-  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water)), 'setting');
+  drupal_add_js(array('howcool' =>  array('carbonday' => $carbonday, 'carbonyear' =>$carbonyear,'waterday'=>$waterday,'wateryear'=>$wateryear,'weight'=>$weight,'point_carbon'=>$point_carbon,'point_water'=>$point_water,'max_carbonday'=>$max_carbonday,'max_carbonyear'=>$max_carbonyear,'max_waterday'=>$max_waterday,'max_wateryear'=>$max_wateryear)), 'setting');
   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
@@ -371,3 +375,8 @@ function getContent($lv){
 
 }
 
+function getMaxStar($count){
+  $ans=ceil($count/10)*10;
+  $ans=$ans/10 -1;
+  return $ans;
+}

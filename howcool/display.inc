@@ -95,13 +95,13 @@ class ResultOutput
       $img = "<img src =../".drupal_get_path('module', 'howcool').'/'.$data[$i]['image_path']."></img>";
       $karma = "";
       if($data[$i]['carbon']>0){
-        $karma .= "".$data[$i]['carbon']." กิโลกรรม";
+        $karma .= "".$data[$i]['carbon']." กิโลกรรม"."<br>";
       }else{
         $karma .= "";
       }
 
       if($data[$i]['water']>0){
-        $karma .= "<br>".$data[$i]['water']." ลิตร";
+        $karma .= $data[$i]['water']." ลิตร";
       }else{
         $karma .= "";
       }     
@@ -128,7 +128,7 @@ class ResultOutput
          <div class='grid_4' >
               <h1></h1>
          </div>
-         <div class='grid_2''>
+         <div class='grid_2 sufon''>
           
               <img src='../".drupal_get_path('module','howcool')."/images/empty-carbon.png'></img>
               <br>
@@ -137,10 +137,10 @@ class ResultOutput
               ".$data['carbon']."
           
          </div>
-         <div class='grid_2'>
+         <div class='grid_2 sufon' >
               <img src='../".drupal_get_path('module','howcool')."/images/empty-water.png'></img>
               <br>
-              <strong>ใช้น้ำ</strong>
+              <strong >ใช้น้ำ</strong>
               <br>
               ".$data['water']." 
          </div>
@@ -283,10 +283,10 @@ class ResultOutput
 <div class=\"addthis_toolbox style='align:center' \">   
     <div class=\"custom_images\" style='text-align:center'>
       
-  			  <a class=\"addthis_button_email\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/email.png'.   " \" width=\"60\" height=\"60\" alt=\"Email\" title='ส่งอีเมล์แบ่งปันให้เพื่อน' /></a>
+  			  <a class=\"addthis_button_email\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/email.png'.   " \" width=\"32\" height=\"32\" alt=\"Email\" title='ส่งอีเมล์แบ่งปันให้เพื่อน' /></a>
     
-            <a class=\"addthis_button_twitter\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/twitter2.png'.   " \" width=\"60\" height=\"60\" alt=\"Twitter\" /></a>
-            <a class=\"addthis_button_facebook\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/facebook.png'.   " \" width=\"60\" height=\"60\" alt=\"Facebook\" /></a>
+            <a class=\"addthis_button_twitter\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/twitter2.png'.   " \" width=\"32\" height=\"32\" alt=\"Twitter\" /></a>
+            <a class=\"addthis_button_facebook\"><img src=\"../" .drupal_get_path('module', 'howcool'). '/images/icon/facebook.png'.   " \" width=\"32\" height=\"32\" alt=\"Facebook\" /></a>
            
             
     </div>
