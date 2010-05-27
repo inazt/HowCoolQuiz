@@ -75,6 +75,7 @@ div#navbar {
   width: 50%;
 }
 
+
 .pop .form-item > select {
   width:155px;
   /* select box width */
@@ -160,4 +161,9 @@ div.messages.error { width:50%;   margin-left:auto; margin-right:auto; text-alig
 div.messages.error ul { list-style:none }
  
  
+
+.pop .now .form-item > label {
+  width: 70%;
+}
+
 

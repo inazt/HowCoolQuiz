@@ -170,14 +170,14 @@ function howcool_schema(){
       'label' => array(
         'description' => 'label',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 40,
         'not null'=>TRUE
       ),
       
       'value' => array(
         'description' => 'value',
         'type' => 'varchar',
-        'length' => 10,
+        'length' => 30,
         'not null'=>TRUE
       ),
       
@@ -191,7 +191,30 @@ function howcool_schema(){
      ),
      'primary key' => array('item_id'),
   );
- 
+  $schema['howcool_behav'] = array(
+    'description' => '',
+    'fields'=>array(
+      'bid' => array(
+        'description' => 'id of item',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null'=>TRUE
+       ),
+      'hash'=>array(
+        'description' => 'randomnumber',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null'=>TRUE
+      ),
+      'selects'=>array(
+        'description' => 'randomnumber',
+        'type' => 'varchar',
+        'length' => 300,
+        'not null'=>TRUE
+      ),
+    ),
+    'primary key' => array('bid'),
+  );
   $schema['howcool_config']=array(
     'description' =>'Config of howcool',
     'fields'=>array(    

@@ -678,6 +678,17 @@ class DataManagement{
     return $data;
   }
   
+  function getDetailData($hash){
+    $result = db_query("SELECT * FROM howcool_behav WHERE hash = '$hash'");
+    $data=array();
+    while ($row = db_fetch_object($result))
+    {
+       $data = $row->selects;
+    
+    }
+    return $data;
+  }
+  
   function getAllDetail(){
     $mysql = "SELECT display.display_id, display.name, display.image_path, factor.carbon_factor, factor.water_factor
 FROM display
