@@ -52,7 +52,7 @@ class Config{
   
   public $checkers;
   public static $age_renges =array(
-      "null"=>'ใส่อายุเลยจ้า',
+      "null"=>'ใส่อายุเลยจ้า'
       
  );
   public static function getDbValue($table, $field) {
@@ -77,9 +77,9 @@ class Config{
       "null"=>'น้ำหนัก',
   );
   public static $status_renges =array(
-      '1' => 'โสด', 
-      '2' => 'แต่งงาน', 
-      '3' => 'เสียยยยยชีวิต',
+      'โสด' => 'โสด', 
+      'แต่งงาน' => 'แต่งงาน',  
+   
   );
   public static $hight_renges =array(
       "null"=>'ส่วนสูง',

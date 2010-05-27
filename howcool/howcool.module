@@ -323,9 +323,10 @@ function personal_form($form_state){
     $form['age'] = array(
       '#type' => 'select', 
       '#title' => t('ช่วงอายุ'), 
-      '#options' => drupal_map_assoc(array_merge(Config::$age_renges,range(1,130) ) ),
+      '#options' =>  drupal_map_assoc(array_merge(Config::$age_renges,range(1,130) ) ),
       '#required' =>TRUE,
     );
+   
   }else{
     $form['age'] = array(
       '#type' => 'select', 
@@ -334,6 +335,8 @@ function personal_form($form_state){
       '#required' =>TRUE,
       '#default_value' => $form_state['values']['age'],
     );
+     
+
   }
   if(empty($form_state['values']['job'])){
     $form['job'] = array(
@@ -494,7 +497,7 @@ function check_form($form_state){
   
   $form['openContainer'] = $output->openContainer();
   $form['openHeadlineGrid'] = $output->openGrid(12);
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice1.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"<div class='sufon HeadResultTitle HeadResultCenter'>1) ในวันที่ผ่านมาคุณได้ใช้หรือเกี่ยวข้องกับสิ่งเหล่านี้บ้าง (ตอบได้มากกว่า 1 ข้อ)</div> <hr class='white-bottom'/>",'spacer');
     
   /**display check boxes
   */
@@ -554,7 +557,7 @@ function scale_form($form_state){
   //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
   $config = new Config();
   $form['container']=$output->openContainer();
-  $form['headLine1']= $output->createGridWithLine(12,"<img src=' ". drupal_get_path('module', 'howcool') . '/images/menuchoice2.png' ."'> ",'spacer');
+  $form['headLine1']= $output->createGridWithLine(12,"<div class='sufon HeadResultTitle HeadResultCenter'>2) ตอบคำถามต่อไปนี้โดยประเมินจากวันที่ผ่านมาหรือโดยปกติ</div> <hr class='white-bottom'/>",'spacer');
   /**
     get olds thing
   */
@@ -688,7 +691,7 @@ function form_generation_validate(&$form, &$form_state) {
   $values=$form_state['values'];
   $page=$values['page'];
   $errorFlag=0;
-  if($page=='personal' && $values['age']=='null') {
+  if($page=='personal' && strpos($values['age'],"อายุ")!==false)  {
     ++$errorFlag;
     form_set_error('age', ' ');
     array_pop($_SESSION['messages']['error']);
@@ -706,12 +709,12 @@ function form_generation_validate(&$form, &$form_state) {
     //drupal_set_message('else naja page = '. $page); 
   }
 
-  if ($page=='personal' && $values['weight']=="null") {
+  if ($page=='personal' &&strpos($values['weight'],"น้ำหนัก")!==false)  {
     ++$errorFlag;
     form_set_error('weight', ' ');
     array_pop($_SESSION['messages']['error']);
   }
-  if ($page=='personal' && $values['hight']=="null") {
+  if ($page=='personal' && strpos($values['hight'],"สูง")!==false) {
     ++$errorFlag;
     form_set_error('hight', ' ');
     array_pop($_SESSION['messages']['error']);
@@ -721,7 +724,7 @@ function form_generation_validate(&$form, &$form_state) {
     form_set_error('sex', ' ssdfsf');
     array_pop($_SESSION['messages']['error']);
   }    
-  if($errorFlag>0) {  form_set_error('sexd', 'กรุณากรอกข้อมูลในช่องสีแดง'); }
+  if($errorFlag>0) {  form_set_error('sexd', 'กรุณาเลือกข้อมูลที่อยู่ในช่องสีแดง'); }
 
 }
 
