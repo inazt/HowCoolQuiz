@@ -519,12 +519,12 @@ function check_form($form_state){
   $score = 0;
   
   $form['openContainer'] = $output->openContainer();
-  $form['openHeadlineGrid'] = $output->openGrid(12);
+ 
   $form['headLine1']= $output->createGridWithLine(12,"<div class='sufon HeadResultTitle HeadResultCenter'>1) ในวันที่ผ่านมาคุณได้ใช้หรือเกี่ยวข้องกับสิ่งเหล่านี้บ้าง (ตอบได้มากกว่า 1 ข้อ)</div> <hr class='white-bottom'/>",'spacer');
     
   /**display check boxes
   */
-  $form['closeHeadlineGrid'] = $output->closeLineGrid();
+ 
   $form['openGrid'] = $output->openGrid(12);
   $form['opentagDiv'] = $output->openDiv('cool_check');
   if(empty($form_state['values']['count'])){
