@@ -262,14 +262,14 @@ class ResultOutput
 	  
 	       
 	      <div class='grid_5'>
-	        <div id = 'point_water_year'></div>
-		      <div id='water-year'></div>
+	        <div class = 'sufon' id = 'point_water_year'></div>
+		      <div class = 'sufon' id='water-year'></div>
 		      <div class = 'HeadResult'>ปริมาณน้ำ</div>
 	      </div>
 	     
 	      <div class='grid_5'>
-	          <div id = 'point_carbon_year'></div>
-		        <div id='carbon-year'></div>
+	          <div class = 'sufon' id = 'point_carbon_year'></div>
+		        <div class = 'sufon' id='carbon-year'></div>
 		        <div class = 'HeadResult'>ปริมาณคาร์บอน</div>
 	      </div>
 	      <div class='clear'></div>	
