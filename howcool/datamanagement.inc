@@ -266,7 +266,7 @@ class DataManagement{
     
     
     
-    DataManagement::addBehavior('ไม่โครเวฟ',"images/icon/how-cool_22.png",'คุณใช้ไมโครเวฟรวมแล้วกี่นาที');
+    DataManagement::addBehavior('ไมโครเวฟ',"images/icon/how-cool_22.png",'คุณใช้ไมโครเวฟรวมแล้วกี่นาที');
     DataManagement::addFactor(19,0.014,0);
     DataManagement::addBehaviorItem(19,"1 นาที",1);
     DataManagement::addBehaviorItem(19,"3 นาที",3);
