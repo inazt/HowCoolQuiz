@@ -136,15 +136,11 @@ function detail_view($input){
 function form_back_toResult($form_state){
   $output = new DisplayOutput();
   $form['white_class'] =$output->openDiv('white_class');
-  $form['block5']=$output->createGrid(5);
-  $form['grid_open'] = $output->openGrid(2);
   $form['back'] = array(
     '#type' => 'submit',
     '#value' => t('Back'),
    
   );
-  $form['grid_close'] = $output->closeGrid();
-  $form['block6']=$output->createGridWithLine(5);
   $form['close_white_class'] =$output->closeDiv();
   //$form['submit_close_container'] = $output->closeContainer();
   return $form;
@@ -159,15 +155,11 @@ function form_back_toResult_submit($form_state){
 function form_detail($form_state){
   $output = new DisplayOutput();
   $form['white_class'] =$output->openDiv('white_class');
-  $form['block5']=$output->createGrid(5);
-  $form['grid_open'] = $output->openGrid(2);
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Next'),
     
   );
-  $form['grid_close'] = $output->closeGrid();
-  $form['block6']=$output->createGridWithLine(5);
   $form['close_white_class'] =$output->closeDiv();
   //$form['submit_close_container'] = $output->closeContainer();
   return $form;
@@ -292,15 +284,11 @@ function email_form($form_state){
   
   //$form['submit_container'] = $output->openContainer(12);
   $form['white_class'] =$output->openDiv('white_class');
-  $form['block5']=$output->createGrid(5);
-  $form['grid_open'] = $output->openGrid(2);
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Next'),
     
   );
-  $form['grid_close'] = $output->closeGrid();
-  $form['block6']=$output->createGridWithLine(5);
   $form['close_white_class'] =$output->closeDiv();
   //$form['submit_close_container'] = $output->closeContainer();
   return $form;
@@ -461,10 +449,7 @@ function personal_form($form_state){
   $form['closeContainer']=$output->closeContainer();
   
   
-  $form['white_class'] =$output->openDiv('white_class');
-  $form['block5'] = $output->createGrid(4);
-  $form['block7'] = $output->openGrid(4);
-  
+  $form['white_class'] =$output->openDiv('white_class');  
   $form['back'] = array(
     '#type' => 'submit',
     '#value' => t('Back'),
@@ -475,8 +460,6 @@ function personal_form($form_state){
     '#value' => t('Next'),
    
   );
-  $form['c_block7'] =$output->closeGrid();
-  $form['block6'] = $output->createGridWithLine(4);
   $form['close_white_class'] =$output->closeDiv();
   
   
@@ -554,8 +537,6 @@ function check_form($form_state){
   $form['closeContainer'] = $output->closeContainer();
   
   $form['white_class'] =$output->openDiv('white_class');
-  $form['block5'] = $output->createGrid(4);
-  $form['block7'] = $output->openGrid(4);
   
   $form['back'] = array(
     '#type' => 'submit',
@@ -567,8 +548,6 @@ function check_form($form_state){
     '#value' => t('Next'),
    
   );
-  $form['c_block7'] =$output->closeGrid();
-  $form['block6'] = $output->createGridWithLine(4);
   $form['close_white_class'] =$output->closeDiv();
   
   return $form;
@@ -633,8 +612,6 @@ function scale_form($form_state){
   $form['closeContainer']=$output->closeContainer();
   
   $form['white_class'] =$output->openDiv('white_class');
-  $form['block5'] = $output->createGrid(4);
-  $form['block7'] = $output->openGrid(4);
   
   $form['back'] = array(
     '#type' => 'submit',
@@ -646,8 +623,6 @@ function scale_form($form_state){
     '#value' => t('Next'),
    
   );
-  $form['c_block7'] =$output->closeGrid();
-  $form['block6'] = $output->createGridWithLine(4);
   $form['close_white_class'] =$output->closeDiv();
   return $form;
 }

@@ -1,5 +1,5 @@
 .cool_check {
-  margin:auto;
+  margin:auto auto auto 28px;
 }
 .cool_check .copy-form-item{
   width:125px;
@@ -29,7 +29,7 @@
   padding-top:0px;
 }
 .detail_all{
-    color:white; 
+  color:white; 
   text-align:center;
 }
 .detail_all strong{
@@ -45,8 +45,8 @@
     border-bottom:none;
     width:125px;
     height:200px;
-    margin-left:18px;
-    margin-right:10px;
+    margin-left:8px;
+    margin-right:8px;
     float:left;
 
 }
