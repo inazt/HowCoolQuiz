@@ -68,11 +68,10 @@ function form_decision($data){
 function form_view(){
 
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/jquery.ratings.css');
-   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
-   drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
+  // drupal_add_css(drupal_get_path('module', 'howcool') . '/css/reset.css');
+  // drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
-   drupal_add_css(drupal_get_path('module', 'howcool') .'/css/stylish-select.css');
    drupal_add_js(drupal_get_path('module', 'howcool') .'/js/jquery.stylish-select.js');   
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
