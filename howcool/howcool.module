@@ -310,27 +310,10 @@ function email_form($form_state){
 }
 
 function personal_form($form_state){
-     drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
-     drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
-     //drupal_set_message(print_r($_SERVER,1));
-     $browser='';
-     $os='';
-     if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'firefox')) {
-       drupal_set_message('Firefox !!');
-       $browser='firefox';
-     } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'safari')) {
-       drupal_set_message('Safari');
-       $browser='safari';
-     }
-
-     if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'macintosh')) {
-       drupal_set_message('Mac !!!!');
-       $os='mac';
-     } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows')) {
-       drupal_set_message('Windows');
-       $os='windows';
-     }
-  $output=new DisplayOutput();
+  drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
+  drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
+  //drupal_set_message(print_r($_SERVER,1));
+   $output=new DisplayOutput();
  
   $form['conatiner12']=$output->openContainer();
   $form['headLine1']= $output->createGridWithLine(12,"      <div  class='sufon HeadResultTitle HeadResultCenter'>กรุณากรอกข้อมูลส่วนตัวของท่าน</div> 
@@ -725,9 +708,30 @@ function logic($form_state){
 
 function form_generation_validate(&$form, &$form_state) {
   //drupal_set_message('ok do');
-  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
-  drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
-  drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
+  $browser='';
+  $os='';
+  if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'firefox')) {
+    //drupal_set_message('Firefox !!');
+    $browser='firefox';
+  } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'safari')) {
+    //drupal_set_message('Safari');
+    $browser='safari';
+  }
+  if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'macintosh')) {
+    drupal_set_message('Mac !!!!');   
+    $os='mac';
+  } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows')) {
+    //drupal_set_message('Windows');
+    $os='windows';
+  }
+  //drupal_set_message($browser . $os);
+
+    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+    if($os!='mac' || $browser=='firefox') {
+      drupal_add_css(drupal_get_path('module', 'howcool') . '/css/customSelectBox.css');
+      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
+      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
+  }
   //drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
   //form_set_error('time', t('An event may not end before it starts.'));
   $values=$form_state['values'];
