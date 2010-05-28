@@ -183,14 +183,14 @@ class ResultOutput
          <div class = 'clear'></div>
           	                	      <div class='grid_12' style='height:20px'></div><div class='clear'></div>
          <div class = 'grid_12' style = 'height:150px;'>
-            <div class ='sufon joke_result'>
+            <div class ='joke_result'>
               <div class ='img'>
                <img src='../".drupal_get_path('module','howcool')."/".$pic."'></img>
               </div>
-              <div class='headline'>
+              <div class='sufon headline'>
                 $headline
               </div>
-              <div class ='content'>
+              <div class ='sufon content'>
                 $content
               </div>
             </div>

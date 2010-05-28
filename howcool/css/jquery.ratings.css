@@ -186,15 +186,21 @@ div.messages.error ul { list-style:none }
 }
 .joke_result .headline{
   font-size:35px;
-  margin-top:-27px;
   font-weight:bold;
+  display:block;
+  overflow:hidden;
+  height:50px;
 }
 
 .joke_result .content{
-  margin-top:-29px;
+  /*margin-top:-29px;*/
+  display:block;
+  overflow:hidden;
+  height:150px;
 }
 .joke_result .img{
   width:150px;
+  height:200px;
   float:left;  
   margin-left:43px;
   margin-right:28px;
