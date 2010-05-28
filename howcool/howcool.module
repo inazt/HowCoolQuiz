@@ -72,7 +72,6 @@ function form_view(){
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
-   drupal_add_js(drupal_get_path('module', 'howcool') .'/js/jquery.stylish-select.js');   
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
    //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
@@ -685,26 +684,22 @@ function form_generation_validate(&$form, &$form_state) {
   $browser='';
   $os='';
   if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'firefox')) {
-    //drupal_set_message('Firefox !!');
     $browser='firefox';
   } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'safari')) {
-    //drupal_set_message('Safari');
     $browser='safari';
   }
-  if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'macintosh')) {
-    drupal_set_message('Mac !!!!');   
+  if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'macintosh')) {   
     $os='mac';
   } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows')) {
-    //drupal_set_message('Windows');
     $os='windows';
   }
   //drupal_set_message($browser . $os);
 
-    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
-    if($os!='mac' || $browser=='firefox') {
-      drupal_add_css(drupal_get_path('module', 'howcool') . '/css/customSelectBox.css');
-      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
-      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
+  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+  if($os!='mac' && $os!='windows' || $browser=='firefox') {
+    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/customSelectBox.css');
+    drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
+    drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
   }
   //drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
   //form_set_error('time', t('An event may not end before it starts.'));
