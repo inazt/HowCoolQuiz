@@ -72,11 +72,7 @@ function form_view(){
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/text.css');
    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/960.css');
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
-   drupal_add_js(drupal_get_path('theme', 'foundation') .'/cufon-yui.js', 'theme');
    drupal_add_js(drupal_get_path('theme', 'foundation') .'/supermarket_400.font.js', 'theme');
-   //drupal_add_css(drupal_get_path('module', 'howcool') . '/css/uncompressed/demo.css');
-  //$show = 'this is form--->';
-
   $show .= drupal_get_form('form_generation',$form_state);
   return $show;
 }
@@ -162,7 +158,6 @@ function form_detail($form_state){
     
   );
   $form['close_white_class'] =$output->closeDiv();
-  //$form['submit_close_container'] = $output->closeContainer();
   return $form;
 }
 function form_detail_submit($form_state){
@@ -172,13 +167,10 @@ function form_detail_submit($form_state){
 
 function form_generation($form_state,$page){
   if(empty($form_state['values'])){
-    //drupal_set_message(form_decision(เ($form_state)));  
     return email_form($form_state);
   }else if($form_state['values']['op']=='Back'){
-    //drupal_set_message(form_decision(form_back_generation($form_state)));  
     return form_back_generation($form_state);
   }else{
-    //drupal_set_message(form_decision(form_next_generation($form_state)));  
     return form_next_generation($form_state);
   
   }
@@ -683,64 +675,67 @@ function form_generation_validate(&$form, &$form_state) {
   //drupal_set_message('ok do');
   $browser='';
   $os='';
-  if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'firefox')) {
-    $browser='firefox';
-  } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'safari')) {
-    $browser='safari';
-  }
-  if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'macintosh')) {   
-    $os='mac';
-  } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows')) {
-    $os='windows';
-  }
-  //drupal_set_message($browser . $os);
-
-  drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
-  if( ($os!='mac' )  || $browser=='firefox' || $browser=='opera' ) {
-    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/customSelectBox.css');
-    drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
-    drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
-  }
-  //drupal_set_message($form_state['values']['page'].$form_state['values']['sex']);
-  //form_set_error('time', t('An event may not end before it starts.'));
-  $values=$form_state['values'];
-  $page=$values['page'];
-  $errorFlag=0;
-  if($page=='personal' && strpos($values['age'],"อายุ")!==false)  {
-    ++$errorFlag;
-    form_set_error('age', ' ');
-    array_pop($_SESSION['messages']['error']);
-  }
-  else if($page=='check' && array_sum($values['point'])==0) {
-     form_set_error('time', t('ระบุรายละเอียดกิจกรรมด้วยครับ'));
-  }
-  else if ($page=='email' && strlen(trim($values['email'])) > 0  ) {
-    if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $values['email']))
-       form_set_error('submitted][email_address', t('กรุณาระบุอีเมล์ให้ถูกต้องด้วยครับ'));
-      //form_set_error('time',t('email invalid'));  
-  }
+  if($form_state['values']['op'] !='Back'){
   
-  else { 
-    //drupal_set_message('else naja page = '. $page); 
-  }
+    if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'firefox')) {
+      $browser='firefox';
+    } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'safari')) {
+      $browser='safari';
+    }
+    if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'macintosh')) {   
+      $os='mac';
+    } else if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows')) {
+      $os='windows';
+    }
+    drupal_add_css(drupal_get_path('module', 'howcool') . '/css/check_lists.css');
+    if( ($os!='mac' )  || $browser=='firefox' || $browser=='opera' ) {
+      drupal_add_css(drupal_get_path('module', 'howcool') . '/css/customSelectBox.css');
+      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
+      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
+    }
+    $values=$form_state['values'];
+    $page=$values['page'];
+    $errorFlag=0;
+    if($page=='personal' && strpos($values['age'],"อายุ")!==false)  {
+      ++$errorFlag;
+      form_set_error('age', ' ');
+      array_pop($_SESSION['messages']['error']);
+    }
+    else if($page=='check' && array_sum($values['point'])==0) {
+       form_set_error('time', t('ระบุรายละเอียดกิจกรรมด้วยครับ'));
+    }
+    else if ($page=='email' && strlen(trim($values['email'])) > 0  ) {
+      if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $values['email']))
+         form_set_error('submitted][email_address', t('กรุณาระบุอีเมล์ให้ถูกต้องด้วยครับ'));
+        //form_set_error('time',t('email invalid'));  
+    }
+    
+    else { 
+      //drupal_set_message('else naja page = '. $page); 
+    }
 
-  if ($page=='personal' &&strpos($values['weight'],"น้ำหนัก")!==false)  {
-    ++$errorFlag;
-    form_set_error('weight', ' ');
-    array_pop($_SESSION['messages']['error']);
+    if ($page=='personal' &&strpos($values['weight'],"น้ำหนัก")!==false)  {
+      ++$errorFlag;
+      form_set_error('weight', ' ');
+      array_pop($_SESSION['messages']['error']);
+    }
+    if ($page=='personal' && strpos($values['hight'],"สูง")!==false) {
+      ++$errorFlag;
+      form_set_error('hight', ' ');
+      array_pop($_SESSION['messages']['error']);
+    }
+    if ($page=='personal' && $values['sex']=="null") {
+      ++$errorFlag;
+      form_set_error('sex', ' ssdfsf');
+      array_pop($_SESSION['messages']['error']);
+    }    
+    if($errorFlag>0) {  form_set_error('sexd', 'กรุณาเลือกข้อมูลที่อยู่ในช่องสีแดง'); }
+  }else if($form_state['values']['page'] =='check'){
+      drupal_add_css(drupal_get_path('module', 'howcool') . '/css/customSelectBox.css');
+      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.jquery.js');
+      drupal_add_js(drupal_get_path('module', 'howcool') . '/js/customSelect.js');
+  
   }
-  if ($page=='personal' && strpos($values['hight'],"สูง")!==false) {
-    ++$errorFlag;
-    form_set_error('hight', ' ');
-    array_pop($_SESSION['messages']['error']);
-  }
-  if ($page=='personal' && $values['sex']=="null") {
-    ++$errorFlag;
-    form_set_error('sex', ' ssdfsf');
-    array_pop($_SESSION['messages']['error']);
-  }    
-  if($errorFlag>0) {  form_set_error('sexd', 'กรุณาเลือกข้อมูลที่อยู่ในช่องสีแดง'); }
-
 }
 
 /**
