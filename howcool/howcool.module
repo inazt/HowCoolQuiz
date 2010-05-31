@@ -139,7 +139,6 @@ function form_back_toResult($form_state){
    
   );
   $form['close_white_class'] =$output->closeDiv();
-  //$form['submit_close_container'] = $output->closeContainer();
   return $form;
 
 }
@@ -208,7 +207,17 @@ function form_generation_submit(&$form, &$form_state) {
   //Jumper!!!
   if($form_state['values']['page']=='scale' && $form_state['values']['op']!='Back'){
     logic($form_state);
+  }else if($form_state['values']['page']=='check'){
+    $i =0;
+    foreach($form_state['values']['point'] as $key){
+      $_SESSION['mem_key'.$i] =$key;
+      $i++;
+    }
+    if($i>0){
+      $_SESSION['mem_count'] =$i;
+    }
   }
+  
 }
 
 function email_form($form_state){
@@ -263,19 +272,9 @@ function email_form($form_state){
   $form['close_sufon'] =$output->closeDiv();
 
   $form['page'] = array('#type' => 'hidden', '#value' => 'email');
-  
-  /*
-  $form['myhtml_footer'] = array(
-    '#type'=>'markup',
-    '#value'=>theme('headline','Last Man'),
-  
-  );
-  */
   $form['closeEmailGrid'] = $output->closeGrid();
   $form['block4']=$output->createGrid(4);
   $form['closeContainer'] = $output->closeContainer();
-  
-  //$form['submit_container'] = $output->openContainer(12);
   $form['white_class'] =$output->openDiv('white_class');
   $form['submit'] = array(
     '#type' => 'submit',
@@ -502,7 +501,10 @@ function check_form($form_state){
  
   $form['openGrid'] = $output->openGrid(12);
   $form['opentagDiv'] = $output->openDiv('cool_check');
-  if(empty($form_state['values']['count'])){
+  /**
+    OldeVersion
+  */
+  /*if(empty($form_state['values']['count'])){
     $form['point'] = array(
       '#type' => 'checkboxes',
       
@@ -516,6 +518,23 @@ function check_form($form_state){
     $form['point'] = array(
       '#type' => 'checkboxes',
       '#title' => 'วันนี้คุณทำอะไรบ้างคะ',
+      '#options' => array_combine($value,$info),
+      '#default_value' =>$def_value,
+    );
+  }*/
+  if(!($_SESSION['mem_count']>0)){
+    $form['point'] = array(
+      '#type' => 'checkboxes',
+      
+      '#options' => array_combine($value,$info),
+    );
+  }else{    
+    $def_value = array();
+    for($i=0;$i<$_SESSION['mem_count'];$i++){
+      $def_value[$i]=$_SESSION['mem_key'.$i];
+    }
+    $form['point'] = array(
+      '#type' => 'checkboxes',
       '#options' => array_combine($value,$info),
       '#default_value' =>$def_value,
     );
