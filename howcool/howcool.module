@@ -375,7 +375,7 @@ function personal_form($form_state){
   if(empty($form_state['values']['hight'])){
     $form['hight'] = array(
       '#type' => 'select', 
-      '#title' => t('ส่วนสูง'),
+      '#title' => t('ส่วนสูง(ซม.)'),
       '#required' =>TRUE, 
       //'#default_value' => variable_get('เลือกส่วนสูง','1'),
       '#options' =>  drupal_map_assoc(array_merge(Config::$hight_renges,range(30,320))),
@@ -383,7 +383,7 @@ function personal_form($form_state){
   }else{
     $form['hight'] = array(
       '#type' => 'select', 
-      '#title' => t('ส่วนสูง'),
+      '#title' => t('ส่วนสูง(ซม.)'),
       '#required' =>TRUE, 
       '#default_value' => $form_state['values']['hight'],
       '#options' =>  drupal_map_assoc(array_merge(Config::$hight_renges,range(30,320))),
@@ -392,7 +392,7 @@ function personal_form($form_state){
   if(empty($form_state['values']['weight'])){
     $form['weight'] = array(
       '#type' => 'select', 
-      '#title' => t('น้ำหนัก'),
+      '#title' => t('น้ำหนัก(กก.)'),
       '#required' =>TRUE, 
       //'#default_value' => variable_get('เลือกน้ำหนัก','1'),
       '#options' => drupal_map_assoc(array_merge(Config::$weight_renges,range(5,500))), 
@@ -400,7 +400,7 @@ function personal_form($form_state){
   }else{
     $form['weight'] = array(
       '#type' => 'select', 
-      '#title' => t('น้ำหนัก'),
+      '#title' => t('น้ำหนัก(กก.)'),
       '#required' =>TRUE, 
       '#default_value' =>$form_state['values']['weight'],
       '#options' => drupal_map_assoc(array_merge(Config::$weight_renges,range(5,500))), 
