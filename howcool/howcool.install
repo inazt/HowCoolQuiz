@@ -150,7 +150,7 @@ function howcool_schema(){
       'subject' => array(
         'description' => 'subject',
         'type' => 'varchar',
-        'length' => 50,
+        'length' => 60,
         'not null'=>TRUE
       ),
       
@@ -170,7 +170,7 @@ function howcool_schema(){
       'label' => array(
         'description' => 'label',
         'type' => 'varchar',
-        'length' => 40,
+        'length' => 70,
         'not null'=>TRUE
       ),
       

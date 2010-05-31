@@ -659,6 +659,7 @@ function logic($form_state){
     $keep_info['data'][$i]['value'] = $scale;
   }
   $_SESSION['data'] = serialize($keep_info);
+  $_SESSION['mem_count'] =0;
   $send_info = array(
     'bid' =>'',
     'hash' =>$hash,
